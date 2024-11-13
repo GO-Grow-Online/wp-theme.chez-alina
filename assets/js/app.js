@@ -62,12 +62,8 @@ jQuery(function($) {
     })
 
     $('.js--setMethod').on('click', function() {
-      let method = $(this).attr('data-method');
-
-      $('.js--endOrder').on('click', function() {
-        let targetLink = $('span[data-method="' + method + '"]').attr('href');
-        $(this).attr('href', targetLink);
-      });
+      let redirect = $(this).attr('data-href');
+      $('.js--endOrder').attr('href', redirect);
     });
 
   }

@@ -131,13 +131,13 @@
         <div class="orderChoices-item">
             <p class="h2">{{ __("Je viens commander sur place !", "Non-editable strings") }}</p>
             <div class="btn-group">
-                <button class="btn btn-primary js--setMethod" data-method="pickup">
+                <button class="btn btn-primary js--setMethod" data-href="tel:{{ g.itinirary }}">
                     <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
                     <span>
                         {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
                     </span>
                 </button>
-                <span data-method="pickup" data-href="tel:{{ g.itinirary }}"></span>
+                <span data-method="pickup" ></span>
             </div>
         </div>
         {% endif %}
@@ -153,13 +153,12 @@
         <div class="orderChoices-item">
             <p class="h2">{{ __("Je téléphone et réceptionne ma commande plus tard !", "Non-editable strings") }}</p>
             <div class="btn-group">
-                <button class="btn btn-primary js--setMethod" data-method="phone">
+                <button class="btn btn-primary js--setMethod" data-href="tel:{{ g.phone }}">
                     <span class="icon">{% include "assets/static/svg/icons/call.svg" %}</span>
                     <span>
                         {{ __("Téléphoner", "Non-editable strings") }}
                     </span>
                 </button>
-                <span data-method="phone" data-href="tel:{{ g.phone }}"></span>
             </div>
         </div>
         {% endif %}
