@@ -23,7 +23,7 @@
 		{% endblock %}
 
 		<div class="schedule">
-			<ul>
+			<ul class="schedule-list">
 
 			{% set day_slug = {
 				1: "monday",
@@ -51,7 +51,7 @@
 
 			{% for day in day_slug %}
 				{% if schedules[day] is not empty %}
-					<li>
+					<li class="schedule-list-item">
 						<p>{{ day_name[loop.index] }}</p>
 						{% for schedule in schedules[day] %}
 							{% set open_time = schedule.opening %}

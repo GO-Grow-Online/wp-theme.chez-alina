@@ -113,7 +113,6 @@ main {
 }
 
 // Images
-
 img, picture, figure, video {
     display: block;
     width: 100%;
@@ -258,6 +257,56 @@ $list-sp : var(--card-spacing);
         }
     }
 }
+
+
+.schedules {
+    opacity: 0;
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: $ui + 5;
+
+    box-shadow: $shadow;
+    background-color: $white;
+
+    border-radius: calc(var(--radius) * 1.25);
+
+    width: calc(100vw - (var(--sec-sp-x) * 1));
+    max-height: calc(100vh - 17rem);
+
+    margin-left: calc(var(--sec-sp-x) * 0.5);
+    margin-top: calc(var(--sec-sp-x) + var(--menu-sp) + var(--header-title-height));
+
+    overflow-y: scroll;
+
+    transform: scale(1.4);
+    clip-path: circle(0% at 50% 50%);
+
+    transition: all $slow $bezier;
+
+    &-list {
+        &-item {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                min-width: 175px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+body.schedules--open {
+    .schedules {
+        transform: scale(1);
+        clip-path: circle(120% at 50% 50%);    
+    }
+}
+
 
 @media (min-width : $bp-md) {
     // Lists
