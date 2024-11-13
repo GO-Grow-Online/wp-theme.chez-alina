@@ -258,7 +258,7 @@ $list-sp : var(--card-spacing);
     }
 }
 
-
+/*
 .schedule {
     opacity: 0;
     pointer-events: none;
@@ -321,6 +321,7 @@ $list-sp : var(--card-spacing);
         }
     }
 }
+*/
 
 body.schedule--open {
     .schedule {
