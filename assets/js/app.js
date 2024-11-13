@@ -61,7 +61,7 @@ jQuery(function($) {
       $('body').attr('data-menu-page', 'order-end');
     })
 
-    $('js--setMethod').on('click', function() {
+    $('.js--setMethod').on('click', function() {
       let method = $(this).attr('data-method');
 
       console.log(method);
