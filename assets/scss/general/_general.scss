@@ -303,7 +303,7 @@ $list-sp : var(--card-spacing);
 
             display: flex;
             flex-wrap: wrap;
-            padding: var(--card-spacing) calc(var(--card-spacing) * 0.5);
+            padding: calc(var(--card-spacing) * 0.5) var(--card-spacing);
 
             &:not(:last-child) {
                 border-bottom: 1px solid $light;
