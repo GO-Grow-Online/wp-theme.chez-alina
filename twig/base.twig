@@ -54,15 +54,14 @@
 				{% if schedules[day] is not empty %}
 					<li class="schedule-list-item">
 						<p>{{ day_name[loop.index] }}</p>
+						<p>
 						{% for schedule in schedules[day] %}
 							{% set open_time = schedule.opening %}
 							{% set close_time = schedule.closing %}
 
-							<p>
-								<span>{{ open_time }}</span>
-								<span>{{ close_time }}</span>
-							</p>
+							<span>{{ open_time }} | {{ close_time }}</span>
 						{% endfor %}
+						</p>
 					</li>
 				{% endif %}
 			{% endfor %}
