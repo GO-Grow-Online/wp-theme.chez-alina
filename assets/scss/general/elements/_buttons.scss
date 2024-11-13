@@ -126,7 +126,13 @@
 
     &.btn-full {
         
+        height: 2.25rem;
         border-radius: $round;
+
+        & > .icon {
+            width: var(--icon-size);
+            height: var(--icon-size);
+        }
         
         &.btn-primary {
             background-color: $primary;
