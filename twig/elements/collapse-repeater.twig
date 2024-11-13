@@ -1,0 +1,23 @@
+{% if collapses is not empty %}
+
+<ul class="collapseList {{ collapse_classes is not empty ? 'collapseList--' ~ collapse_classes : ''}}">
+    {% for item in collapses %}
+    {% if item.t is not empty and item.ctn is not empty  %}
+    <li class="collapseList-item">
+        <button class="collapseList-item-header">
+            <h3>{{ item.t }}</h3>
+            <span class="icon">
+                {% include 'assets/static/icons/plus-circle.svg' %}
+                {% include 'assets/static/icons/minus-circle.svg' %}
+            </span>
+        </button>
+        <div style="display: none;" aria-hidden="true" class="collapseList-item-body">{{ item.ctn }}</div>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+{% set collapse_classes = empty %}

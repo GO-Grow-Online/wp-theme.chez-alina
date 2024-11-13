@@ -1,0 +1,86 @@
+{% set figcaption = figcaption ? figcaption : false %}
+
+{% set autoplay = fn('get_field', 'autoplay', video.id) %}
+{% set loop = fn('get_field', 'loop', video.id) %}
+{% set muted = fn('get_field', 'muted', video.id) %}
+
+{% set controls = fn('get_field', 'controls', video.id) %}
+
+{% set controls_muted = fn('get_field', 'controls_muted', video.id) %}
+{% set controls_fs = fn('get_field', 'controls_fs', video.id) %}
+
+<div class="vidWrap unTouched defer loading progress-loading {% if autoplay %} playing {% endif %}">
+
+    {% if figcaption %}
+    <figure itemscope itemtype="http://schema.org/VideoObject">
+    {% endif %}
+        
+        <video class="video" 
+        {% if loop %} loop {% endif %}
+        {% if muted %} muted {% endif %}
+        {% if autoplay %} autoplay {% endif %}
+        preload="auto" width="{{ video.width }}" height="{{ video.height }}">
+            {# Desktop video #}
+            {% set url = video.url %}
+
+            {# If video is set to be fullscreen use main video for big screens only #}
+            {% set fs = fn('get_field', 'fs_vid', video.id) %}
+            
+            {% if fs == true %}
+                <source data-src="{{ url }}" src="..." type="video/{{ video.subtype }}" media="only screen and (min-width: 720px)">
+
+                {# Mobile & Tablet video #}
+                {% set resp_video = fn('get_field', 'vid_resp', video.id) %}
+                <source data-src="{{ resp_video.url }}" src="..." type="video/{{ resp_video.subtype }}" media="only screen and (max-width: 719px)">
+
+            {% else %}
+
+                {# If video is'nt set to be fullscreen use main video #}
+                <source data-src="{{ url }}" src="..." type="video/{{ video.subtype }}">
+            {% endif %}
+            
+            Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+
+        {% if controls %}
+        <div class="vidWrap-controls" data-state="hidden">
+            <button class="playpause" type="button" data-state="play" aria-label="{{ __('Play/Pause', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/play.svg' %} {% include 'assets/static/icons/video_player/pause.svg' %}</button>
+            <button class="stop" type="button" data-state="stop" aria-label="{{ __('Stop', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/stop.svg' %}</button>
+            <div class="progress">
+              <progress value="0" min="0"></progress>
+            </div>
+            {% if muted == false and controls_muted %}
+            <button class="mute" type="button" data-state="mute" aria-label="{{ __('Activer/désactiver sourdine', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/mute.svg' %} {% include 'assets/static/icons/video_player/unmute.svg' %}</button>
+            {% endif %}
+            {% if controls_fs %}
+            <button class="fs" type="button" data-state="go-fullscreen" aria-label="{{ __('Plein écran', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/fullscreen.svg' %}</button>
+            {% endif %}
+        </div>
+        {% endif %}
+          
+
+    {% if figcaption %}
+        <figcaption>{{ video.caption }}</figcaption>
+        
+        <meta itemprop="url" content="{{ video.url }}" />
+        <meta itemprop="description" content="{{ video.description }}" />
+        <meta itemprop="name" content="{{ video.title }}" />
+        <meta itemprop="thumbnailUrl" content="{{ img.url }}" />
+        {% set formated_date = video.date|date('Y-m-d\\TH:i:s\\Z') %}
+        <meta itemprop="uploadDate" content="{{ formated_date }}" />
+        <meta itemprop="contentUrl" content="{{ video.url }}" />
+    </figure>
+    {% endif %}
+
+    {% set figcaption = false %}
+    {% set img = get_image(fn('get_field', 'thumbnail', video.id)) %}
+    {% include 'elements/image.twig' %}
+
+</div>
+
+{% set figcaption = null %}
+{% set is_fs = null %}
+{% set video = null %}
+{% set resp_video = null %}
+{% set img = null %}
+{% set loading_type = null %}

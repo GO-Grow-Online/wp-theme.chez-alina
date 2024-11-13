@@ -1,0 +1,24 @@
+{
+    "name": "heading_fp",
+    "title": "En-tête d'accueil",
+    "description": "",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["heading"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "heading_fp.php",
+        "postTypes": [ "page" ]
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": true,
+            "link": false
+        },
+        "alignText": false
+    }
+}

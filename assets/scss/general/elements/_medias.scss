@@ -1,0 +1,291 @@
+///////////////////////////
+///// VIDEOS & IMAGES /////
+///////////////////////////
+
+@use '../../utils/variables' as *;
+
+img, figure, video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+
+    &.contain {
+        object-fit: contain;
+    }
+}
+
+svg {
+    display: block;
+    box-sizing: border-box;
+}
+
+.imgWrap, .vidWrap {
+
+    img, video {
+        max-height: 70vh;
+    }
+    
+    &:not(.imgWrap--seamless) {
+        overflow: hidden;
+        border-radius: var(--radius);
+        box-shadow: $shadow;
+    }
+    
+    figcaption {
+        display: none;
+    }
+}
+
+.imgWrap {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    height: 100%;
+
+    svg {
+        width: 100%;
+    } 
+
+    &--portrait {
+
+        &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            // z-index: -1;
+            pointer-events: none;
+
+            object-fit: cover;
+            transform: scale(1.1);
+            filter: blur(4rem) brightness(1.2);
+        }
+
+        figure {
+            position: relative;
+            z-index: 5;
+
+            img {
+                object-fit: contain!important;
+                z-index: 2;
+            }
+        } 
+    }
+
+    &--displayLegend {
+        figcaption {
+            display: block;
+            background-color: $white;
+            border-radius: var(--radius);
+            padding: calc(var(--card-spacing) * 0.25) calc(var(--card-spacing) * 0.75);
+            
+            position: absolute;
+            left: calc(var(--radius) * 0.5);
+            bottom: calc(var(--radius) * 0.5);
+        }
+    }
+}
+
+.vidWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .imgWrap {
+        pointer-events: none;
+        z-index: 1;
+
+        width: 100%;
+
+        left: 0;
+        top: 0;
+        position: absolute;
+
+        opacity: 0;
+
+        transition: opacity $fast $bezier;
+    }
+
+    &-controls {
+
+        transform: scale(.9);
+        opacity: 0;
+        pointer-events: none;
+        transition: all $fast $bezier;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        width: calc(100% - var(--radius));
+
+        border-radius: var(--radius);
+
+        margin:  calc(var(--radius) * 0.5);
+        background-color: $white;
+
+        overflow: hidden;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 3rem;
+            min-height: 3rem;
+
+            color: $secondary;
+
+            svg {
+                transform: scale(1);
+                transition: all $superfast $bezier;
+                
+                animation: btn-fade-in $fast $bezier;
+            }
+
+            &:active svg {
+                transform: scale(0.75);
+            }
+
+            &.playpause {
+                background-color: $primary;
+                color: $white;
+
+                &[data-state="play"] { svg.pause-icon { display: none; } }
+                &[data-state="pause"] { svg.play-icon { display: none; } }
+            }
+
+            &.mute {
+                &[data-state="mute"] { svg.unmute-icon { display: none; } }
+                &[data-state="unmute"] { svg.mute-icon { display: none; } }
+            }
+        }
+
+        .progress {
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+            height: 100%;
+            border-left: 1px solid $light;
+            border-right: 1px solid $light;
+
+            
+            progress[value] {
+                position: relative;
+                overflow: hidden;
+
+                -webkit-appearance: none;
+                appearance: none;
+
+                width: 100%;
+
+                margin-left: 1rem;
+                margin-right: 1rem;    
+                
+                height: 0.75rem;
+                background-color: $light-80;
+                border-radius: $round;
+    
+                &::-webkit-progress-bar {
+                    width: 100%;
+                    background-color: $light;
+                }
+
+                &::-webkit-progress-value {
+                    background-image:
+                        -webkit-linear-gradient(-45deg, 
+                                                transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                                rgba(0,0, 0, .1) 66%, transparent 66%),
+                        -webkit-linear-gradient(left, $primary, $primary);
+                
+                    background-size: 35px 20px, 100% 100%, 100% 100%;
+                }
+            }
+        }
+
+    }
+
+    &.unTouched {
+        .vidWrap-controls {
+            width: 3rem;
+        }
+    }
+
+    &:hover, &.unTouched {
+        .vidWrap-controls {
+            transform: scale(1);
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        opacity: 0;
+
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+
+        transition: all $fast $bezier
+    }
+
+    &:after {
+        background-image: url('../static/icons/loading.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 3rem;
+        height: 3rem;
+
+        top: calc(50% - 1.5rem);
+        left: calc(50% - 1.5rem);
+
+        color: $primary;
+    }
+
+    &:before {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #00000000;
+    }
+
+    &.progress-loading {
+        .progress progress {
+            pointer-events: none;
+            animation: progress-bar-loading 2s $bezier infinite;
+        }
+    }
+
+    &.loading {
+
+        .imgWrap {
+            opacity: 1;
+        }
+
+        &:before, &:after {
+            opacity: 1;
+        }
+
+        &::after {
+            animation: loading 0.8s steps(8) infinite;
+        }
+
+        &::before {
+            background-color: #000000b2;
+        }
+    }
+}

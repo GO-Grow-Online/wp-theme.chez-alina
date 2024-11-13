@@ -1,0 +1,87 @@
+{# If image is not set, get fallback #}
+{% set img = img is not null ? img : get_image(g.img_placeholder) %}
+{% set loading_type = eager_loading is not null ? 'eager' : 'lazy' %}
+
+
+{% set mime_type = img.post_mime_type  %}
+
+{% set figcaption = figcaption is not empty ? figcaption : false %}
+{% set force_portrait = fn('get_field', 'force_portait', img.id) is not null ? fn('get_field', 'force_portait', img.id) : false %}
+{% set display_legend = fn('get_field', 'display_legend', img.id) is not null ? fn('get_field', 'display_legend', img.id) : false %}
+{% set is_seamless = is_seamless is not null ? is_seamless : fn('get_field','seamless', img.id) %}
+
+<div class="imgWrap{% if force_portrait %} imgWrap--portrait{%endif%}  {% if is_seamless %} imgWrap--seamless {% endif %} {% if display_legend %} imgWrap--displayLegend {% endif %}">
+{% if img %}
+
+    {% if force_portrait == true and mime_type != "image/svg+xml" %} 
+    <!--googleoff: index-->
+    <img class="imgWrap--portrait-bg" loading="{{ loading_type }}" type="image/webp" src="{{ img.src.thumbnail|towebp }}" alt="{{ img.alt }}">
+    <!--googleon: index-->
+    {% endif %}
+
+    {% if figcaption %}
+    <figure itemscope itemtype="http://schema.org/ImageObject">
+    {% endif %}
+
+    {# If there is an image without any predefined formats #}
+    {% if image_format is null and mime_type != "image/svg+xml" %}
+
+        {# Check if images have a mobile and tablet sizes attached to them, and if yes, use them #}
+        
+        {% set mob = fn('get_field','mob_img', img.id)  %}
+        {% set tab = fn('get_field','tab_img', img.id)  %}
+        {% set thumbnail = mob is not empty ? get_image(mob).src('thumbnail') : img.src('thumbnail') %}
+        {% set medium = tab is not empty ? get_image(tab).src('medium') : img.src('medium') %}
+        
+        <picture>
+            <source media="(max-width: 500px)" type="image/webp" srcset="{{ thumbnail|towebp }}">
+            <source media="(max-width: 1023px)" type="image/webp" srcset="{{ medium|towebp }}">
+            {% if is_fs == true %}
+                <source media="(min-width: 1024px)" type="image/webp" srcset="{{ img.src('large')|towebp }}">
+            {% elseif img.src('medium') != medium %}
+                <source media="(min-width: 1024px)" type="image/webp" srcset="{{ img.src('medium')|towebp }}">
+            {% endif %}
+            <img loading="{{ loading_type }}" alt="{{ img.alt }}" src="{{ medium|towebp }}">
+        </picture>
+
+
+    {% else  %}
+
+        {# If there is a predefined image format, no need for "picture" element #}
+        {# Also check if image is svg #}
+        {% if mime_type != "image/svg+xml" %}
+            <img loading="{{ loading_type }}" type="image/webp" src="{{ img.src(image_format)|towebp }}" alt="{{ img.alt }}">
+        {% else %}
+            <img loading="{{ loading_type }}" type="image/svg+xml" src="{{ img.src }}" alt="{{ img.alt }}">
+        {% endif %}
+
+    {% endif %}
+    {% endif %}
+
+    {% if figcaption %}
+        <figcaption>{{ img.caption }}</figcaption>
+
+        <meta itemprop="url" content="{{ img.url }}" />
+        <meta itemprop="description" content="{{ img.description }}" />
+        <meta itemprop="name" content="{{ img.title }}" />
+    </figure>
+    {% endif %}
+
+{% if img is empty %}
+    {# If there is no image at all, get the static image fallback #}
+    <img width="500" height="500" src="{{ theme.link }}/assets/static/svg/image_placeholder.svg" alt="Logo de {{ site.name }} - Aucune image trouvée">
+{% endif %}
+
+</div>
+
+{% set mob = null %}
+{% set tab = null %}
+{% set thumbnail = null %}
+{% set medium = null %}
+
+{% set img = null %}
+{% set figcaption = null %}
+{% set image_format = null %}
+{% set is_fs = false %}
+{% set force_portrait = null %}
+{% set eager_loading = null %}

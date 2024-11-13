@@ -1,0 +1,109 @@
+@use 'utils/_variables' as *;
+
+@forward 'utils/css-variables';
+@forward 'utils/reset';  
+ 
+// Apis
+@forward 'api/_splide'; 
+
+// General styles - type, buttons styles, section spacings,...
+@forward 'general/load_general'; 
+
+// ACF blocks - load used acf blocks
+@forward 'acf-blocks/load_blocks'; // ACF-Block
+
+@forward 'tpl-parts/_footer'; // ACF-Block
+
+body.wp-admin.block-editor-page {
+
+    /* Styles for the displayed post title */
+    .edit-post-visual-editor__post-title-wrapper {
+        padding-top: 1rem!important;
+        padding-bottom: 1rem!important;
+        margin: 0!important;
+        background-color: $light!important;
+        text-align: center!important;
+        
+        h1 {
+            font-size: 2rem!important;
+            margin-bottom: 0!important;
+        }
+    }
+
+    // Overide default gutenberg styles
+    html:where(.wp-block) {
+        max-width: 100%;
+    }
+
+    .editor-styles-wrapper .wp-block {
+        margin: 0!important;
+        max-width: 100%;
+    }
+
+    // Fonts
+    div.editor-styles-wrapper {
+        font-size: var(--fs-base);
+        line-height: var(--font-line-height);
+        font-family: $font1;
+        color: $text-color;
+            
+        h1, .h1, h2, .h2, h3, .h3 {
+        
+            line-height: 1.25;
+            font-family: $font2;
+        
+            &:first-child {
+                margin-top: 0;
+            }
+        
+            span {
+                display: block;
+                font-size: 1rem;
+                font-weight: 400;
+                color: $primary;
+                text-transform: uppercase;
+            }
+        }
+        
+        h1, .h1 { font-size: var(--font-fs-h1); }
+        h2, .h2 { font-size: var(--font-fs-h2); }
+        h3, .h3 { font-size: var(--font-fs-h3); }
+        h4, .h4 { font-size: var(--font-fs-h4); }
+    }
+
+    /* Remove the space around the gutenberg preview */
+    div.edit-post-visual-editor, .editor-styles-wrapper, .editor-canvas {
+        padding: 0!important;
+    }
+
+    /* Force Tablet and Mobile preview to display */
+    div.edit-post-visual-editor.is-iframed {
+        overflow: visible !important;
+    }
+
+    /* Reset default Wordpress card styles */
+    .card {
+        position: inherit;
+        margin-top: inherit;
+        padding: inherit;
+        min-width: inherit;
+        max-width: inherit;
+        border: inherit;
+        box-shadow: inherit;
+        background: inherit;
+        box-sizing: inherit;
+    }
+}
+
+// For smaller devices, wrapper should have smaller x paddings to prevent content to shrink too much
+@media (min-width: $bp-lg) {
+    body.wp-admin.block-editor-page {
+        div.edit-post-visual-editor section .wrapper {
+            padding: var(--sec-sp-y) calc(var(--sec-sp-x) * 0.5)!important;
+        } 
+
+        .editor-sidebar, .interface-complementary-area__fill {
+            width: 30vw!important;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+// Critical css : loaded before any other styles
+
+@forward 'utils/_css-variables';  
+
+@forward 'tpl-parts/_header'; 
+@forward 'tpl-parts/_heading';  
+
+@forward 'general/_type';
+@forward 'general/elements/_cookies-banner';

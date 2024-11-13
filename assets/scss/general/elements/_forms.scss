@@ -1,0 +1,258 @@
+/////////////////
+///// FORMS /////
+/////////////////
+
+@use '../../utils/variables' as *;
+
+input[type="checkbox"] {
+
+    $cb-size : 1.20rem;
+    $cb-border-w : 2px;
+
+    position: relative;
+    appearance: none;
+    background-color: $white;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    padding: 0;
+
+    display: inline;
+
+    min-width: $cb-size;
+    max-width: $cb-size;
+    min-height: $cb-size;
+    max-height: $cb-size;
+
+    border: $cb-border-w solid $primary;
+    border-radius: $cb-border-w;
+    vertical-align: calc((($cb-border-w / 2) + ($cb-size / 6)) * -1);
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        transform: rotate(220deg) scale(0);
+        background-color: $primary;
+        transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        transform-origin: center center;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+
+    &:checked {
+        &::before {
+            transform: rotate(0deg) scale(.5);
+        }
+    }
+
+
+    & + label {
+        margin-left: 0.5rem;
+    }
+}
+
+.form {
+
+    position: relative;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--card-spacing);
+    
+    padding: var(--card-spacing);
+    border-radius: var(--radius);
+
+    &-field {
+
+        &:not(.form-field-checkbox) {
+
+            position: relative;
+            color: $text-color;
+            width: 100%;
+
+            label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                line-height: 1;
+
+                display: block;
+                transform-origin: left center;
+                opacity: 1;
+
+                padding: var(--form-input-x-padding) var(--form-input-y-padding);
+
+                transition: all $fast $bezier;
+
+                pointer-events: none;
+            }
+
+            textarea, input, select {
+                position: relative;
+                width: 100%;
+                font-size: 1rem;
+                color: $text-color;
+                
+                padding: var(--form-input-x-padding) var(--form-input-y-padding);
+
+                transition: all $fast $bezier;
+
+                &:focus {
+                    outline: none!important;
+                }
+                
+                &::placeholder {
+                    color: $light-60;
+                }
+            }
+
+            select {
+                padding-right: var(--form-input-x-padding);
+
+                option {
+                    font-weight: 600;
+                    color: $text-color;
+                    padding: 1rem;
+
+                    &:first-child {
+                        display: none;
+                    }
+                }
+
+                & + .icon {
+                    position: absolute;
+                    right: 0;
+                    bottom: calc(var(--form-input-y-padding) * 1.25);
+
+                    transition: transform $fast $bezier;
+                }
+            }
+
+            textarea {
+                height: 15rem!important;
+            }
+        }
+
+        &-checkbox {
+            display: flex;
+        }
+        
+        // Champ honeypot, doit être masqué à tous prix.
+        // Si ce champ est complété, le mail n'est pas envoyé, c'est pour cette raison que l'utilisateur le peux pas le voir
+        // Seul les Spam-bots seront succeptibles de le compléter
+        &--send {
+            display: none;
+        }
+
+        &:not(.form-field-checkbox).form-field {
+            &.required {
+                label::after {
+                    content: " *";
+                    color: $failed;
+                }
+            }
+        
+            &--focus {
+                textarea, input, select {
+                    box-shadow: 0 2px 0 -1px $white;
+                }
+
+                select + svg {
+                    transform: rotate(180deg);
+                }
+            }
+
+            &--focus, &--complete, &--labelUp {
+                label {
+                    opacity: 0;
+                }
+
+                input[type="checkbox"] + label {
+                    opacity: 1;
+                }
+            }
+            
+            &--error {
+                textarea, input, select {
+                    box-shadow: 0 1px 0 0 $failed!important;
+                }
+            }
+        }
+    }
+
+    &-message {
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 5;
+        margin: var(--card-spacing);
+        width: calc(100% - (var(--card-spacing) * 2));
+        padding: 1rem;
+
+        text-align: center;
+        font-weight: 800;
+
+        background-color: $white;
+        border-radius: var(--radius);
+
+        transform: translateY(2rem);
+        opacity: 0;
+
+        transition: all $fast $bezier;
+
+        &--failed { color: $failed; }
+        &--succes { color: $succes; }
+
+        p {
+            margin: 0;
+
+            padding: 1rem;
+
+            &:last-child { padding-bottom: 0; }
+            &:first-child { padding-top: 0; }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $light;
+            }
+        }
+    }
+
+    &--succes {
+        .form-message--succes {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    &--failed {
+        .form-message--failed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .btn[type="submit"] {
+        margin-top: var(--card-spacing);
+        color: $white;
+    }
+}
+
+@media (min-width :  450px) {
+    .form {
+        &-field {
+        }
+    }
+}
+
+
+@media (min-width: $bp-md) {
+
+}

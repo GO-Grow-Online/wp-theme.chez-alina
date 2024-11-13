@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<section>
+		<div class="wrapper">
+			{% set content = g.page_404.content %}
+
+			<div class="ctn">
+				{% set title = content.title %}
+
+				{% if title.t is not empty %}
+				<h2 class="ctn-title">
+					{% if title.st %}<span>{{ title.st }}</span>{% endif %}
+					{{ title.t }}
+				</h2>
+				{% endif %}
+				{% set title = null %}
+
+
+				{% set ctn = content.ctn != "" ? content.ctn : empty %}
+				<div class="ctn-wysiwyg wysiwyg">{{ ctn }}</div>
+				
+				{% set btn1 = content.btn_1 %}
+				{% set btn2 = content.btn_2 %}
+				{% include "elements/buttons-group.twig" %}
+			</div>
+
+			{% set content = null %}
+
+		</div>
+	</section>
+{% endblock %}

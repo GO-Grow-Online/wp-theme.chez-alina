@@ -1,0 +1,117 @@
+<div class="cookie-banner card card-body ctn" id="cookie-banner" data-page="welcome">
+
+    <div data-page="welcome" aria-hidden="false">
+        {% set content = g.cookies_banner.welcome %}
+        <p class="ctn-title h3">
+            {% if content.title.st %}<span>{{ content.title.st }}</span>{% endif %}
+            {{ content.title.t }}
+        </p>
+
+        <div class="ctn-wysiwyg wysiwyg">{{ content.ctn }}</div>
+
+        <div class="cookie-banner-options btn-group">
+            <button class="btn btn-primary js--close js--acceptAllCookies" data-close="cookie-banner">{{ __("Tout accepter", 'Cookie-banner') }}</button>
+            <button class="btn btn-white js--editCookies">{{ __("Personnaliser", 'Cookie-banner') }}</button>
+            <button class="btn btn-white js--close js--refuseCookies" data-close="cookie-banner">{{ __("Refuser", 'Cookie-banner') }}</button>
+        </div>
+    </div>
+
+    <div data-page="edit" aria-hidden="true">
+
+        {% set content = g.cookies_banner.selection %}
+
+        <p class="ctn-title h3">
+            {% if content.title.st %}<span>{{ content.title.st }}</span>{% endif %}
+            {{ content.title.t }}
+        </p>
+
+        <ul>
+            {% for type in cookies_types %}
+            <li class="cookie-banner-option">
+                <p>
+                    <input type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
+                    <label for="cookie-consent-{{ type.slug }}" id="cookie-consent-label-{{ type.slug }}">{{ type.title }}</label> <br>
+                    <small>{{ type.infos }}</small>
+                </p>
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <div class="cookie-banner-options btn-group">
+            <button class="btn btn-white js--toWelcomeCookies">{{ __("Retour", 'Cookie-banner') }}</button>
+            <button class="btn btn-primary js--acceptSelectedCookies js--close" data-close="cookie-banner">{{ __("Accepter les cookies sélectionnés", 'Cookie-banner') }}</button>
+        </div>
+    </div>
+
+    
+    <script>   
+
+        var cookie_banner = document.getElementById('cookie-banner');
+
+        // All cookies settings are editable trough function.php
+
+        // If no consent has been registered, open cookies popup
+        setTimeout(() => {
+            if(localStorage.getItem('consentMode') === null) { document.querySelector('body').classList.add('cookie-banner--open'); }
+        }, 2000);
+
+        // Allow all cookies
+        document.querySelector('.js--acceptAllCookies').addEventListener('click', function() { 
+            setConsent({ 
+                {% for type in cookies_types %}
+                {{ type.slug }}: true, 
+                {% endfor %}
+            }); 
+        });
+
+        // Allow selected cookies
+        document.querySelector('.js--acceptSelectedCookies').addEventListener('click', function() { 
+            cookie_goto_tab('welcome');
+            setConsent({ 
+                {% for type in cookies_types %}
+                {{ type.slug }}: document.getElementById('cookie-consent-{{ type.slug }}').checked, 
+                {% endfor %}
+            }); 
+        });
+
+        // Block all cookies
+        document.querySelector('.js--refuseCookies').addEventListener('click', function() { 
+            setConsent({ 
+                {% for type in cookies_types %}
+                {{ type.slug }}: false, 
+                {% endfor %}
+            }); 
+        });
+
+                
+        // Cookie banner interactions
+        function cookie_goto_tab(tab) {
+            cookie_banner.setAttribute("data-page", tab); 
+            document.querySelectorAll('.cookie-banner > div').forEach(el => { el.setAttribute("aria-hidden", "true"); });
+            document.querySelector('.cookie-banner > div[data-page='+ tab +']').setAttribute("aria-hidden", "false");
+        }
+
+        document.querySelector('.js--editCookies').addEventListener('click', function() {  cookie_goto_tab('edit'); });
+        document.querySelector('.js--toWelcomeCookies').addEventListener('click', function() {  cookie_goto_tab('welcome'); });
+
+    
+        // Function to set consent regarding selected options
+        {% for setting in cookies_cfg|filter(setting => setting.active == true) %}
+        function {{ setting.function }}() { gtag('consent', 'update', { '{{ setting.slug }}': 'granted' }); }
+        {% endfor %}
+    
+        function setConsent(consent) {
+            const consentMode = {
+                {% for setting in cookies_cfg|filter(setting => setting.active == true) %}
+                '{{ setting.slug }}': consent.{{ setting.type }} ? 'granted' : 'denied',
+                {% endfor %}
+            };
+    
+            if (consentMode.functionality_storage == "granted") {                
+                gtag('consent', 'update', consentMode);  
+                localStorage.setItem('consentMode', JSON.stringify(consentMode));
+            }        
+        }
+
+    </script>
+</div>

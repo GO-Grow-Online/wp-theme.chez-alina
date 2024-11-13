@@ -1,0 +1,429 @@
+///////////////////////////////////////
+///// HEADER - ACF REUSABLE BLOCK /////
+///////////////////////////////////////
+
+@use '../utils/_variables' as *; 
+
+@mixin menu-item-hidden {
+    transform: translateY(-1rem) scale(.5);
+    opacity: 0;
+    transition-duration: $fast;
+    transition-timing-function: $bezier;
+    transition-property: all;
+
+    transition-delay: 0s;
+}
+
+@mixin menu-item-visible {
+    opacity: 1;
+    transform: inherit;
+    @for $i from 0 through 10 {
+        &:nth-child(#{$i}) {
+            transition-delay: calc((0.1s * #{$i}) - 0.1s);
+        }
+    }
+}
+
+header {
+
+    & > .wrapper {
+        padding: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*
+    .nav-main {
+        position: fixed;
+        z-index: $ui;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        bottom: calc(var(--header-b-nav-height) + var(--card-spacing));
+        left: calc(var(--sec-sp-x) * 0.5);
+        width: calc(100% - var(--sec-sp-x));
+
+        padding: 0 var(--card-spacing);
+
+        background-color: $white;
+        box-shadow: $shadow;
+
+        border-radius: var(--radius);
+        
+        pointer-events: none;
+        clip-path: circle(0% at 5% 100%);
+        transform: translateY(-3rem);
+        opacity: 0;
+        transition: all $fast $bezier;
+
+        ul {
+
+            width: 100%;
+
+            li {
+
+                width: 100%;
+
+                @include menu-item-hidden;
+
+                a {
+                    &:not(.btn) {
+                        text-align: center;
+                        font-size: 1.1rem;
+                        line-height: 1;
+                        display: block;
+                        padding: 1.5rem;
+                        font-weight: 700;
+                        transition: color $fast $bezier;
+                    }
+
+                    &.btn {
+                        margin: 0.5rem 0;
+                        font-size: 1.3rem;
+                    }
+
+                    
+
+                    &[aria-current], &:hover {
+                        color: $primary;            
+                    }
+                }
+
+                
+
+                &[aria-haspopup] {
+                    .icon {
+                        display: none;
+                    }
+                }
+
+            }
+
+            & > li  {
+
+                a:not(.btn) {
+                    border-bottom: 4px dotted $light;
+                }
+
+                &:last-child a:not(.btn) {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .nav-bottom {
+        position: fixed;
+        z-index: $ui;
+    
+        bottom: calc(var(--sec-sp-x) * 0.5);
+        left: calc(var(--sec-sp-x) * 0.5);
+        width: calc(100% - var(--sec-sp-x));
+        height: var(--header-b-nav-height);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-menu {
+            box-shadow: $shadow;
+        }
+
+        &-cta {
+            font-weight: 900;
+            text-transform: uppercase;
+
+            display: flex;
+            align-items: center;
+
+            color: $primary;
+            background-color: $light;
+
+            box-shadow: $shadow;
+
+            padding-left: var(--card-spacing);
+            padding-right: var(--card-spacing);
+            height: var(--header-b-nav-height);
+
+            border-radius: var(--radius);
+
+            .icon {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    .btn-menu {
+        position: relative;
+        width: var(--header-b-nav-height);
+        height: var(--header-b-nav-height);
+        background-color: $primary;
+        pointer-events: all;
+
+        clip-path: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $white;
+
+        span {
+            position: absolute;
+            transition: all $fast $bezier;
+ 
+            &:first-child {
+                opacity: 1;
+            }
+
+            &:last-child {
+                opacity: 0;
+            }
+        }
+    }
+    */
+}
+
+/*
+main {
+    transition-timing-function: $bezier;
+    transition-duration: $slow;
+    transition-property: opacity, filter;
+    
+    filter: blur(0);
+    opacity: 1;
+}
+
+body.menu--open {
+
+    position: relative;
+    overflow: hidden;
+
+    header {
+        .nav-main {
+            pointer-events: all;
+            opacity: 1;
+            transform: translateY(0);
+            clip-path: circle(150% at 5% 100%);
+
+            ul li {
+                @include menu-item-visible;
+            }
+        }
+
+        .btn-menu {
+            span {
+                &:first-child {
+                    opacity: 0;
+                }
+
+                &:last-child {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    main {
+        filter: blur(5px);
+        opacity: .8;
+    }
+}
+
+body.scrolled {
+    .logo {
+        padding: calc(var(--sec-sp-x) * 0.5);
+        height: calc(var(--header-height) * 0.6);
+    }
+}
+
+@media (min-width: $bp-md) {
+    header {
+        .nav-bottom {
+            left: var(--sec-sp-x);
+            right: var(--sec-sp-x);
+            bottom: var(--card-spacing);
+
+            width: calc(100% - (var(--sec-sp-x) * 2));
+        }
+
+        .nav-main {
+            left: var(--sec-sp-x);
+            width: calc(100% - (var(--sec-sp-x) * 2));
+        }
+    }
+}
+*/
+
+@media (min-width: $bp-lg) {
+    header {
+        & > .wrapper {
+            height: 100%;
+            justify-content: space-between!important;
+            padding: 0 var(--sec-sp-x)!important;
+        }
+
+        position: fixed;
+        z-index: $ui;
+        top: inherit;
+        left: inherit;
+        width: 100%;
+
+        transition: all $fast $bezier;
+
+        .nav-main {
+            position: relative;
+            clip-path: inherit;
+            opacity: inherit;
+            height: inherit;
+            width: inherit;
+            top: inherit;
+            left: inherit;
+            bottom: inherit;
+            transform: inherit;
+
+            box-shadow: none;
+            background-color: transparent;
+
+            padding: 0;
+            pointer-events: all;
+
+            display: flex;
+            align-items: center;
+
+            & > ul {
+                display: flex;
+                align-items: center;
+                width: inherit;
+
+                li {
+
+                    width: inherit;
+                    height: 100%;
+                    opacity: 1;
+                    transform: inherit;
+
+                    a:not(.btn) {
+                        padding: 1rem 1.5rem!important;
+                        font-size: var(--font-fs-base);
+                        border-bottom: none;
+                    }
+
+                    &[aria-haspopup] {
+                        .icon {
+                            display: inline-block;
+                            vertical-align: calc(1.75rem * -0.34);
+
+                            color: $primary;
+
+                            margin-left: 0.5rem;
+
+                            transform: rotate(0deg);
+                            transition: transform $fast $bezier;
+                        }
+
+                        &:hover {
+                            .icon {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                    
+                    a.btn {
+                        margin: 0 1rem;
+                    }
+                    
+                    position: relative;
+
+                    & > ul.dropdown {
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        margin: 0;
+                        width: 250px;
+                        background-color: $white;
+                        border-radius: var(--radius);
+                        box-shadow: $shadow;
+                        pointer-events: none;
+
+                        opacity: 0;
+                        transition: opacity $fast $bezier;
+
+                        li {
+
+                            @include menu-item-hidden;
+                            transform-origin: left center;
+
+                            a:not(.btn) {
+                                text-align: left;
+                                padding: 1.25rem 1.5rem!important;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        & > ul.dropdown {
+                            pointer-events: all;
+                            opacity: 1;
+
+                            & > li {
+                                @include menu-item-visible;
+                            }
+                        }
+                    }
+                }
+    
+                & > li:last-child a { margin-right: 0; }
+            }
+        }
+
+        .nav-bottom {
+            display: none;
+        }
+    }
+
+    body.scrolled {
+
+        header {
+            height: calc(var(--header-height) * 0.7);
+        }
+        .logo {
+            height: auto;
+        }
+
+        .nav-main {
+
+            position: relative;
+            width: auto;
+            top: inherit;
+            height: auto;
+
+            ul li a.btn {
+                padding: 1rem 2rem;
+            }
+        }
+    }    
+
+    // Add a space when user is connected to website's administration
+    .admin-bar {
+        header {
+            top: 32px;
+
+            .logo {
+                top: 0;
+            }
+        }
+    }
+}
+
+
+@media (min-width: $bp-xl) {
+    header {
+        & > .wrapper {
+        }
+    }
+}

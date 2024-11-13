@@ -1,0 +1,6 @@
+{% if btn.title and btn.url %}
+<a href="{{ btn.url }}" target="{{ btn.url }}" class="btn {{ classes }}">{{ btn.title }}</a>
+{% endif %}
+
+{% set btn =  null %}
+{% set classes = null %}

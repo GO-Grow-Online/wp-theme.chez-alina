@@ -1,0 +1,101 @@
+{# This template is used as an ACF-block #}
+
+<footer id="footer" class="footer">
+    <div class="wrapper">
+        <div>
+            {% set logo = g.logo %}
+            <a href="{{ site.link }}" class="footer-logo">
+                <img src="{{ g.logo.url }}" width="200" height="40" alt="{{ __('Logo de', 'Non-editable strings') }} {{ g.name }}">
+            </a>
+            {% include 'elements/social-links.twig' %}
+        </div>
+
+        {% set first_col = b.f_link_list %}
+        {% if first_col.title %}
+        {% set links = first_col.links %}
+        <div>
+            <h2 class="h3">{{ first_col.title }}</h2>
+            {% if links %}
+            <ul class="link-list">
+                {% for item in links %}
+                {% set link = item.link %}
+                <li class="link-list-item">
+                    <a target="{{ link.target }}" href="{{ link.url }}" class="link-icon">
+                        <span class="icon">{% include 'assets/static/icons/footer-link.svg' %}</span>
+                        {{ link.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% set last_col = b.f_last_col %}
+        {% if last_col.title %}
+        {% set links = footer_post_type %}
+        <div>
+            <h2 class="h3">{{ last_col.title }}</h2>
+            <ul class="link-list">
+                {% if links %}
+                {% for post in links %}
+                <li class="link-list-item">
+                    <a href="{{ post.link }}" class="link-icon">
+                        <span class="icon">{% include 'assets/static/icons/footer-link.svg' %}</span>
+                        {{ post.title }}
+                    </a>
+                </li>
+                {% endfor %}
+                {% else %}
+                <li class="link-list-item">
+                    <a href="{{ g.itinirary }}" class="link-icon">
+                        <span class="icon">{% include 'assets/static/icons/contact/address.svg' %}</span>
+                        {{ g.address }}
+                    </a>
+                </li>
+                <li class="link-list-item">
+                    <a href="tel:{{ g.phone }}" class="link-icon">
+                        <span class="icon">{% include 'assets/static/icons/contact/phone.svg' %}</span>
+                        {{ g.phone }}
+                    </a>
+                </li>
+                <li class="link-list-item">
+                    <a href="mailto:{{ g.email }}" class="link-icon">
+                        <span class="icon">{% include 'assets/static/icons/contact/email.svg' %}</span>
+                        {{ g.email }}
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+
+    </div>
+    <div class="wrapper footer-bottom">
+        <p>© {{ "now"|date('Y') }} - {{ g.name }} - Tous droits réservés</p>
+        <p>
+            <button class="js--open" data-open="cookie-banner">{{ g.cookies_banner.footer_link_text }}</button> <span>-</span>
+
+            {% set link = g.legal_notice_link %}
+            {% if link %}
+            <a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+            {% endif %}
+
+            {% set link = g.privacy_policy_link %}
+            {% if link %}
+            <a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+            {% endif %}
+
+            {% set link = g.cdv_link %}
+            {% if link %}
+            <a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+            {% endif %}
+
+            <a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
+                {{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+            </a>
+        </p>
+    </div>
+</footer>
+
+{{ function('wp_footer') }}

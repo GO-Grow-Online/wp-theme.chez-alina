@@ -1,0 +1,197 @@
+{% extends "base.twig" %}
+
+
+{% block header %}
+<header>
+    <p class="header-name"><span>{{ g.name }}</span></p>
+    
+    <nav class="nav_main">
+
+        <div class="nav_main-schedule">
+            {% include 'elements/schedule.twig' %}
+        </div>
+
+        <div class="nav_main-order">
+            <button class="btn btn-full btn-dark js--loadOrder">
+                <span class="icon">{% include "assets/static/svg/icons/see-order.svg" %}</span>
+                <span>{{ __('Ma commande', 'Non-editable strings') }}</span>
+            </button>
+
+            <ul class="nav_main-order-list">
+                <!-- Dynamic JS content here -->
+            </ul>
+        </div>
+        <button class="nav_main-command js--order" disabled>
+            <span class="nav_main-command-empty">{{ __('Commande vide...', 'Non-editable strings') }}</span>
+            <span class="nav_main-command-ready">{{ __('Je commande !', 'Non-editable strings') }}</span>
+        </button>
+        <ul class="nav_main-nav">
+            <li class="nav_main-nav-item">
+                <a href="&schedule_open=true" class="link-icon link-icon--column">
+                    <span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
+                    {{ __('Horaires', 'Non-editable strings') }}
+                </a>
+            </li>
+            <li class="nav_main-nav-item">
+                <a href="{{ g.itinerary }}" class="link-icon link-icon--column">
+                    <span class="icon icon-primary">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
+                    {{ __('Itinéraire', 'Non-editable strings') }}
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <nav class="nav_cat">
+        <p class="uppercase">{{ __('Catégories', 'Non-editable strings') }} :</p>
+        <ul class="nav_cat-nav">
+            {% set cat_id = 1 %}
+            {% for category in menu %}
+            <li class="nav_cat-nav-item">
+                <a href="#{{ cat_id }}">
+                    <span class="icon">{{ get_svg(category.icon) }}</span>
+                    <p>{{ category.name }}</p> 
+                </a>
+            </li>
+            {% set cat_id = cat_id + 1 %}
+            {% endfor %}
+        </ul>
+    </nav>
+
+</header>
+
+<div class="orderList">
+    <h2 class="orderList-header h2-icon">
+        <span class="icon icon-big">{% include "assets/static/svg/icons/see-order.svg" %}</span>
+        <span>{{ __('Votre commande', 'Non-editable strings') }}</span>
+    </h2>
+
+    <div class="orderList-content">
+        <!-- Dynamic JS content here -->
+    </div>
+
+    <div class="orderList-total">
+        <!-- Dynamic JS content here -->
+    </div>
+
+    <div class="orderList-actions">
+        <button class="btn btn-full btn-dark js--close" data-close="orderList">
+            <span class="icon">{% include "assets/static/svg/icons/return.svg" %}</span>
+            <span>{{ __('Fermer', 'Non-editable strings') }}</span>
+        </button>
+        
+        <button class="btn btn-square btn-dark js--deleteOrder">
+            <span class="icon">{% include "assets/static/svg/icons/trash.svg" %}</span>
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<section class="menu" data-menu-page="menu">
+    <div class="wrapper">
+        {% set cat_id = 1 %}
+        {% for category in menu %}
+        <div class="menu-cat" id="{{ cat_id }}" role="group" aria-label="{{ category.name }}">
+
+            <h2 class="menu-cat-title h2-icon"><span class="icon icon-big">{{ get_svg(category.icon) }}</span> {{ category.name }}</h2>
+            
+            <ul class="menu-cat-list">
+                {% set product_id = cat_id + 0.1 %}
+                {% for product in category.products %}
+
+                {% set string_id = product_id|replace({'.': '-'}) %}
+
+                <li class="product" id="{{ string_id }}">
+                    <p class="product-name" id="{{ string_id }}-name">
+                        {{ product.name }} 
+                        <span class="units" id="{{ string_id }}-units"></span>
+                    </p>
+                    {% if product.notice %}<p class="product-info"><small>{{ product.notice }}</small></p>{% endif %}
+                    {% set price = product.price is not empty ? product.price|replace({'.': ','}) : 0 %}
+                    <p class="price" id="{{ string_id }}-price" data-value="{{ product.price is not empty ? product.price : 0 }}">{{ price }}€</p>
+                    <button class="js--addProduct" data-product="{{ string_id }}" aria-label="{{ __('Ajouter une unité à la commande', 'Non-editable strings') }}"><span class="icon">{% include "assets/static/svg/icons/plus.svg" %}</span></button>
+                </li>
+
+                {% set product_id = product_id + 0.1 %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% set cat_id = cat_id + 1 %}
+        {% endfor %}
+    </div>
+</section>
+
+
+<section class="orderChoices" data-menu-page="order-method">
+    <div class="wrapper">
+
+        {% if g.itinerary %}
+        <div class="orderChoices-item">
+            <p class="h2">{{ __("Je viens commander sur place !", "Non-editable strings") }}</p>
+            <div class="btn-group">
+                <button class="btn btn-primary js--setMethod" data-method="pickup">
+                    <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
+                    <span>
+                        {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
+                    </span>
+                </button>
+                <a data-method="pickup" href="tel:{{ g.itinerary }}"></a>
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% if g.itinerary and g.phone %}
+        <div class="orderChoices-sep">
+            <span class="orderChoices-sep-text">ou</span>
+        </div>
+        {% endif %}
+
+        {% if g.phone %}
+        <div class="orderChoices-item">
+            <p class="h2">{{ __("Je téléphone et réceptionne ma commande plus tard !", "Non-editable strings") }}</p>
+            <div class="btn-group">
+                <button class="btn btn-primary js--setMethod" data-method="phone">
+                    <span class="icon">{% include "assets/static/svg/icons/call.svg" %}</span>
+                    <span>
+                        {{ __("Téléphoner", "Non-editable strings") }}
+                    </span>
+                </button>
+                <a data-method="phone" href="tel:{{ g.phone }}"></a>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+
+<section class="orderChoices" data-menu-page="order-end">
+    <div class="wrapper">
+        <div class="orderChoices-item">
+            <p class="h2">{{ __("Votre commande reste disponible, il vous suffit de revenir sur votre navigateur afin de la visualiser.", "Non-editable strings") }}</p>
+            <div class="btn-group">
+                <button class="btn btn-primary js--endOrder">
+                    <span class="icon">{% include "assets/static/svg/icons/thumb-up.svg" %}</span>
+                    <span>
+                        {{ __("Compris", "Non-editable strings") }}
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <p>© {{ "now"|date('Y') }} - {{ g.name }} - Tous droits réservés</p>
+    <p>
+        <a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
+            {{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+        </a>
+    </p>
+</footer>
+{% endblock %}

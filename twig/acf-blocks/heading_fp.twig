@@ -1,0 +1,48 @@
+
+<section class="heading_fp">
+
+    <div class="wrapper">
+
+        <span class="heading_fp-bg">
+            {% set img = get_image(b.background) %}
+            {% set is_seamless = true %}
+            {% include 'elements/image.twig' %}
+            <svg class="heading_fp-bg-svg" width="864" height="1080" preserveAspectRatio="none" viewBox="0 0 864 1080" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 1080C635.382 1080 894.653 582.96 629.818 0H866V1080H0Z" fill="#FF9A26"/></svg>
+        </span>
+
+        <div class="heading_fp-header">
+            <p>{{ __('Bienvenue', 'Non-editable strings') }}</p>
+            <h1>{{ g.name }}</h1>
+            <p>{{ g.baseline }}</p>
+        </div>
+
+        <div class="heading_fp-content">
+
+            {% include 'elements/schedule.twig' %}
+
+            <div class="heading_fp-content-actions">
+                <a class="card card-body" href="/menu">
+                    <span class="icon icon-big">{% include "assets/static/svg/icons/menu.svg" %}</span>
+                    <p class="h2">
+                        {{ __('Menu', 'Non-editable strings') }}
+                        <br>
+                        <small>{{ __('Dressez votre commande !', 'Non-editable strings') }}</small>
+                    </p>
+                </a>
+                <div class="btn-group">
+                    <a href="{{ g.phone }}" class="btn btn-primary">
+                        <span class="icon">{% include "assets/static/svg/icons/call.svg" %}</span>
+                        <span>{{ g.phone }}</span>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ g.itinerary }}" class="btn btn-primary">
+                        <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
+                        <span>{{ __('Aller sur place', 'Non-editable strings') }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

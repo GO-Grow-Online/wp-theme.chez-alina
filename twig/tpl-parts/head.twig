@@ -1,0 +1,58 @@
+<head>
+    <meta charset="{{ site.charset }}" />
+    <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+    <link rel="pingback" href="{{ site.pingback_url }}" />
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    
+    <style>{% include "assets/css/critical.css" %}</style>
+
+    {# If page is not menu, load default styles #}
+    {% if p.id != 757 %}
+    <link rel="stylesheet" href="{{ theme.link }}/assets/css/style.css" type="text/css" media="screen" />
+    {% else %}
+    <link rel="stylesheet" href="{{ theme.link }}/assets/css/menu-style.css" type="text/css" media="screen" />
+    {% endif %}
+
+
+    {{ fn('wp_head') }}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ theme.link }}/assets/static/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ theme.link }}/assets/static/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="{{ theme.link }}/assets/static/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.link }}/assets/static/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Chez Alina" />
+    <link rel="manifest" href="{{ theme.link }}/assets/static/favicon/site.webmanifest" />
+
+
+    {% set gtm_id = "" %}
+    {% if gtm_id %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ gtm_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ gtm_id }}');
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        if(localStorage.getItem('consentMode') === null){
+            gtag('consent', 'default', {
+            {% for setting in cookies_cfg|filter(setting => setting.active == true) %}
+                '{{ setting.slug }}': 'denied',
+            {% endfor %}
+            });
+        } else {
+            gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+        }
+    </script>    
+    {% endif %}
+</head>

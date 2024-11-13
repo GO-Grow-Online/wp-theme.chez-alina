@@ -1,0 +1,42 @@
+////////////////
+///// TYPE /////
+////////////////
+
+@use '../utils/_variables' as *; 
+
+
+@font-face {
+    font-family: 'Josefin';
+    src: url("/wp-content/themes/wp-theme.chez-alina/assets/static/fonts/josefin.ttf") format('truetype');
+    font-display: swap;
+}
+
+
+body {
+    font-size: var(--font-fs-base);
+    line-height: var(--font-line-height);
+    font-family: $font1;
+    color: $text-color;
+}
+    
+h1, .h1, h2, .h2, h3, .h3 {
+
+    line-height: 1.25;
+    font-family: $font2;
+    font-weight: $bold;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.uppercase {
+    font-size: calc(var(--font-fs-base) * 0.9);
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+h1, .h1 { font-size: var(--font-fs-h1); }
+h2, .h2 { font-size: var(--font-fs-h2); }
+h3, .h3 { font-size: var(--font-fs-h3); }
+h4, .h4 { font-size: var(--font-fs-h4); }

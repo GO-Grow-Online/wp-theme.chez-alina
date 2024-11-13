@@ -1,0 +1,31 @@
+<a href="{{ item.link }}" class="card">
+
+    {% set figcaption = 0 %}
+    {% set image_format = 'card-thumbnail' %}
+    {% set img = get_image(item.thumb) %}
+
+    <div class="card-header">
+        <div class="card-header-img">
+            {% set image_format = card-thumbnail %}
+            {% set is_seamless = true %}
+            {% include 'elements/image.twig' %}
+        </div>
+    </div>
+    <div class="card-body">
+        {% if item.date %}<p class="card-body-date">{{ item.date }}</p>{% endif %}
+        <h3 class="card-body-title">{{ item.title }}</h3>
+        
+        {% set short_desc = item.post_excerpt %}
+        {% if short_desc %}
+        <p class="card-body-desc">{{ short_desc }}</p>
+        {% endif %}
+        
+        <span class="card-body-link link-icon">
+            <span class="icon">{% include 'assets/static/icons/card-more-info.svg' %}</span>
+            {{ __('En savoir plus', "Non-editable strings") }}
+        </span>
+    </div>
+</a>
+
+
+

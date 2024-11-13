@@ -1,0 +1,57 @@
+{# This template is used as an ACF-block #}
+<header class="header">
+
+	<p class="header-name"><span>{{ g.name }}</span></p>
+	
+	<div class="wrapper">		
+		<nav class="nav-main" role="navigation">
+			<ul role="menu">
+				{# for item in nac.items
+					<li role="menuitem" 
+					{% if p.id == item.id %} aria-current="page" {% endif %} 
+					{% if item.children %} aria-haspopup="true" aria-expanded="false" {% endif %}>
+						<a class="{{ item.classes|join(' ') }}" href="{{ item.link }}">{{ item.title }}{% if item.children %} <span class="icon"> {% include 'assets/static/icons/menu/dropdown-menu-arrow.svg' %} </span>{% endif %}</a>
+						{% if item.children %}
+							<ul class="dropdown" role="menu" aria-hidden="true">
+								{% for child in item.children %}
+									<li role="menuitem">
+										<a href="{{ child.link }}">{{ child.title }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				endfor #}
+
+				<li class="nav_main-nav-item">
+					<a href="&schedule_open=true" class="btn btn-primary">
+						<span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
+						{{ __('Passer commance', 'Non-editable strings') }}
+					</a>
+				</li>
+				<li class="nav_main-nav-item">
+					<a href="&schedule_open=true" class="link-icon">
+						<span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
+						{{ __('Horaires', 'Non-editable strings') }}
+					</a>
+				</li>
+				<li class="nav_main-nav-item">
+					<a href="{{ g.itinerary }}" class="link-icon">
+						<span class="icon icon-primary">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
+						{{ __('Itinéraire', 'Non-editable strings') }}
+					</a>
+				</li>
+	
+			</ul>
+		</nav>
+		
+		{#
+		<div class="nav-bottom">
+			<button class="btn btn-menu js--toggle" data-toggle="menu" aria-label="{{ __('Ouvrir/fermer le menu', 'Non-editable strings') }}">
+				<span class="icon">{% include 'assets/static/icons/menu/open-menu.svg' %}</span>
+				<span class="icon">{% include 'assets/static/icons/menu/close-menu.svg' %}</span>
+			</button>
+		</div>
+		#}
+	</div>
+</header>

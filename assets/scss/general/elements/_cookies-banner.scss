@@ -1,0 +1,53 @@
+/////////////////////////
+///// COOKIE BANNER /////
+/////////////////////////
+
+@use '../../utils/variables' as *;
+
+.cookie-banner.card.card-body {
+    position: fixed;
+    left: 0;
+    bottom: var(--header-b-nav-height);
+    z-index: 15;
+
+    display: flex!important;
+
+    width: 100vw;
+    max-width: 550px;
+    height: auto;
+
+    opacity: 0;
+
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: all $fast $bezier;
+}
+
+.cookie-banner > div[data-page] {
+    display: none;
+    animation: appear $fast $bezier;
+}
+.cookie-banner[data-page="welcome"] > div[data-page="welcome"] { display: block; }
+.cookie-banner[data-page="edit"] > div[data-page="edit"] { display: block; }
+
+body.cookie-banner--open {
+    .cookie-banner.card.card-body {
+        transform: translateY(0);
+        pointer-events: all;
+        opacity: 1;
+    }
+}
+
+@media (min-width : $bp-md) {
+    .cookie-banner.card.card-body {
+        left: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width : $bp-lg) {
+    .cookie-banner.card.card-body {
+        left: 3rem;
+        bottom: 3rem;
+    }
+}

@@ -1,0 +1,107 @@
+// css-variables.scss
+
+@use '_variables' as *; 
+
+:root {
+    // Menu 
+    --menu-sp : 1rem;
+    --command-btn-height : 5rem;
+    --menu-nav-cat-height : 8rem;
+
+    // Section spacings
+    --sec-sp-y: 2.5rem;
+    --sec-sp-x: 2.5rem;
+    
+    // Fonts
+    --font-line-height : 1.7;
+    --font-multiplier : 1.3;
+    --font-fs-base : 16px;
+  
+    --font-fs-h4 : calc(var(--font-fs-base) * var(--font-multiplier));
+    --font-fs-h3 : calc(var(--font-fs-h4) * var(--font-multiplier));
+    --font-fs-h2 : 1.75rem;
+    --font-fs-h1 : 3.5rem;
+  
+    // Icon sizes
+    --icon-size : 1.25rem;
+    --icon-size-big : var(--font-fs-h2);
+  
+    // Cards
+    --card-spacing : #{var(--menu-sp)};
+  
+    // VidWrap
+    --video-spacing : #{var(--card-spacing)};
+  
+    // Lists
+    --list-gap : #{var(--sec-sp-x)};
+  
+    // Form
+    --form-input-x-padding : 0.5rem;
+    --form-input-y-padding : 1rem;
+  
+    // Header
+    --header-title-height : 1.75rem;
+    --header-b-nav-height : 4rem;
+  
+    // General border radius
+    --radius : 20px;
+    // --radius-strong : calc(2rem + var(--card-spacing));
+}
+  
+@media (min-width : $bp-md) {
+    :root {
+        // Section spacings
+        --sec-sp-y: 5rem;
+        --sec-sp-x: 15vw;
+
+        // Cards
+        --card-spacing : 1.5rem;
+        
+        // Header
+        --header-nav-bottom : 6rem;
+
+        // Lists
+        --list-gap : var(--card-spacing);
+
+        // Fonts    
+        --font-fs-h1 : 5rem;
+
+    }
+}
+
+@media (min-width : $bp-lg) {
+    :root {
+        // Section spacings
+        --sec-sp-y: 8rem;
+        --sec-sp-x: 12vw;
+        
+        // Cards
+        --card-spacing : 1.75rem;
+
+        // VidWrap
+        --video-spacing : #{var(--card-spacing)};
+
+        // Lists
+        --list-gap : calc(#{var(--card-spacing)} / 1.75);
+        
+        // Header
+        --header-height : 8rem;
+    }
+}
+
+@media (min-width : $bp-xl) {
+    :root {
+        // Section spacings
+        --sec-sp-y: 8rem;
+        --sec-sp-x: 20vw;
+        
+        // Icon sizes
+        // --icon-size : 1.75rem;
+
+        // Cards
+        --card-spacing : 2rem;
+
+        // Lists
+        --list-gap : #{var(--card-spacing)};
+    }
+}   

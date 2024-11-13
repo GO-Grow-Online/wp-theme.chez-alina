@@ -1,0 +1,14 @@
+///////////////////
+///// HEADING /////
+///////////////////
+
+@use '../utils/_variables' as *; 
+
+.heading {
+    
+}
+
+@media (min-width: $bp-lg) {
+    .heading {
+    }
+}

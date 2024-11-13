@@ -1,0 +1,108 @@
+///////////////////////////////////////
+///// FOOTER - ACF REUSABLE BLOCK /////
+///////////////////////////////////////
+
+@use '../utils/_variables' as *; 
+
+footer {
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: var(--sec-sp-y);
+        
+        align-items: flex-start!important;
+        justify-content: flex-start!important;
+
+        padding: var(--sec-sp-y) var(--sec-sp-x);
+
+        .footer-logo img {
+            width: 80%;
+            max-width: 300px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .link-list {
+
+            .link-list-item {
+
+                a {
+                    padding: 0.25rem 0;
+                }
+            }
+        }
+
+        &.footer-bottom {
+            background-color: $light;
+            padding-top: var(--card-spacing)!important;
+            padding-bottom: var(--card-spacing)!important;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between!important;
+            gap: 1.5rem;
+    
+            p, a {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            .footer-bottom-logo {
+                white-space: nowrap;
+                flex-wrap: nowrap;
+
+                svg {
+                    width: fit-content;
+                    margin-left: 0.2rem;
+                }
+            }
+    
+            a {
+                opacity: 1;
+                transition: opacity $fast $bezier;
+    
+                &:hover {
+                    opacity: .3;
+                }
+            }
+    
+            * { margin: 0; }
+        }
+    }  
+    
+}
+
+
+@media (min-width: $bp-md) {
+    footer {
+        & > .wrapper {
+        }
+    }
+}
+
+
+@media (min-width: $bp-lg) {
+    footer {
+        margin-bottom: 0;
+        & > .wrapper {
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+
+            &.footer-bottom {
+                flex-direction: row;
+            }
+        }   
+
+    }
+}
+
+@media (min-width: $bp-xl) {
+    footer {
+        & > .wrapper {
+        } 
+    }  
+}

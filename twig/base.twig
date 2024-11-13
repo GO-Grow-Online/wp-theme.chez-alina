@@ -1,0 +1,116 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js no-svg" {{ site.language_attributes }}> <!--<![endif]-->
+
+	{% include 'tpl-parts/head.twig' %}
+
+	<body class="{{ body_class }}" data-menu-page="menu" data-template="base.twig">
+
+		{% block header %}
+		<header>
+			<nav class="main-nav">
+				<ul>
+					<li><a class="btn btn-primary" href=""></a></li>
+					<li><a class="link link-green" href=""></a></li>
+					<li><a class="link link-primary" href=""></a></li>
+				</ul>
+			</nav>
+		</header>
+
+		{# include "elements/cookie-banner.twig" #}
+		
+		{% endblock %}
+
+		<div class="schedule">
+			<ul>
+
+			{% set day_slug = {
+				1: "monday",
+				2: "thuesday",
+				3: "wednesday",
+				4: "thursday",
+				5: "friday",
+				6: "saturday",
+				7: "sunday"
+			} %}
+
+			{% set day_name = {
+				1: "Lundi",
+				2: "Mardi",
+				3: "Mercredi",
+				4: "Jeudi",
+				5: "Vendredi",
+				6: "Samedi",
+				7: "Dimanche"
+			} %}
+
+			{% set current_day_num = "now"|date("N") %}
+			{% set current_time = "now"|date("H:i") %}
+			{% set current_time_day = "now"|date("N") %}
+
+			{% for day in day_slug %}
+				{% if schedules[day] is not empty %}
+					<li>
+						<p>{{ day_name[loop.index] }}</p>
+						{% for schedule in schedules[day] %}
+							{% set open_time = schedule.opening %}
+							{% set close_time = schedule.closing %}
+
+							<p>
+								<span>{{ open_time }}</span>
+								<span>{{ close_time }}</span>
+							</p>
+						{% endfor %}
+					</li>
+				{% endif %}
+			{% endfor %}
+			</ul>
+		</div>
+
+		<main>
+			{% block content %}
+			<section class="card_list {{ b_prop.className }} {{ bg }} {{ separation }}">
+				<div class="wrapper">
+					{{ p.content }}
+				</div>
+			</section>
+			{% endblock %}
+		</main>
+		
+		{% block footer %}
+		<footer>
+			<div class="wrapper footer-bottom">
+				<p>© {{ "now"|date('Y') }} - {{ g.name }} - Tous droits réservés</p>
+				<p>
+					<button class="js--open" data-open="cookie-banner">{{ g.cookies_banner.footer_link_text }}</button> <span>-</span>
+		
+					{% set link = g.legal_notice_link %}
+					{% if link %}
+					<a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+					{% endif %}
+		
+					{% set link = g.privacy_policy_link %}
+					{% if link %}
+					<a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+					{% endif %}
+		
+					{% set link = g.cdv_link %}
+					{% if link %}
+					<a target="{{ link.target }}" href="{{ link.url }}">{{ link.title }}</a> - 
+					{% endif %}
+		
+					<a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
+						{{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+					</a>
+				</p>
+			</div>		
+		</footer>
+		{% endblock %}
+		
+		<script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+		<script defer src="{{ theme.link }}/assets/js/api/splide.js"></script>
+		<script defer src="{{ theme.link }}/assets/js/app.js"></script>
+		
+	</body>
+</html>

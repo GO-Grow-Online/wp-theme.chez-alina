@@ -1,0 +1,48 @@
+////////////////////
+///// SECTIONS /////
+////////////////////
+
+@use '../utils/_variables' as *; 
+
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: grid;
+    gap: calc(var(--sec-sp-y) * 0.5);
+    grid-template-columns: 1fr;
+
+    padding: var(--sec-sp-y) var(--sec-sp-x);
+    max-width: 100vw;
+}
+
+@media (min-width: $bp-lg) {
+    section {
+        .wrapper {
+            gap: 0;
+            
+            &.wrapper-lg-2col {
+                grid-template-columns: 1fr 1fr;
+                gap: 0 calc(var(--sec-sp-x) / 2);
+                align-items: center;
+            }
+
+            .col-lg-full { grid-column: 1 / 3; grid-row: 1 / 2; }
+            
+            .col-lg-right, .col-lg-left {
+                margin-bottom: 0;
+            }
+        } 
+    } 
+
+    section {
+        &.is-style-reverse {
+            .wrapper {
+                .col-lg-left { grid-column: 2 / 3; grid-row: 1 / 2; }
+                .col-lg-right { grid-column: 1 / 2; grid-row: 1 / 2; }
+            }
+        }
+    }    
+}

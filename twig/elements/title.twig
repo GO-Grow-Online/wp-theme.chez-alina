@@ -1,0 +1,10 @@
+{% set title_size = title_size is null ? 'h2' : title_size %}
+{% if title.t is not empty %}
+<{{ title_size }} class="ctn-title">
+    {% if title.st %}<span>{{ title.st }}&nbsp;</span>{% endif %}
+    {{ title.t }}
+</{{ title_size }}>
+{% endif %}
+
+{% set title = null %}
+{% set title_size = null %}

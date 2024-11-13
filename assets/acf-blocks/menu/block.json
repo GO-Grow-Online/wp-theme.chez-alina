@@ -1,0 +1,24 @@
+{
+    "name": "menu",
+    "title": "Menu",
+    "description": "",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["heading"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "menu.php",
+        "postTypes": [ "page" ]
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": true,
+            "link": false
+        },
+        "alignText": false
+    }
+}

@@ -1,0 +1,65 @@
+// variables.scss
+@use 'sass:color';
+
+// Breakpoints
+$bp-sm: 400px;
+$bp-md: 720px;
+$bp-lg: 1024px;
+$bp-xl: 1400px;
+
+// Fonts
+$font1 : 'Josefin', sans-serif;
+$font2 : 'Josefin', sans-serif;
+
+// Transitions
+$slow: 0.6s;
+$fast: 0.3s;
+$superfast: 0.1s;
+
+$bezier : cubic-bezier(0.83, 0, 0.17, 1);
+
+// z-index
+$ui : 1000;
+$contentUp : 500;
+$content : 10;
+$back : -10;
+
+// Border-radius
+$round: 1000px;
+
+// Shadows
+$shadow: 0px 10px 20px 0 #00000023;  
+$light-shadow:  0px 10px 40px -10px #00000040;
+
+// Colors 
+$primary : #FF9A26;
+$primary-disabled : color.adjust($primary, $saturation : -75%);
+$secondary : #0A291D;
+
+$regular : 400;
+$bold : 700;
+
+$failed : #c60404;
+$failed-20 : #c6040420;
+$succes : #92C604;
+
+$white : #fff;
+
+$light : #f1f1f1;
+$light-80 : color.scale($light, $lightness: -20%);
+$light-60 : color.scale($light, $lightness: -40%);
+$light-40 : color.scale($light, $lightness: -60%);
+$light-20 : color.scale($light, $lightness: -80%);
+
+$dark : #0A291D;
+$text-color : $dark;
+
+// Background colors
+$bg-colors: (
+  light: $light,
+  primary: $primary,
+  white: $white,
+);
+
+// Section separation colors
+$sep-grad : $light;

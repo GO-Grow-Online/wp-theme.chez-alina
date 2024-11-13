@@ -1,0 +1,57 @@
+{% set current_day_num = "now"|date("N") %}
+{% set current_time = "now"|date("H:i") %}
+
+{% set day_slug = {
+    1: "monday",
+    2: "thuesday",
+    3: "wednesday",
+    4: "thursday",
+    5: "friday",
+    6: "saturday",
+    7: "sunday"
+} %}
+
+{# Check if today's day is open or not #}
+{% set is_open = false %}
+{% set next_hour = "" %}
+{% if schedules[day_slug[current_day_num]] is not empty %}
+    {% for schedule in schedules[day_slug[current_day_num]] %}
+        {% set open_time = schedule.opening %}
+        {% set close_time = schedule.closing %}
+
+        {# Check if currently within opening hours #}
+        {% if current_time >= open_time and current_time < close_time %}
+            {% set is_open = true %}
+            {% set next_hour = close_time %}
+        {% endif %}
+
+        {# If currently closed, check for the next opening time today #}
+        {% if current_time < open_time and (next_hour is null or open_time < next_hour) %}
+            {% set next_hour = open_time %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{# Fallback to the next day's opening time if no more openings today #}
+{% if not is_open and next_hour is null %}
+    {% set next_day = day_slug[(current_day_num % 7) + 1] %}
+    {% if schedules[next_day] is not empty %}
+        {% set next_hour = schedules[next_day][0].opening %}
+    {% endif %}
+{% endif %}
+
+{# Affichage de l'état du restaurant #}
+{% set status = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
+{% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
+
+<span class="realTime_schedule">
+    <button class="realTime_schedule-btn btn {{ classes }} js--open" data-open="schedule">
+        <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
+        <span>
+            {{  __('Nous sommes', 'Non-editable strings')  }}<strong>&nbsp;{{ status }}</strong>
+        </span>
+    </button>
+
+    {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
+    <small>{{ text }} {{ __('à', 'Non-editable strings') }} {{ next_hour }}</small>
+</span>

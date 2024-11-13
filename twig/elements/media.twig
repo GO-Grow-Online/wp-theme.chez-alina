@@ -1,0 +1,8 @@
+{% set media = media.media %}
+{% if media.type == 'video' %}
+    {% set video = media.vid %}
+    {% include 'elements/video.twig' %}
+{% else %}
+    {% set img = get_image(media.img) %}
+    {% include 'elements/image.twig' %}    
+{% endif %} 

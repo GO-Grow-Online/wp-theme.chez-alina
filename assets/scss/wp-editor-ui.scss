@@ -1,0 +1,16 @@
+// Customize gutenberg interface for "editor" user
+
+.wp-admin {
+    // "..." top right of the screen 
+    .components-dropdown.components-dropdown-menu.interface-more-menu-dropdown,
+
+    // Possibility to lock & unlock blocks
+    // Possibility to create reusable blocks (too complicated)
+    .components-popover .components-menu-group:nth-child(2),
+
+    // Possibility to duplicate blocks
+    .components-popover .components-menu-group:first-child .components-button.components-menu-item__button:nth-child(2)
+    {
+        display: none;
+    }
+}

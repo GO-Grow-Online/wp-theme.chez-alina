@@ -1,0 +1,183 @@
+///////////////////
+///// BUTTONS /////
+///////////////////
+
+@use '../../utils/variables' as *;
+
+
+// Link with an icon in it
+.link-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    
+    .icon {
+        width: var(--icon-size);
+        min-width: var(--icon-size);
+        height: var(--icon-size);
+        min-height: var(--icon-size);
+        margin-bottom: -0.35rem;
+        margin-right: 0.5rem;
+    }
+
+    &--column {
+        flex-direction: column;
+        align-items: center;
+
+        .icon {
+            margin-bottom: 0.2rem;
+        }
+    }
+}
+
+// Buttons
+.btn {
+
+    position: relative;
+    display: inline-flex;
+    line-height: 1;
+
+    padding: 0.5rem 0.75rem;
+
+    background-color: transparent;
+
+    align-items: center;
+
+    transition: $fast $bezier;
+
+    & > span:last-child {
+        margin-bottom: -0.2rem;
+        margin-left: 0.5rem;
+        white-space: nowrap;
+    }
+
+    .icon {
+        transition: all $fast $bezier;
+    }
+
+    &:not(.btn-full) {
+
+        display: flex;
+        align-items: center;
+
+        padding: 0!important;
+
+        & > .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 2rem;
+            height: 2rem;
+
+            svg {
+                width: var(--icon-size);
+                height: var(--icon-size);
+            }
+
+            padding: calc(var(--icon-size) - 2rem);
+
+            border-radius: $round;
+        }
+    }
+
+    &.btn-primary .icon {
+        background-color: $primary;
+        color: $white;
+    }
+    
+    &.btn-secondary .icon {
+        color: $primary;
+        background-color: $light;
+    }
+    
+    &.btn-dark .icon {
+        color: $white;
+        background-color: $dark;
+    }
+
+    &.btn-failed  {
+        strong { color: $failed; }
+        .icon {
+            color: $white;
+            background-color: $failed;
+        }
+    }
+
+    &.btn-succes  {
+        strong { color: $succes; }
+        .icon {
+            color: $white;
+            background-color: $succes;
+        }
+    }
+    
+    &:hover .icon {
+        background-color: $secondary;
+        color: $white; 
+    }
+
+    &.btn-bg-white {
+        background-color: $white;
+        padding: calc(var(--menu-sp) * 0.5);
+    }
+
+    &.btn-full {
+        
+        height: 2.25rem;
+        border-radius: $round;
+        
+        &.btn-primary {
+            background-color: $primary;
+            color: $white;
+        }
+        
+        &.btn-secondary {
+            color: $primary;
+            background-color: $light;
+        }
+        
+        &.btn-dark {
+            color: $white;
+            background-color: $dark;
+        }
+        
+        &:hover {
+            background-color: $secondary;
+            color: $white; 
+        }
+    }
+    
+    &-group {
+        display: flex;
+        flex-wrap: wrap;
+
+        width: auto;
+
+        background-color: $white;
+
+        border-radius: $round;
+        gap: var(--menu-sp);
+        padding: calc(var(--menu-sp) * 0.5);
+        margin-top: var(--menu-sp);    
+    }
+
+    &-square {
+        min-width: 2.25rem;
+        max-width: 2.25rem;
+        min-height: 2.25rem;
+        max-height: 2.25rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: $round;
+
+        .icon {
+            margin: 0!important;
+        }
+    }
+}

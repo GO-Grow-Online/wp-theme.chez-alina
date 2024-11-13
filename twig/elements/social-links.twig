@@ -1,0 +1,42 @@
+{% set link = g.facebook %}
+
+{% set socials = {
+    'facebook' : {
+        'link' : g.facebook, 
+        'icon' : 'facebook'
+    },
+
+    'twitter' : {
+        'link' : g.twitter, 
+        'icon' : 'twitter'
+    },
+
+    'instagram' : {
+        'link' : g.instagram, 
+        'icon' : 'instagram'
+    },
+
+    'tiktok' : {
+        'link' : g.tik_tok, 
+        'icon' : 'tiktok'
+    },
+
+    'linkedin' : {
+        'link' : g.linkedin, 
+        'icon' : 'linkedin'
+    },
+
+    'pinterest' : {
+        'link' : g.pinterest, 
+        'icon' : 'pinterest'
+    },
+} %}
+
+
+<ul class="social-links">
+    {% for media in socials %}
+    {% if media.link %}
+    <li class="social-links-item"><a class="icon" aria-label="Suivez-nous sur {{ media.icon }}" target="_blank" href="{{ media.link }}">{% include 'assets/static/icons/socials/' ~ media.icon ~ '-icon.svg' %}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>

@@ -1,0 +1,16 @@
+{% set content = content.content %}
+
+
+<div class="ctn">
+    {% set title = content.title %}
+    {% include 'elements/title.twig' %}
+
+    {% set ctn = content.ctn != "" ? content.ctn : empty %}
+    <div class="ctn-wysiwyg wysiwyg">{{ clean_wysiwyg_content(ctn) }}</div>
+    
+    {% set btn1 = content.btn_1 %}
+    {% set btn2 = content.btn_2 %}
+    {% include "elements/buttons-group.twig" %}
+</div>
+
+{% set content = null %}

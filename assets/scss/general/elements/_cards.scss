@@ -1,0 +1,72 @@
+//////////////////
+///// CARDS /////
+//////////////////
+
+@use '../../utils/variables' as *;
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    background-color: $white;
+    box-shadow: $shadow;
+    border-radius: var(--radius);
+
+    .icon {
+        color: $primary;
+    }
+
+    &-header {
+        .imgWrap {     
+            height: calc(100px + 50vw);
+        }
+    }
+
+    &-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        padding: var(--card-spacing);
+
+        position: relative;
+        z-index: 1;
+
+        &-title {
+            margin-bottom: 0;
+        }
+
+        &-desc {
+            margin-bottom: 2rem;
+        }
+
+        &-link {
+            margin-top: auto;
+        }
+
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (min-width : $bp-md) {
+
+}
+
+
+@media (min-width : $bp-lg) {
+    .card {
+        &-header {
+            .imgWrap {
+                height: calc(50px + 15vw)!important;
+            }
+        }
+
+        &-body {
+            
+        }
+    }
+}

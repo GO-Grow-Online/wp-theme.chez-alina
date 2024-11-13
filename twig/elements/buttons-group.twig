@@ -1,0 +1,13 @@
+{% if btn1 or btn2 %}
+<div class="btn-group"> 
+    
+    {% set btn = btn1 %}
+    {% set classes = 'btn-primary' %}
+    {% include 'elements/button.twig' %}
+
+    {% set btn = btn2 %}
+    {% set classes = 'btn-secondary' %}
+    {% include 'elements/button.twig' %}
+    
+</div>
+{% endif %}
