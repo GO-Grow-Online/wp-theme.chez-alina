@@ -69,8 +69,8 @@
             align-items: center;
             justify-content: center;
 
-            width: var(--icon-size);
-            height: var(--icon-size);
+            width: calc(var(--icon-size) * 1.25 );
+            height: calc(var(--icon-size) * 1.25 );
 
             svg {
                 width: var(--icon-size);
