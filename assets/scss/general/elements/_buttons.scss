@@ -128,11 +128,6 @@
         
         height: 2.25rem;
         border-radius: $round;
-
-        & > .icon {
-            width: calc(var(--icon-size) * 0.75);
-            height: calc(var(--icon-size) * 0.75);
-        }
         
         &.btn-primary {
             background-color: $primary;
@@ -183,6 +178,13 @@
 
         .icon {
             margin: 0!important;
+        }
+    }
+
+    &.btn-full, &.btn-quare {
+        & > .icon {
+            width: calc(var(--icon-size) * 0.75);
+            height: calc(var(--icon-size) * 0.75);
         }
     }
 }
