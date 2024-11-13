@@ -303,18 +303,20 @@ $list-sp : var(--card-spacing);
         &-item {
 
             display: flex;
-            flex-wrap: wrap;
-            gap: calc(var(--card-spacing) * 0.25) 0;
             padding: calc(var(--card-spacing) * 0.5) var(--card-spacing);
 
             &:not(:last-child) {
-                border-bottom: 1px solid $light;
+                border-bottom: 3px dotted $light;
             }
 
             p {
-                min-width: 110px;
-                max-width: 100%;
+                width: 50%;
                 margin: 0;
+            }
+
+            &:last-child {
+                display: flex;
+                flex-direction: column;
             }
         }
     }
