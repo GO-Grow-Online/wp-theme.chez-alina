@@ -13,8 +13,15 @@
         padding-bottom: calc(var(--sec-sp-y) + 15rem);
     }
 
-    .realTime_schedule > small {
-        display: block;
+    .realTime_schedule  {
+
+        span:not(.icon) {
+            font-size: var(--font-fs-h2);
+        }
+
+        & > small {
+            display: block;
+        }
     }
 
     &-bg {

@@ -195,7 +195,7 @@ img, picture, figure, video {
         display: none;
         text-transform: uppercase;
         opacity: .5;
-        margin-left: calc(var(--icon-size) + var(--list-gap));
+        margin-left: calc(var(--icon-size) + 1rem);
     }
 
     &-btn {
