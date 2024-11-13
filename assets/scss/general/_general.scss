@@ -305,6 +305,10 @@ $list-sp : var(--card-spacing);
             flex-wrap: wrap;
             padding: var(--card-spacing) calc(var(--card-spacing) * 0.5);
 
+            &:not(:last-child) {
+                border-bottom: 1px solid $light;
+            }
+
             p {
                 min-width: 175px;
                 max-width: 100%;
