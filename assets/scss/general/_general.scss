@@ -362,7 +362,7 @@ body.schedule--open {
 
     .schedule {
         margin-left: calc(var(--sec-sp-x) * 1.5);
-        width: calc(100vw - (var(--sec-sp-x) * 1.5));
+        width: calc(100vw - (var(--sec-sp-x) * 3));
     }
 }
 
