@@ -182,7 +182,7 @@
     }
 
     &.btn-full, .nav_main-order-list-item  {
-        & > .icon {
+        .icon {
             width: calc(var(--icon-size) * 0.75);
             height: calc(var(--icon-size) * 0.75);
         }
