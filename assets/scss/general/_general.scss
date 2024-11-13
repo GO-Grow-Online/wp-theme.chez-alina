@@ -282,6 +282,8 @@ $list-sp : var(--card-spacing);
 
     overflow-y: scroll;
 
+    pointer-events: none;
+
     transform: scale(1.4);
     clip-path: circle(0% at 50% 50%);
 
@@ -303,6 +305,7 @@ $list-sp : var(--card-spacing);
 
 body.schedule--open {
     .schedule {
+        pointer-events: all;
         transform: scale(1);
         clip-path: circle(120% at 50% 50%);    
     }
