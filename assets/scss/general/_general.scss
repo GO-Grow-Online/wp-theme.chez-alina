@@ -314,7 +314,7 @@ $list-sp : var(--card-spacing);
                 margin: 0;
             }
 
-            &:last-child {
+            p:last-child {
                 display: flex;
                 flex-direction: column;
             }
