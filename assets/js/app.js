@@ -68,7 +68,7 @@ jQuery(function($) {
 
       $('.js--endOrder').on('click', function() {
         console.log($('a[data-method="' + method + '"]'));
-        $('a[data-method="' + method + '"]').click();
+        $('a[data-method="' + method + '"]').trigger('click');
       });
     });
 
