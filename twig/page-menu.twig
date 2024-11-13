@@ -137,7 +137,7 @@
                         {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
                     </span>
                 </button>
-                <a data-method="pickup" href="tel:{{ g.itinirary }}"></a>
+                <a data-method="pickup" target="_blank" href="tel:{{ g.itinirary }}">{{ g.address }}</a>
             </div>
         </div>
         {% endif %}
@@ -159,7 +159,7 @@
                         {{ __("Téléphoner", "Non-editable strings") }}
                     </span>
                 </button>
-                <a data-method="phone" href="tel:{{ g.phone }}"></a>
+                <a data-method="phone" href="tel:{{ g.phone }}">{{ g.phone }}</a>
             </div>
         </div>
         {% endif %}
