@@ -306,6 +306,7 @@ $list-sp : var(--card-spacing);
 body.schedule--open {
     .schedule {
         pointer-events: all;
+        opacity: 1;
         transform: scale(1);
         clip-path: circle(120% at 50% 50%);    
     }
