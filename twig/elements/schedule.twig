@@ -45,12 +45,12 @@
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
 
 <span class="realTime_schedule">
-    <button class="realTime_schedule-btn btn {{ classes }} js--open" data-open="schedule">
+    <span class="realTime_schedule-btn btn {{ classes }}">
         <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
         <span>
             {{  __('Nous sommes', 'Non-editable strings')  }}<strong>&nbsp;{{ status }}</strong>
         </span>
-    </button>
+    </span>
 
     {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
     <small>{{ text }} {{ __('à', 'Non-editable strings') }} {{ next_hour }}</small>
