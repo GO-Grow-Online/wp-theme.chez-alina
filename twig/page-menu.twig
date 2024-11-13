@@ -127,7 +127,7 @@
 <section class="orderChoices" data-menu-page="order-method">
     <div class="wrapper">
 
-        {% if g.itinerary %}
+        {% if g.itinirary %}
         <div class="orderChoices-item">
             <p class="h2">{{ __("Je viens commander sur place !", "Non-editable strings") }}</p>
             <div class="btn-group">
@@ -137,13 +137,13 @@
                         {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
                     </span>
                 </button>
-                <a data-method="pickup" href="tel:{{ g.itinerary }}"></a>
+                <a data-method="pickup" href="tel:{{ g.itinirary }}"></a>
             </div>
         </div>
         {% endif %}
 
 
-        {% if g.itinerary and g.phone %}
+        {% if g.itinirary and g.phone %}
         <div class="orderChoices-sep">
             <span class="orderChoices-sep-text">ou</span>
         </div>
