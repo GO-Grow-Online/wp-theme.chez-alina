@@ -275,10 +275,10 @@ $list-sp : var(--card-spacing);
     border-radius: calc(var(--radius) * 1.25);
 
     width: calc(100vw - (var(--sec-sp-x) * 1));
-    max-height: calc(100vh - 17rem);
+    max-height: calc(100vh - (var(--sec-sp-y) * 2));
 
     margin-left: calc(var(--sec-sp-x) * 0.5);
-    margin-top: calc(var(--sec-sp-x) + var(--menu-sp) + var(--header-title-height));
+    margin-top: calc(var(--sec-sp-y));
 
     overflow-y: scroll;
 
@@ -288,6 +288,7 @@ $list-sp : var(--card-spacing);
     transition: all $slow $bezier;
 
     &-list {
+
         &-item {
             display: flex;
             flex-wrap: wrap;
@@ -300,8 +301,8 @@ $list-sp : var(--card-spacing);
     }
 }
 
-body.schedules--open {
-    .schedules {
+body.schedule--open {
+    .schedule {
         transform: scale(1);
         clip-path: circle(120% at 50% 50%);    
     }
