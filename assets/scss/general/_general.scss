@@ -278,8 +278,8 @@ $list-sp : var(--card-spacing);
     max-height: calc(100vh - (var(--sec-sp-y) * 2));
 
     margin-left: calc(var(--sec-sp-x) * 0.5);
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: var(--sec-sp-y);
+    margin-bottom: var(--sec-sp-y);
 
     overflow-y: scroll;
 
