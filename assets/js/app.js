@@ -65,7 +65,7 @@ jQuery(function($) {
       let method = $(this).attr('data-method');
 
       $('.js--endOrder').on('click', function() {
-        let targetLink = $('a[data-method="' + method + '"]').attr('href');
+        let targetLink = $('span[data-method="' + method + '"]').attr('href');
         $(this).attr('href', targetLink);
       });
     });

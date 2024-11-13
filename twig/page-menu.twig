@@ -137,7 +137,7 @@
                         {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
                     </span>
                 </button>
-                <a data-method="pickup" target="_blank" href="tel:{{ g.itinirary }}">{{ g.address }}</a>
+                <span data-method="pickup" data-href="tel:{{ g.itinirary }}"></span>
             </div>
         </div>
         {% endif %}
@@ -159,7 +159,7 @@
                         {{ __("Téléphoner", "Non-editable strings") }}
                     </span>
                 </button>
-                <a data-method="phone" href="tel:{{ g.phone }}">{{ g.phone }}</a>
+                <span data-method="phone" data-href="tel:{{ g.phone }}"></span>
             </div>
         </div>
         {% endif %}
@@ -173,12 +173,12 @@
         <div class="orderChoices-item">
             <p class="h2">{{ __("Votre commande reste disponible, il vous suffit de revenir sur votre navigateur afin de la visualiser.", "Non-editable strings") }}</p>
             <div class="btn-group">
-                <button class="btn btn-primary js--endOrder">
+                <a class="btn btn-primary js--endOrder">
                     <span class="icon">{% include "assets/static/svg/icons/thumb-up.svg" %}</span>
                     <span>
                         {{ __("Compris", "Non-editable strings") }}
                     </span>
-                </button>
+                </a>
             </div>
         </div>
     </div>
