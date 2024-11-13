@@ -64,12 +64,14 @@ jQuery(function($) {
     $('.js--setMethod').on('click', function() {
       let method = $(this).attr('data-method');
 
-      console.log(method);
-
       $('.js--endOrder').on('click', function() {
-        console.log($('a[data-method="' + method + '"]'));
-        $('a[data-method="' + method + '"]').trigger('click');
-      });
+        let targetLink = $('a[data-method="' + method + '"]');
+
+        // Redirige vers le lien "tel:" si trouvé
+        if (targetLink.length) {
+            window.location.href = targetLink.attr('href');
+        }
+    });
     });
 
   }
