@@ -189,6 +189,7 @@ img, picture, figure, video {
 
 .realTime_schedule {
 
+    pointer-events: none;
     gap: var(--list-gap);
     
     & > small {
