@@ -16,6 +16,7 @@ footer {
         justify-content: flex-start!important;
 
         padding: calc(var(--card-spacing) * 1) var(--card-spacing);
+        padding-bottom: calc(var(--card-spacing) - 0.2rem);
 
         .footer-logo img {
             width: 80%;
