@@ -59,6 +59,10 @@
 
         // Icon sizes
         --icon-size : 2.25rem;
+
+        body.page-template-page-menu {
+            --icon-size : 1.75rem;
+        }
         
         // Header
         --header-nav-bottom : 6rem;
@@ -108,8 +112,3 @@
         --list-gap : #{var(--card-spacing)};
     }
 }  
-
-
-body.page-template-page-menu {
-    --icon-size : 1.75rem;
-}
