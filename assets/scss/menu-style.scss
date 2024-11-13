@@ -214,6 +214,11 @@ $menu-pages : "menu", "order-method", "order-end";
             border: none; 
             width: auto; 
             color: $primary;
+
+            .icon {
+                width: calc(var(--icon-size) * 0.75);
+                height: calc(var(--icon-size) * 0.75);
+            }
         }
 
         &-name {
