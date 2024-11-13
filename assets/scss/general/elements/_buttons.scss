@@ -130,8 +130,8 @@
         border-radius: $round;
 
         & > .icon {
-            width: var(--icon-size);
-            height: var(--icon-size);
+            width: calc(var(--icon-size) * 0.75);
+            height: calc(var(--icon-size) * 0.75);
         }
         
         &.btn-primary {
