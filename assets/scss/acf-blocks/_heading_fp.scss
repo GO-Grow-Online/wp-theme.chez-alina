@@ -73,7 +73,7 @@
             margin-top: var(--card-spacing);
 
             display: grid;
-            gap: var(--list-gap);
+            gap: calc(var(--list-gap) * 0.5);
 
             a.card {
                 display: flex;
