@@ -107,4 +107,9 @@
         // Lists
         --list-gap : #{var(--card-spacing)};
     }
-}   
+}  
+
+
+body.page-template-page-menu {
+    --icon-size : 1.75rem;
+}
