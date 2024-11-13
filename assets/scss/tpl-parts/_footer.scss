@@ -15,7 +15,7 @@ footer {
         align-items: flex-start!important;
         justify-content: flex-start!important;
 
-        padding: calc(var(--sec-sp-y) * 0.5) var(--sec-sp-y);
+        padding: calc(var(--card-spacing) * 1) var(--card-spacing);
 
         .footer-logo img {
             width: 80%;
