@@ -129,6 +129,9 @@
             .btn-group {
                 padding: var(--card-spacing);
                 background-color: $light;
+
+                border-radius:  var(--radius);
+                height: 100%;
                 box-shadow: none;
             }
         }
