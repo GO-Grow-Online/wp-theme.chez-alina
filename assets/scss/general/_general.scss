@@ -289,11 +289,21 @@ $list-sp : var(--card-spacing);
 
     transition: all $slow $bezier;
 
-    &-list {
+    h2 {
+        padding: var(--card-spacing);
+        padding-bottom: 0;
+    }
+
+    &-list {    
+
+
+        overflow-y: scroll;
 
         &-item {
+
             display: flex;
             flex-wrap: wrap;
+            padding: var(--card-spacing) calc(var(--card-spacing) * 0.5);
 
             p {
                 min-width: 175px;
