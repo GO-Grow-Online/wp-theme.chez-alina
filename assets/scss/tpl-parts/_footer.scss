@@ -15,6 +15,9 @@ footer {
         align-items: flex-start!important;
         justify-content: flex-start!important;
 
+        padding: calc(var(--card-spacing) * 1) var(--card-spacing);
+        padding-bottom: calc(var(--card-spacing) - 0.3rem);
+
         .footer-logo img {
             width: 80%;
             max-width: 300px;
@@ -34,8 +37,8 @@ footer {
 
         &.footer-bottom {
             background-color: $light;
-            padding-top: var(--card-spacing);
-            padding-bottom: calc(var(--card-spacing) - 0.3rem);
+            padding-top: var(--card-spacing)!important;
+            padding-bottom: calc(var(--card-spacing) - 0.3rem)!important;
     
             display: flex;
             flex-direction: column;
