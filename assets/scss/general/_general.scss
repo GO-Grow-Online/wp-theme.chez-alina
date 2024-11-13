@@ -353,7 +353,9 @@ body.schedule--open {
 
     .realTime_schedule {
 
-        gap: 2rem;
+        .btn > span:last-child {
+            margin-right: 2rem;
+        }
         
         & > small {
             margin-left: calc(var(--icon-size) + 2rem);
