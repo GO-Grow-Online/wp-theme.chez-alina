@@ -65,13 +65,9 @@ jQuery(function($) {
       let method = $(this).attr('data-method');
 
       $('.js--endOrder').on('click', function() {
-        let targetLink = $('a[data-method="' + method + '"]');
-
-        // Redirige vers le lien "tel:" si trouvé
-        if (targetLink.length) {
-            window.location.href = targetLink.attr('href');
-        }
-    });
+        let targetLink = $('a[data-method="' + method + '"]').attr('href');
+        $(this).attr('href', targetLink);
+      });
     });
 
   }
