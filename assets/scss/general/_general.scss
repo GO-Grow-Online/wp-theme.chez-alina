@@ -350,6 +350,15 @@ body.schedule--open {
         justify-content: flex-start;
         flex-wrap: inherit;
     }
+
+    .realTime_schedule {
+
+        gap: 2rem;
+        
+        & > small {
+            margin-left: calc(var(--icon-size) + 2rem);
+        }
+    }
 }
 
 
