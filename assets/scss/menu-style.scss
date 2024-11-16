@@ -272,7 +272,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 border-radius: 0;
         
                 pointer-events: none;
-                transform: translateY(100%);
+                transform: translateY(12rem);
                 transition: all $slow $bezier;
             }        
 
@@ -633,7 +633,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
             .btn--backPage {
                 pointer-events: all;
-                transform: translateY(0%);
+                transform: translateY(calc(0% + 1px));
             }
         
         } 
