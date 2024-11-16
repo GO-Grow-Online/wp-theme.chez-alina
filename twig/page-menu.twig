@@ -21,7 +21,7 @@
                 <!-- Dynamic JS content here -->
             </ul>
         </div>
-        <button class="nav_main-command js--order" disabled>
+        <button class="nav_main-command js--order js--changePage" data-changePage="order-method"  disabled>
             <span class="nav_main-command-empty">{{ __('Commande vide...', 'Non-editable strings') }}</span>
             <span class="nav_main-command-ready">{{ __('Je commande !', 'Non-editable strings') }}</span>
         </button>
@@ -39,6 +39,10 @@
                 </a>
             </li>
         </ul>
+
+        <button class="btn btn-quare">
+            {% include 'assets/static/svg/icons/back-home.svg' %}
+        </button>
     </nav>
 
 
@@ -131,7 +135,7 @@
         <div class="orderChoices-item">
             <p class="h2">{{ __("Je viens commander sur place !", "Non-editable strings") }}</p>
             <div class="btn-group">
-                <button class="btn btn-primary js--setMethod" data-href="{{ g.itinirary }}">
+                <button class="btn btn-primary js--setMethod js--changePage" data-changePage="order-end" data-href="{{ g.itinirary }}">
                     <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
                     <span>
                         {{ __("Visualiser l'itinéraire", "Non-editable strings") }}
@@ -153,7 +157,7 @@
         <div class="orderChoices-item">
             <p class="h2">{{ __("Je téléphone et réceptionne ma commande plus tard !", "Non-editable strings") }}</p>
             <div class="btn-group">
-                <button class="btn btn-primary js--setMethod" data-href="tel:{{ g.phone }}">
+                <button class="btn btn-primary js--setMethod js--changePage" data-changePage="order-end" data-href="tel:{{ g.phone }}">
                     <span class="icon">{% include "assets/static/svg/icons/call.svg" %}</span>
                     <span>
                         {{ __("Téléphoner", "Non-editable strings") }}

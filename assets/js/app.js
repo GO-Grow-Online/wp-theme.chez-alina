@@ -56,16 +56,16 @@ jQuery(function($) {
       $('body').attr('data-menu-page', 'order-method');
       $('body').removeClass('orderList--open')
     })
-
-    $('section[data-menu-page="order-method"] .btn').on('click', function() {
-      $('body').attr('data-menu-page', 'order-end');
-    })
+    
 
     $('.js--setMethod').on('click', function() {
       let redirect = $(this).attr('data-href');
       $('.js--endOrder').attr('href', redirect);
     });
 
+    $('.js--changePage').on('click', function() {
+      $('body').attr('data-menu-page', $(this).attr('data-changePage'));
+    });
   }
 
   function load_order() {
