@@ -36,8 +36,11 @@ header {
 
     .btn--backPage {
         position: fixed;
-        bottom: 5rem;
-        left: 2rem;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     /*
