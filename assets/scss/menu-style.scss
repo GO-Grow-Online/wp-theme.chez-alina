@@ -265,12 +265,11 @@ $menu-pages : "menu", "order-method", "order-end";
 
             .btn--backPage {
                 position: fixed;
-                bottom: 0;
+                bottom: 100%;
                 left: 0;
                 width: 100%;
                 text-align: center;
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
+                border-radius: 0;
         
                 pointer-events: none;
                 transform: translateY(100%);
