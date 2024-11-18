@@ -267,11 +267,10 @@ $menu-pages : "menu", "order-method", "order-end";
                 position: fixed;
                 bottom: calc(100% + 5rem);
                 left: 0;
-                border-radius: 0;
                 margin-left: var(--sec-sp-x);
         
                 pointer-events: none;
-                transform: translateX(calc(-100% + var(--sec-sp-x)));
+                transform: translateX(-150%);
                 transition: all $slow $bezier;
             }        
 
