@@ -269,11 +269,10 @@ $menu-pages : "menu", "order-method", "order-end";
                 position: fixed;
                 bottom: calc(100% + 5rem);
                 left: 50%;
-                transform: translateX(-50%);
 
                 pointer-events: none;
                 opacity: 0;
-                transform: translateY(15rem);
+                transform: translateY(15rem) translateX(-50%);
                 transition: all $slow $bezier;
             }        
 
@@ -635,7 +634,7 @@ $menu-pages : "menu", "order-method", "order-end";
             .btn--backPage {
                 pointer-events: all;
                 opacity: 1;
-                transform: inherit;
+                transform: translateY(-3rem) translateX(-50%);
             }
         
         } 
