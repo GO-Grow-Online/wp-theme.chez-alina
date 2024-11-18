@@ -392,6 +392,8 @@ class StarterSite extends Site {
 		$context['g'] = get_fields('options');
 		$context['menu'] = get_fields('options')['categories'];
 		$context['schedules'] = get_fields('options')['schedules'];
+		$context['schedules']['is_closed'] = get_fields('options')['closed'];
+		$context['schedules']['is_closed_text'] = get_fields('options')['closed_text'];
 
 
 		// Cookie consent settings

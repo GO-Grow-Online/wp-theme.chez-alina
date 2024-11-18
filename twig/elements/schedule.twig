@@ -1,3 +1,5 @@
+{% is schedules.is_closed == false %}
+
 {% set current_day_num = "now"|date("N") %}
 {% set current_time = "now"|date("H:i") %}
 
@@ -40,18 +42,35 @@
     {% endif %}
 {% endif %}
 
+{% else %}
+{# If "Is closed" condition is checked, set bool to false and ignore the precedent data recuperation method #}
+{% set is_open = false %}
+{% endif %}
+
+
 {# Affichage de l'état du restaurant #}
 {% set status = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
+{% set text = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
+
+
+{# If Closed is true then set other strings #}
+{% is schedules.is_closed == false %}
+
+    {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
+    {% set text =  text ~ __('à', 'Non-editable strings') ~ next_hour %}
+
+{% else %}
+
+    {% set text = schedules.closed_text is not empty ? schedules.closed_text : __('Nous sommes fermés' , 'Non-editable strings') %}
+
+{% endif %}
 
 <span class="realTime_schedule">
     <span class="realTime_schedule-btn btn {{ classes }}">
         <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
-        <span>
-            {{  __('Nous sommes', 'Non-editable strings')  }}<strong>&nbsp;{{ status }}</strong>
-        </span>
+        <span>{{ text }}</span>
     </span>
 
-    {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
-    <small>{{ text }} {{ __('à', 'Non-editable strings') }} {{ next_hour }}</small>
+    <small></small>
 </span>
