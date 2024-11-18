@@ -271,7 +271,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 margin-left: var(--sec-sp-x);
         
                 pointer-events: none;
-                transform: translateY(12rem);
+                transform: translateX(calc(-100% + var(--sec-sp-x)));
                 transition: all $slow $bezier;
             }        
 
