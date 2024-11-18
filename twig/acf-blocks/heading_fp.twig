@@ -29,18 +29,34 @@
                         <small>{{ __('Dressez votre commande !', 'Non-editable strings') }}</small>
                     </p>
                 </a>
+
+                {% if g.phone %}
                 <div class="btn-group">
-                    <a href="{{ g.phone }}" class="btn btn-primary">
+                    <a href="tel:{{ g.phone }}" class="btn btn-primary">
                         <span class="icon">{% include "assets/static/svg/icons/call.svg" %}</span>
                         <span>{{ g.phone }}</span>
                     </a>
                 </div>
+                {% endif %}
+
+                
+                {% if g.email %}
+                <div class="btn-group">
+                    <a href="mailto:{{ g.email }}" class="btn btn-primary">
+                        <span class="icon">{% include "assets/static/svg/icons/email.svg" %}</span>
+                        <span>{{ g.email }}</span>
+                    </a>
+                </div>
+                {% endif %}
+
+                {% if g.itinerary %}
                 <div class="btn-group">
                     <a href="{{ g.itinerary }}" class="btn btn-primary">
                         <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
                         <span>{{ __('Aller sur place', 'Non-editable strings') }}</span>
                     </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
