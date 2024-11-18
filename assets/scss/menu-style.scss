@@ -62,6 +62,8 @@ $menu-pages : "menu", "order-method", "order-end";
             flex-direction: column;
             justify-content: center;
             gap: calc(var(--menu-sp) * 3);
+
+            padding-bottom: calc(var(--sec-sp-y) * 2);
         }
             
         &-item {
