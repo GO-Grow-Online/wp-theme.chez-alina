@@ -266,9 +266,9 @@ $menu-pages : "menu", "order-method", "order-end";
             .btn--backPage {
                 position: fixed;
                 bottom: calc(100% + 5rem);
-                width: 100%;
-                left: 0;
-        
+                left: 50%;
+                transform: translateX(-50%);
+
                 pointer-events: none;
                 opacity: 0;
                 transform: translateY(15rem);
