@@ -121,11 +121,11 @@
 
         &-content-actions {
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
             gap: var(--list-gap);
 
             a.card {
-                grid-row: 1 / 3;
+                grid-row: 1 / 4;
             }
 
             .btn-group {
