@@ -41,7 +41,10 @@
         </ul>
 
         <button class="btn btn-full btn-dark btn--backPage" aria-label="{{ __('Retour', 'Non-editable strings') }}">
-            {{ __('Retour au menu', 'Non-editable strings') }}
+            <span class="icon">{% include "assets/static/svg/icons/return.svg" %}</span>
+            <span>
+                {{ __('Retour au menu', 'Non-editable strings') }}
+            </span>
         </button>
     </nav>
 
