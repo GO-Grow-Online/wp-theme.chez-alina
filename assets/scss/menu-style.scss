@@ -265,7 +265,7 @@ $menu-pages : "menu", "order-method", "order-end";
             transform: translateY(0);
             transition: all $slow $bezier;
 
-            .btn--backPage {
+            .j--backPage {
                 position: fixed;
                 bottom: calc(100% + 5rem);
                 left: 50%;
@@ -631,7 +631,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 opacity: 1;
             }
 
-            .btn--backPage {
+            .js--backPage {
                 pointer-events: all;
                 opacity: 1;
                 transform: translateY(-1rem) translateX(-50%);
