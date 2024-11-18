@@ -58,7 +58,7 @@
 {% if schedules.is_closed == false %}
 
     {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
-    {% set text = text ~ __('à', 'Non-editable strings') ~ next_hour %}
+    {% set text = text ~ __(' à ', 'Non-editable strings') ~ next_hour %}
 
 {% else %}
 
