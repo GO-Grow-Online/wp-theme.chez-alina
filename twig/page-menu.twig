@@ -33,14 +33,14 @@
             <span class="nav_main-command-ready">{{ __('Je commande !', 'Non-editable strings') }}</span>
         </button>
         <ul class="nav_main-nav">
-            <li class="nav_main-nav-item">
+            <!--li class="nav_main-nav-item">
                 <a href="&schedule_open=true" class="link-icon link-icon--column">
                     <span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
                     {{ __('Horaires', 'Non-editable strings') }}
                 </a>
-            </li>
+            </!--li-->
             <li class="nav_main-nav-item">
-                <a href="{{ g.itinirary }}" class="link-icon link-icon--column">
+                <a target="_blank" href="{{ g.itinirary }}" class="link-icon link-icon--column">
                     <span class="icon icon-primary">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
                     {{ __('Itinéraire', 'Non-editable strings') }}
                 </a>
