@@ -1,4 +1,4 @@
-{% is schedules.is_closed == false %}
+{% if schedules.is_closed == false %}
 
 {% set current_day_num = "now"|date("N") %}
 {% set current_time = "now"|date("H:i") %}
