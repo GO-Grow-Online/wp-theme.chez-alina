@@ -51,18 +51,17 @@
 {# Affichage de l'état du restaurant #}
 {% set status = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
+{% set status = __('Nous sommes', 'Non editable strings') ~ "<strong>" ~ status  ~ "</strong>" %}
 
 
 {# If Closed is true then set other strings #}
 {% if schedules.is_closed == false %}
 
-    {% set status = __('Nous sommes', 'Non editable strings') ~ "<strong>" ~ status  = "</strong>" %}
     {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
     {% set text = text ~ __('à', 'Non-editable strings') ~ next_hour %}
 
 {% else %}
 
-    {% set status = __('Nous sommes', 'Non editable strings') ~ "<strong>" ~ status  = "</strong>" %}
     {% set text = schedules.closed_text is not empty ? schedules.closed_text : __('Nous sommes fermés' , 'Non-editable strings') %}
 
 {% endif %}
