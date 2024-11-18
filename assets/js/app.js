@@ -66,6 +66,10 @@ jQuery(function($) {
     $('.js--changePage').on('click', function() {
       $('body').attr('data-menu-page', $(this).attr('data-changePage'));
     });
+
+    $('.js--backPage').on('click', function() {
+      $('body').attr('data-menu-page', 'menu');
+    });
   }
 
   function load_order() {
