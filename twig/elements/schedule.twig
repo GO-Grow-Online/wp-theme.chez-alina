@@ -62,7 +62,7 @@
 
 {% else %}
 
-    {% set text = schedules.closed_text is not empty ? schedules.closed_text : __('Nous sommes momentanément fermés.' , 'Non-editable strings') %}
+    {% set text = schedules.is_closed_text is not empty ? schedules.is_closed_text : __('Nous sommes momentanément fermés.' , 'Non-editable strings') %}
 
 {% endif %}
 
