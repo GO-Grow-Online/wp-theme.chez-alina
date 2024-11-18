@@ -50,15 +50,15 @@
 
 {# Affichage de l'état du restaurant #}
 {% set status = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
-{% set text = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
 
 
 {# If Closed is true then set other strings #}
 {% if schedules.is_closed == false %}
 
+    {% set status = __('Nous sommes', 'Non editable strings') ~ "<strong>" ~ status  = "</strong>" %}
     {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
-    {% set text =  text ~ __('à', 'Non-editable strings') ~ next_hour %}
+    {% set text = text ~ __('à', 'Non-editable strings') ~ next_hour %}
 
 {% else %}
 
@@ -69,8 +69,8 @@
 <span class="realTime_schedule">
     <span class="realTime_schedule-btn btn {{ classes }}">
         <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
-        <span>{{ text }}</span>
+        <span>{{ status }}</span>
     </span>
 
-    <small></small>
+    <small>{{ text }}</small>
 </span>
