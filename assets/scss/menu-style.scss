@@ -260,21 +260,24 @@ $menu-pages : "menu", "order-method", "order-end";
             position: fixed;
             z-index: $ui;
             bottom: 0;
-            width: 100%;
+            width: 100vw;
 
             transform: translateY(0);
             transition: all $slow $bezier;
 
+            
             .js--backPage {
-                position: relative;
-                top: -3rem;
+                
+                position: absolute;
+                bottom: calc(100% + 2rem);
                 left: 50%;
 
                 pointer-events: none;
                 opacity: 0;
                 transform: translateY(15rem) translateX(-50%);
                 transition: all $slow $bezier;
-            }        
+            }  
+         
 
             &-nav {
                 display: flex;
