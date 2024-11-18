@@ -265,7 +265,7 @@ $menu-pages : "menu", "order-method", "order-end";
             transform: translateY(0);
             transition: all $slow $bezier;
 
-            .j--backPage {
+            .js--backPage {
                 position: fixed;
                 bottom: calc(100% + 5rem);
                 left: 50%;
