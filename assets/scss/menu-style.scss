@@ -266,7 +266,7 @@ $menu-pages : "menu", "order-method", "order-end";
             transition: all $slow $bezier;
 
             .js--backPage {
-                position: absolute;
+                position: relative;
                 top: -3rem;
                 left: 50%;
 
