@@ -62,6 +62,7 @@
 
 {% else %}
 
+    {% set status = __('Nous sommes', 'Non editable strings') ~ "<strong>" ~ status  = "</strong>" %}
     {% set text = schedules.closed_text is not empty ? schedules.closed_text : __('Nous sommes fermés' , 'Non-editable strings') %}
 
 {% endif %}
