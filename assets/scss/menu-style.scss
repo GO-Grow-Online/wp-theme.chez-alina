@@ -263,7 +263,7 @@ $menu-pages : "menu", "order-method", "order-end";
             width: 100vw;
 
             transform: translateY(0);
-            transition: all $slow $bezier;
+            transition: all ($slow * 2) $bezier;
 
             
             .js--backPage {
@@ -273,6 +273,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
                 pointer-events: none;
                 opacity: 0;
+
                 transform: translateY(15rem) translateX(-50%);
                 transition: all $slow $bezier;
             }  
