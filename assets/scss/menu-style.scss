@@ -590,7 +590,7 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &::before {
-            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/trash.svg);
+            background-image: url(wp-content/themes/wp-theme.chez-alina/assets/static/svg/icons/trash.svg);
 
             width: 4rem;
             height: 4rem;
@@ -600,7 +600,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
         &::after {
 
-            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/loading.svg);
+            background-image: url(wp-content/themes/wp-theme.chez-alina/assets/static/svg/icons/loading.svg);
 
             z-index: 10;
             width: 2rem;
