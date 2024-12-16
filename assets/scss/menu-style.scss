@@ -685,7 +685,7 @@ $menu-pages : "menu", "order-method", "order-end";
     }
 
     &.anim-deletion {
-        .orderList-content {
+        .orderList {
             &::after, &::before {
                 opacity: 1;
             }
