@@ -24,6 +24,11 @@
     transform: translateY(100%);
     pointer-events: none;
     transition: all $fast $bezier;
+
+    .btn-group {
+        margin-left: calc(var(--card-spacing) * -1);
+        width: calc(100% + (var(--card-spacing) * 2));
+    }
 }
 
 .cookie-banner > div[data-page] {
