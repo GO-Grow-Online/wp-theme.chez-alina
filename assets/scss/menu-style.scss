@@ -499,6 +499,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
         transform: translateY(5rem);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        filter: blur(0rem);
 
         transition: all $slow $bezier;
 
@@ -512,12 +513,13 @@ $menu-pages : "menu", "order-method", "order-end";
             top: 0;
             width: 100%;
 
-            background-color: $white;
             border-bottom: 2px solid $light;
         }
 
         &-content {
             overflow-y: scroll;
+            opacity: 1;
+            transition: all $slow $bezier;
         }
 
         &-actions {
@@ -551,6 +553,9 @@ $menu-pages : "menu", "order-method", "order-end";
             justify-content: space-between;
 
             background-color: $light;
+
+            opacity: 1;
+            transition: all $slow $bezier;
             
             p {
                 margin: 0;
@@ -608,7 +613,7 @@ $menu-pages : "menu", "order-method", "order-end";
             width: 2rem;
             height: 2rem;
             left: calc(50% - 1rem);
-            top: calc(50% - 1rem);
+            top: calc(50% - 6rem);
         }
     }
 
@@ -698,6 +703,13 @@ $menu-pages : "menu", "order-method", "order-end";
         .orderList {
             &::after, &::before {
                 opacity: 1;
+            }
+
+            filter: blur(.5rem);
+            background-color: #bdbdbd;
+
+            &-total, &-content {
+                opacity: .5;
             }
         }
     }
