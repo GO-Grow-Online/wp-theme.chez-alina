@@ -592,23 +592,23 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &::before {
+            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/trash.svg);
+
             width: 4rem;
             height: 4rem;
             left: calc(50% - 2rem);
             top: calc(50% - 2rem);
-
-            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/trash.svg);
         }
 
         &::after {
 
             background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/loading.svg);
 
-            left: calc(50% - 1rem);
-            top: calc(50% - 1rem);
             z-index: 10;
             width: 2rem;
             height: 2rem;
+            left: calc(50% - 1rem);
+            top: calc(50% - 1rem);
         }
     }
 
@@ -698,7 +698,6 @@ $menu-pages : "menu", "order-method", "order-end";
         .orderList {
             &::after, &::before {
                 opacity: 1;
-                scale: 1;
             }
         }
     }
