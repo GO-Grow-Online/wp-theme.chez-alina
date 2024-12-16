@@ -46,7 +46,10 @@
             {% for schedule in schedules[next_day] %}
                 {% if schedule.opening is not empty %}
                     {% set next_hour = schedule.opening %}
-                    {% break %} {# S'arrête après le premier horaire trouvé #}
+                    {% set loop_break = true %} {# S'arrête après le premier horaire trouvé #}
+                {% endif %}
+                {% if loop_break %}
+                    {% break %}
                 {% endif %}
             {% endfor %}
         {% endif %}
