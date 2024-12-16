@@ -596,6 +596,8 @@ $menu-pages : "menu", "order-method", "order-end";
             height: 4rem;
             left: calc(50% - 2rem);
             top: calc(50% - 2rem);
+
+            animation: jump .4 ease infinite alternate-reverse;
         }
 
         &::after {
