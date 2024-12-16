@@ -594,11 +594,11 @@ $menu-pages : "menu", "order-method", "order-end";
 
         &::before {
             background-image: url("/wp-content/themes/wp-theme.chez-alina/assets/static/icons/trash.svg");
-            background-size: 80%;
+            background-size: 30%;
             background-repeat: no-repeat;
             background-position: center;
 
-            animation: jump .5s ease alternate infinite;
+            animation: jump .3s ease alternate infinite;
         }
     }
 
