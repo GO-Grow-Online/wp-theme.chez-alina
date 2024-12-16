@@ -572,12 +572,6 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
             }
         }
-
-        @keyframes jump {
-            0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
-            40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
-            100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
-        }  
         
         &::after, &::before {
             content: "";
@@ -600,7 +594,7 @@ $menu-pages : "menu", "order-method", "order-end";
             width: var(--icon-size);
             height: var(--icon-size);
             left: calc(50% - (var(--icon-size) * 0.5));
-            top: calc(50% - (var(--icon-size) * 0.5));
+            top: calc(50% - (var(--icon-size) * 0.5) - 1rem);
 
             animation: jump .5s ease infinite alternate-reverse;
         }
