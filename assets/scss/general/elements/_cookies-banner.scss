@@ -26,6 +26,10 @@
     pointer-events: none;
     transition: all $fast $bezier;
 
+    #cookie-consent-label-necessary {
+        pointer-events: none;
+    }
+
     .btn-group {
         margin-left: calc(var(--card-spacing) * -1);
         margin-bottom: calc(var(--card-spacing) * -1);

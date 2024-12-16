@@ -415,7 +415,7 @@ class StarterSite extends Site {
 			array(
 				'slug' => 'necessary', 
 				'title' => __("Nécessaire", "Cookie-banner"), 
-				'infos' => __("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Si ces cookies ne sont pas acceptés, ce pop-up ne se fermera jamais définitivement étant donné que vous n'aurez pas consenti à ce que nous enregistrons votre choix concernant les cookies relatifs au fonctionnement du site.", 'Cookie-banner'),
+				'infos' => __("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.", 'Cookie-banner'),
 			),
 			array(
 				'slug' => 'analytics', 
