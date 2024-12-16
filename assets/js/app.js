@@ -319,6 +319,7 @@ jQuery(function($) {
     });
 
     $('.nav_cat-nav').scroll(function (event) {
+      console.log('not-scrolled removed');
       $(this).removeClass('not-scrolled');
     });
   }
