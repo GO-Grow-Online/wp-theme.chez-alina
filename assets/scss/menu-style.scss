@@ -517,6 +517,7 @@ $menu-pages : "menu", "order-method", "order-end";
     }
 
     .menu-cat {
+        margin-bottom: var(--menu-sp);
         transform: inherit;
         transition: transform $fast $bezier;
     }
