@@ -449,7 +449,7 @@ $menu-pages : "menu", "order-method", "order-end";
                     background-image: url(../static/svg/icons/chevron-right.svg);
                     background-position: center;
                     background-size: var(--icon-size) var(--icon-size);
-                    background-repeat: none;
+                    background-repeat: no-repeat;
                 }
 
                 &::before {
