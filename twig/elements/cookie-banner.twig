@@ -29,7 +29,7 @@
             {% for type in cookies_types %}
             <li class="cookie-banner-option">
                 <p>
-                    <input type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
+                    <input {% is type == "necessary" %}checked{% endif %} type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
                     <label for="cookie-consent-{{ type.slug }}" id="cookie-consent-label-{{ type.slug }}">{{ type.title }}</label> <br>
                     <small>{{ type.infos }}</small>
                 </p>
@@ -38,8 +38,8 @@
         </ul>
         
         <div class="cookie-banner-options btn-group">
-            <button class="btn btn-white js--toWelcomeCookies">{{ __("Retour", 'Cookie-banner') }}</button>
-            <button class="btn btn-primary js--acceptSelectedCookies js--close" data-close="cookie-banner">{{ __("Accepter les cookies sélectionnés", 'Cookie-banner') }}</button>
+            <button class="btn btn-full js--toWelcomeCookies">{{ __("Retour", 'Cookie-banner') }}</button>
+            <button class="btn btn-full js--acceptSelectedCookies js--close" data-close="cookie-banner">{{ __("Accepter les cookies sélectionnés", 'Cookie-banner') }}</button>
         </div>
     </div>
 
