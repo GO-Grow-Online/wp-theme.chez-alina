@@ -37,7 +37,7 @@
 {% endif %}
 
 {# Fallback to the next day's opening time if no more openings today #}
-{% if not is_open and next_hour is null %}
+{% if not is_open and next_hour is empty %}
     test
     {% for i in range(1, 7) %}
         {% if next_hour is empty %}
