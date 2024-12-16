@@ -217,6 +217,7 @@ $menu-pages : "menu", "order-method", "order-end";
             justify-self: flex-start;
             position: relative;
             width: auto;
+            text-transform: uppercase;
 
             max-width: calc(100% - 6rem);
         }
