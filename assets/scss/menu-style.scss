@@ -451,6 +451,8 @@ $menu-pages : "menu", "order-method", "order-end";
                     background-position: center;
                     background-size: var(--icon-size) var(--icon-size);
                     background-repeat: no-repeat;
+
+                    animation: bounce-right 3s infinite ease;
                 }
 
                 &::before {
