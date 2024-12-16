@@ -602,7 +602,7 @@ $menu-pages : "menu", "order-method", "order-end";
         &::after {
 
             background-image: url(../static/svg/icons/loading.svg);
-            animation: loading .5s ease infinite alternate-reverse;
+            animation: loading .5s linear infinite;
 
             z-index: 10;
             width: 6rem;
