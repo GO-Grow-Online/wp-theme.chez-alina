@@ -432,6 +432,9 @@ $menu-pages : "menu", "order-method", "order-end";
 
             transition: all $slow $bezier;
 
+            & > p {
+                margin-top: 0.4rem;
+            }
             
             &-nav {
 
