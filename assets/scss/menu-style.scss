@@ -695,10 +695,10 @@ $menu-pages : "menu", "order-method", "order-end";
             animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
         }
 
-        .orderList-content, .orderList-total {
-            animation-name: del-progress-order;
-            animation-duration: 4s;
-            animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+        .orderList-content {
+            &::after, &::before {
+                opacity: 1;
+            }
         }
     }
 }
