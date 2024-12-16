@@ -574,7 +574,7 @@ $menu-pages : "menu", "order-method", "order-end";
             100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
         }  
         
-        &::after, &::before {
+        &::before {
             content: "";
             position: absolute;
             left: calc(50% - 2rem);
@@ -585,20 +585,19 @@ $menu-pages : "menu", "order-method", "order-end";
             pointer-events: none;
             opacity: 0;
 
-        }
+            scale: .5;
 
-        &::after {
-            background-color: #00000048;
-            border-radius: $round;
+            transition: all $fast $bezier;
+
         }
 
         &::before {
             background-image: url("/wp-content/themes/wp-theme.chez-alina/assets/static/icons/trash.svg");
             background-size: 30%;
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: 50% 20%;
 
-            animation: jump .3s ease alternate infinite;
+            animation: jump .4s ease alternate infinite;
         }
     }
 
@@ -688,6 +687,7 @@ $menu-pages : "menu", "order-method", "order-end";
         .orderList {
             &::after, &::before {
                 opacity: 1;
+                scale: 1;
             }
         }
     }
