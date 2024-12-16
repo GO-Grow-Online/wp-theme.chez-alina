@@ -442,17 +442,21 @@ $menu-pages : "menu", "order-method", "order-end";
                     right: 0;
                     aspect-ratio: 1/1;
                     height: 100%;
+
                 }
                 
                 &::after {
                     background-image: url(../static/svg/icons/chevron-right.svg);
                     background-position: center;
                     background-size: var(--icon-size) var(--icon-size);
+                    background-repeat: none;
                 }
 
                 &::before {
                     background-color: linear-gradient(transparent, #0000002a);
                 }
+
+                position: relative;
 
                 overflow-x: scroll;
 
