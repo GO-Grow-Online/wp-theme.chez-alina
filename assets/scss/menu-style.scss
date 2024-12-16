@@ -443,6 +443,7 @@ $menu-pages : "menu", "order-method", "order-end";
                     aspect-ratio: 1/1;
                     height: 100%;
 
+                    z-index: 5;
                 }
                 
                 &::after {
@@ -454,6 +455,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
                 &::before {
                     background: linear-gradient(ro right, transparent 0%, #0000002a 100%);
+                    z-index: 4;
                 }
 
                 position: relative;
