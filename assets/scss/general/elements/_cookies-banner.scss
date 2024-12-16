@@ -27,6 +27,7 @@
 
     .btn-group {
         margin-left: calc(var(--card-spacing) * -1);
+        margin-bottom: calc(var(--card-spacing) * -1);
         width: calc(100% + (var(--card-spacing) * 2));
 
         padding: 0;
