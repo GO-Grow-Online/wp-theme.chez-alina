@@ -38,7 +38,6 @@
 
 {# Fallback to the next day's opening time if no more openings today #}
 {% if not is_open and next_hour is empty %}
-    test
     {% for i in range(1, 7) %}
         {% if next_hour is empty %}
         {% set next_day = day_slug[(current_day_num % 7) + i] %}
