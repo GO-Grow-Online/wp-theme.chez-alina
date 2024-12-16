@@ -448,8 +448,9 @@ $menu-pages : "menu", "order-method", "order-end";
                     pointer-events: none;
 
                     opacity: 0;
+                    transform: translateX(3rem);
 
-                    transition: opacity $fast $bezier;
+                    transition: all $fast $bezier;
                 }
                 
                 &::after {
@@ -469,6 +470,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 &.not-scrolled {
                     &::before, &::after {
                         opacity: 1;
+                        transform: translateX(0rem);
                     }
                 }
 
