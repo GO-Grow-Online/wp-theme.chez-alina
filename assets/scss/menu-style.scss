@@ -448,6 +448,8 @@ $menu-pages : "menu", "order-method", "order-end";
                     pointer-events: none;
 
                     opacity: 0;
+
+                    transition: opacity $fast $bezier;
                 }
                 
                 &::after {
