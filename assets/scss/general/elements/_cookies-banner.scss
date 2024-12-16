@@ -8,13 +8,14 @@
     position: fixed;
     left: 0;
     bottom: var(--header-b-nav-height);
-    z-index: 15;
+    z-index: 100;
 
     display: flex!important;
 
     width: 100vw;
     max-width: 550px;
     height: auto;
+    
 
     opacity: 0;
 
