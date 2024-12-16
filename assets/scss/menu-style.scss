@@ -453,7 +453,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
 
                 &::before {
-                    background-color: linear-gradient(transparent, #0000002a);
+                    background: linear-gradient(ro right, transparent 0%, #0000002a 100%);
                 }
 
                 position: relative;
