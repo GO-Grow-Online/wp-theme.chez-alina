@@ -218,6 +218,7 @@ $menu-pages : "menu", "order-method", "order-end";
             position: relative;
             width: auto;
             text-transform: uppercase;
+            font-weight: 600;
 
             max-width: calc(100% - 6rem);
         }
