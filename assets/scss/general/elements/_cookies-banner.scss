@@ -10,9 +10,11 @@
     bottom: var(--header-b-nav-height);
     z-index: 10000;
 
+    margin: calc(var(--menu-sp) * 0.5);
+
     display: flex!important;
 
-    width: calc(100vw - (var(--sec-sp-x) * 2));
+    width: 100%;
     max-width: 550px;
     height: auto;
     
