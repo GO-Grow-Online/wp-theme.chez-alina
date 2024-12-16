@@ -6,6 +6,7 @@
 
 .cookie-banner.card.card-body {
     position: fixed;
+    overflow: hidden;
     left: 0;
     bottom: var(--header-b-nav-height);
     z-index: 10000;
@@ -32,7 +33,9 @@
 
         padding: 0;
 
-        gap: 0;
+        background-color: $light;
+
+        gap: 1px;
         justify-content: stretch;
 
         .btn {
