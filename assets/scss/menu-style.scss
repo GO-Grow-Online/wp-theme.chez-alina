@@ -574,29 +574,41 @@ $menu-pages : "menu", "order-method", "order-end";
             100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
         }  
         
-        &::before {
+        &::after, &::before {
             content: "";
             position: absolute;
-            left: calc(50% - 2rem);
-            top: calc(50% - 2rem);
             z-index: 10;
-            width: 4rem;
-            height: 4rem;
             pointer-events: none;
             opacity: 0;
 
             scale: .5;
 
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
             transition: all $fast $bezier;
+
         }
 
         &::before {
-            background-image: url("/wp-content/themes/wp-theme.chez-alina/assets/static/icons/trash.svg");
-            background-size: 30%;
-            background-repeat: no-repeat;
-            background-position: 50% 20%;
+            width: 4rem;
+            height: 4rem;
+            left: calc(50% - 2rem);
+            top: calc(50% - 2rem);
 
-            animation: jump .4s ease alternate infinite;
+            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/trash.svg);
+        }
+
+        &::after {
+
+            background-image: url(wp-content/themes/wp-theme.chez-alina/static/svg/icons/loading.svg);
+
+            left: calc(50% - 1rem);
+            top: calc(50% - 1rem);
+            z-index: 10;
+            width: 2rem;
+            height: 2rem;
         }
     }
 
