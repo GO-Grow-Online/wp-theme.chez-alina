@@ -700,13 +700,13 @@ $menu-pages : "menu", "order-method", "order-end";
     }
 
     &.anim-deletion {
+
         .orderList {
+            background-color: #bdbdbd;
+ 
             &::after, &::before {
                 opacity: 1;
             }
-
-            filter: blur(.5rem);
-            background-color: #bdbdbd;
 
             &-total, &-content {
                 opacity: .5;
