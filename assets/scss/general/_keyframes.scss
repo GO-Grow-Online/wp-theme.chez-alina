@@ -42,7 +42,7 @@ $animation-transition-fast : 0.3s;
 
 @keyframes bounce-right {
     0%   {transform: translateX(0);}
-    10%  {transform: translateX(3rem);}
+    10%  {transform: translateX(1rem);}
     20% {transform: translateX(0); }
     100% {transform: translateX(0); }
 }
