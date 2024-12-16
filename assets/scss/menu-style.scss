@@ -212,19 +212,6 @@ $menu-pages : "menu", "order-method", "order-end";
 
         & > p { margin: 0; padding-top: 0.2rem; }
 
-        button { 
-            padding: 0; 
-            border: none; 
-            width: auto; 
-            color: $primary;
-            width: 3rem;
-
-            .icon {
-                width: calc(var(--icon-size) * 0.75);
-                height: calc(var(--icon-size) * 0.75);
-            }
-        }
-
         &-name {
             order: 1;
             justify-self: flex-start;
@@ -238,6 +225,22 @@ $menu-pages : "menu", "order-method", "order-end";
             margin-left: auto;
             font-weight: $bold;
             width: 3rem;
+            order: 2;
+        }
+
+        button { 
+            padding: 0; 
+            border: none; 
+            width: auto; 
+            color: $primary;
+            width: 3rem;
+
+            order: 3;
+
+            .icon {
+                width: calc(var(--icon-size) * 0.75);
+                height: calc(var(--icon-size) * 0.75);
+            }
         }
 
         &:has(.product-info) {
