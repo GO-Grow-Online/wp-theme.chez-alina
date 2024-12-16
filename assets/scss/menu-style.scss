@@ -570,12 +570,8 @@ $menu-pages : "menu", "order-method", "order-end";
 
         @keyframes jump {
             0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
-            10%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
-            30% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
-            50%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
-            60%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
-            100%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
-
+            40%  {transform: translate3d(0,30%,0) scale3d(.7,1.5,1);}
+            100% {transform: translate3d(0,100%,0) scale3d(1.5,.7,1);}
         }  
         
         &::after, &::before {
@@ -583,7 +579,7 @@ $menu-pages : "menu", "order-method", "order-end";
             position: absolute;
             left: calc(50% - 2rem);
             top: calc(50% - 2rem);
-            z-index: 1;
+            z-index: 10;
             width: 4rem;
             height: 4rem;
             pointer-events: none;
@@ -689,12 +685,6 @@ $menu-pages : "menu", "order-method", "order-end";
     }
 
     &.anim-deletion {
-        .js--deleteOrder {
-            animation-name: del-progress-btn;
-            animation-duration: 4s;
-            animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-        }
-
         .orderList-content {
             &::after, &::before {
                 opacity: 1;
