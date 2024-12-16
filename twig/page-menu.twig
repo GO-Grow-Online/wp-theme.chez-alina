@@ -32,7 +32,7 @@
             <span class="nav_main-command-empty">{{ __('Commande vide...', 'Non-editable strings') }}</span>
             <span class="nav_main-command-ready">{{ __('Je commande !', 'Non-editable strings') }}</span>
         </button>
-        <ul class="nav_main-nav">
+        <ul class="nav_main-nav not-scolled">
             <!--li class="nav_main-nav-item">
                 <a href="&schedule_open=true" class="link-icon link-icon--column">
                     <span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
@@ -104,7 +104,7 @@
 
             <h2 class="menu-cat-title h2-icon"><span class="icon icon-big">{{ get_svg(category.icon) }}</span> {{ category.name }}</h2>
             
-            <ul class="menu-cat-list not-scrolled">
+            <ul class="menu-cat-list">
                 {% set product_id = cat_id ~ '-0' %}
                 {% for product in category.products %}
 
