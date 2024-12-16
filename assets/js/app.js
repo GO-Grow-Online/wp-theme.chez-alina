@@ -317,6 +317,10 @@ jQuery(function($) {
         $('body').removeClass('scrolled');
       }
     });
+
+    $('.nav_cat-nav').scroll(function (event) {
+      $(this).removeClass('not-scrolled');
+    });
   }
   
   function open_stuff() {
