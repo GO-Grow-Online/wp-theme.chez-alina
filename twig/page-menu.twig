@@ -105,7 +105,7 @@
             <h2 class="menu-cat-title h2-icon"><span class="icon icon-big">{{ get_svg(category.icon) }}</span> {{ category.name }}</h2>
             
             <ul class="menu-cat-list">
-                {% set product_id = cat_id + 0.1 %}
+                {% set product_id = cat_id ~ '-0' %}
                 {% for product in category.products %}
 
                 {% set string_id = product_id|replace({'.': '-'}) %}
@@ -121,7 +121,7 @@
                     <button class="js--addProduct" data-product="{{ string_id }}" aria-label="{{ __('Ajouter une unité à la commande', 'Non-editable strings') }}"><span class="icon">{% include "assets/static/svg/icons/plus.svg" %}</span></button>
                 </li>
 
-                {% set product_id = product_id + 0.1 %}
+                {% set product_id = cat_id ~ '-' ~ loop.index %}
                 {% endfor %}
             </ul>
         </div>
