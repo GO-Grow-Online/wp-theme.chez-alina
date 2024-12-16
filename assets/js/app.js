@@ -105,7 +105,7 @@ jQuery(function($) {
             let newItem = "<li class='orderList-cat-product product show-units' data-product='" + product.id + "'>" +
                             "<p class='product-name'>" + product.name + " (" + product.price + "€)" +
                             "<span class='units'>" + product.number + "</span></p>" +
-                            "<p class='price'>" + (product.price * product.number) + "€</p>" +
+                            "<p class='price'>" + (Math.round(((product.price * product.number) + Number.EPSILON) * 100) / 100) + "€</p>" +
                             "<button class='js--removeProduct' data-product='" + product.id + "' aria-label='Retirer une unité de la commande'><span class='icon'><svg xmlns='http://www.w3.org/2000/svg' fill='currentColor' viewBox='0 0 448 512'><path d='M432 280l-24 0L40 280l-24 0 0-48 24 0 368 0 24 0 0 48z'/></svg></span></button>" +
                           "</li>";
 
@@ -122,7 +122,7 @@ jQuery(function($) {
       $('.orderList-content').html(html);
 
       var html = "<p class='uppercase'>TOTAL</p>" +
-                "<p class='price'>" + total_price + "€</p>";
+                "<p class='price'>" + Math.round((total_price + Number.EPSILON) * 100) / 100 + "€</p>";
 
 
                 
@@ -253,7 +253,7 @@ jQuery(function($) {
 
   function smooth_scroll() {
     
-    var scroll_duration = 500; // Trasition duration
+    var scroll_duration = 500; // Transition duration
     var space_from_top = ($(window).height() / 4);
     
     // Smooth scroll on anchor link click
