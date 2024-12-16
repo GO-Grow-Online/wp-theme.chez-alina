@@ -41,8 +41,10 @@
         {% set next_day = day_slug[(current_day_num % 7) + i] %}
         {% if schedules[next_day] is not empty %}
             {% set next_hour = schedules[next_day][0].opening %}
+            {{ next_hour }}
         {% endif %}
         {% endif %}
+
     {% endfor %}
 {% endif %}
 
