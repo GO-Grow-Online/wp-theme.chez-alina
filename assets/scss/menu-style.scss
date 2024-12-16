@@ -444,6 +444,10 @@ $menu-pages : "menu", "order-method", "order-end";
                     height: 100%;
 
                     z-index: 5;
+
+                    pointer-events: none;
+
+                    opacity: 0;
                 }
                 
                 &::after {
@@ -456,8 +460,14 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
 
                 &::before {
-                    background: linear-gradient(to right, transparent 0%, #ffffff80 50%, #ffffff9f 100%);
+                    background: linear-gradient(to right, transparent 0%, #ffffff80 50%, #fff 100%);
                     z-index: 4;
+                }
+
+                &.not-scrolled {
+                    &::before, &::after {
+                        opacity: 1;
+                    }
                 }
 
                 position: relative;
