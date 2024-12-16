@@ -36,9 +36,17 @@
 
 {# Fallback to the next day's opening time if no more openings today #}
 {% if not is_open and next_hour is null %}
-    {% set next_day = day_slug[(current_day_num % 7) + 1] %}
+    {% set next_day_num = (current_day_num % 7) + 1 %}
+    {% set next_day = day_slug[next_day_num] %}
+    
+    {# Vérifie si le jour suivant a des horaires définis #}
     {% if schedules[next_day] is not empty %}
-        {% set next_hour = schedules[next_day][0].opening %}
+        {% for schedule in schedules[next_day] %}
+            {% if schedule.opening is not empty %}
+                {% set next_hour = schedule.opening %}
+                {% break %} {# Sors de la boucle une fois le premier horaire trouvé #}
+            {% endif %}
+        {% endfor %}
     {% endif %}
 {% endif %}
 
