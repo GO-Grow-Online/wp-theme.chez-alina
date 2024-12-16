@@ -29,7 +29,7 @@
             {% for type in cookies_types %}
             <li class="cookie-banner-option">
                 <p>
-                    <input {% is type == "necessary" %}checked{% endif %} type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
+                    <input {% if type == "necessary" %}checked{% endif %} type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
                     <label for="cookie-consent-{{ type.slug }}" id="cookie-consent-label-{{ type.slug }}">{{ type.title }}</label> <br>
                     <small>{{ type.infos }}</small>
                 </p>
