@@ -28,6 +28,17 @@
     .btn-group {
         margin-left: calc(var(--card-spacing) * -1);
         width: calc(100% + (var(--card-spacing) * 2));
+
+        justify-content: stretch;
+
+        .btn-primary {
+            background-color: $primary;
+            color: $white;
+        }
+
+        .btn-white {
+            background-color: $white;
+        }
     }
 }
 
