@@ -697,14 +697,13 @@ $menu-pages : "menu", "order-method", "order-end";
     &.anim-deletion {
 
         .orderList {
-            background-color: #bdbdbd;
  
             &::after, &::before {
                 opacity: 1;
             }
 
             &-total, &-content {
-                opacity: .5;
+                opacity: 0;
             }
         }
     }
