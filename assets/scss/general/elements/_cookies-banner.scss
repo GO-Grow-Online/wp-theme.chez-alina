@@ -29,7 +29,12 @@
         margin-left: calc(var(--card-spacing) * -1);
         width: calc(100% + (var(--card-spacing) * 2));
 
+        gap: 0;
         justify-content: stretch;
+
+        .btn {
+            padding: 0.5rem 0.75rem;
+        }
 
         .btn-primary {
             background-color: $primary;
