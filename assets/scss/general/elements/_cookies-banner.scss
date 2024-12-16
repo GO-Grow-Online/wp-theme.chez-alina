@@ -12,7 +12,7 @@
 
     display: flex!important;
 
-    width: 100vw;
+    width: calc(100vw - (var(--sec-sp-x) * 2));
     max-width: 550px;
     height: auto;
     
