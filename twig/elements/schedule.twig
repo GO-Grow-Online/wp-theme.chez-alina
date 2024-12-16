@@ -1,5 +1,3 @@
-{% if schedules.is_closed == false %}
-
 {% set current_day_num = "now"|date("N") %}
 {% set current_time = "now"|date("H:i") %}
 
@@ -12,6 +10,9 @@
     6: "saturday",
     7: "sunday"
 } %}
+
+
+{% if schedules.is_closed == false %}
 
 {# Check if today's day is open or not #}
 {% set is_open = false %}
@@ -39,9 +40,6 @@
     {% for i in range(1, 7) %}
         {% if next_hour is empty %}
         {% set next_day = day_slug[(current_day_num % 7) + i] %}
-        {{ dump(next_day) }}
-
-        {{ dump(schedules[next_day]) }}
         {% if schedules[next_day] is not empty %}
             {% set next_hour = schedules[next_day][0].opening %}
         {% endif %}
@@ -54,6 +52,10 @@
 {# If "Is closed" condition is checked, set bool to false and ignore the precedent data recuperation method #}
 {% set is_open = false %}
 {% endif %}
+
+
+
+
 
 
 {# Affichage de l'état du restaurant #}
