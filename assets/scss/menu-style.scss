@@ -432,7 +432,21 @@ $menu-pages : "menu", "order-method", "order-end";
 
             transition: all $slow $bezier;
 
+            
             &-nav {
+                
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    aspect-ratio: 1/1;
+                    height: 100;
+
+                    background-image: url(../static/svg/icons/chevron-right.svg), linear-gradient(to right, transparent, #00000036);
+                    background-position: center;
+                    background-size: var(--icon-size) var(--icon-size);
+                }
 
                 overflow-x: scroll;
 
