@@ -257,7 +257,7 @@ add_filter('get_twig', function($twig) {
     return $twig;
 });
 
-$lang_test = __('test');
+echo pll('test');
 
 
 
