@@ -54,12 +54,7 @@
                 <ul class="language-switcher">
                     {% for code, language in polylang_languages %}
 					<li class="{{ language.current ? 'current-lang' : '' }}">
-                        <a href="{{ language.url }}">
-							{% if language.flag %}
-                            <img src="{{ language.flag }}" alt="{{ language.name }}">
-							{% endif %}
-							{{ language.name }}
-						</a>
+                        <a href="{{ language.url }}">{{ language.name }}</a>
 					</li>
                     {% endfor %}
                 </ul>
