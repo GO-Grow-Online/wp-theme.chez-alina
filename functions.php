@@ -257,6 +257,41 @@ add_filter('get_twig', function($twig) {
     return $twig;
 });
 
+// functions.php
+add_action('init', function() {
+    $strings_to_translate = [
+        'Bienvenue',
+        'Itinéraire',
+        'Nos horaires',
+        'Réalisé par',
+        'Retour au menu',
+        'Retour',
+        'Commande vide...',
+        'Je commande !',
+        'Catégories',
+        'Votre commande',
+        'Fermer',
+        'Ajouter une unité à la commande',
+        'Menu',
+        'Dressez votre commande !',
+        'Aller sur place',
+        'En savoir plus',
+        'fermé',
+        'Nous sommes ',
+        ' à ',
+        'Nous sommes momentanément fermés.',
+        'Logo de',
+        'Passer commande',
+        'Horaires',
+		'Ouvrir/fermer le menu'
+    ];
+
+    foreach ($strings_to_translate as $string) {
+        pll_register_string('Mon Thème', $string, 'Mon Groupe');
+    }
+});
+
+
 
 // Remove ALL inline styles from front-end
 add_action( 'wp_enqueue_scripts', function() {
