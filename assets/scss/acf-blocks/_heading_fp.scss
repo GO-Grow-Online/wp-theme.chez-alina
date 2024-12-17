@@ -64,7 +64,7 @@
 
         .social-links {
             order: -1;
-            margin-bottom: calc(var(--card-spacing) * 2);
+            margin-bottom: var(--card-spacing);
         }
     }
 
