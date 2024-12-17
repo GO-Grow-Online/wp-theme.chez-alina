@@ -588,8 +588,14 @@ $menu-pages : "menu", "order-method", "order-end";
             background-color: $white;
         }
 
-        &-cat  > .uppercase {
-            margin: 0;
+        &-cat {
+            .product-name {
+                width: calc(100% - 7rem)!important;
+                margin-right: 1rem;
+            }
+            & > .uppercase {
+                margin: 0;
+            }
         }
 
         &-total {
