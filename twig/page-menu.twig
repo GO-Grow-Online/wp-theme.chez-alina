@@ -46,15 +46,16 @@
                 </a>
             </li>
 
-            <li>
+            <li class="nav_main-nav-lang">
 
                 {{ current_language }}
 
                 {% if polylang_languages|length > 0 %}
-                <ul class="language-switcher">
+                <ul class="lang-dropdown">
                     {% for code, language in polylang_languages %}
-                    {% if not language.current %}
-					<li class="{{ language.current ? 'current-lang' : '' }}">
+                    {{ dump(language.current) }}
+                    {% if language.current == false %}
+					<li class="lang-dropdown-item">
                         <a href="{{ language.url }}">{{ language.name }}</a>
 					</li>
                     {% endif %}
