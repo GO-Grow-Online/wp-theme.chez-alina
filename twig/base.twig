@@ -9,6 +9,22 @@
 
 		{% block header %}
 
+		{% if polylang_languages|length > 0 %}
+			<ul class="language-switcher">
+				{% for code, language in polylang_languages %}
+					<li class="{{ language.current ? 'current-lang' : '' }}">
+						<a href="{{ language.url }}">
+							{% if language.flag %}
+								<img src="{{ language.flag }}" alt="{{ language.name }}">
+							{% endif %}
+							{{ language.name }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+
 		{% include "elements/cookie-banner.twig" %}
 		
 		{% endblock %}

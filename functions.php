@@ -218,6 +218,39 @@ remove_filter('the_content_feed', 'wp_staticize_emoji');
 remove_filter('comment_text_rss', 'wp_staticize_emoji');
 
 
+function get_polylang_languages() {
+    if (function_exists('pll_the_languages')) {
+        $languages = pll_the_languages([
+            'raw' => true,
+            'show_flags' => 1,
+            'show_names' => 1,
+            'hide_if_empty' => 0
+        ]);
+        return $languages;
+    }
+    return [];
+}
+
+// Rendre la fonction accessible dans Timber
+add_filter('timber/context', function($context) {
+    $context['polylang_languages'] = get_polylang_languages();
+    return $context;
+});
+
+function get_current_language() {
+    if (function_exists('pll_current_language')) {
+        return pll_current_language('name'); // 'name' retourne le nom complet, 'slug' retourne le code
+    }
+    return '';
+}
+
+add_filter('timber/context', function($context) {
+    $context['current_language'] = get_current_language();
+    return $context;
+});
+
+
+
 // Remove ALL inline styles from front-end
 add_action( 'wp_enqueue_scripts', function() {
   // https://github.com/WordPress/gutenberg/issues/36834
