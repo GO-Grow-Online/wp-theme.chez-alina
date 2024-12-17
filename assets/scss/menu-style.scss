@@ -523,7 +523,7 @@ $menu-pages : "menu", "order-method", "order-end";
         transition: transform $fast $bezier;
 
         &:last-child {
-            margin-bottom: calc((var(--menu-sp) * 3) + var(--command-btn-height));
+            margin-bottom: calc((var(--menu-sp) * 7) + var(--command-btn-height));
         }
     }
 
