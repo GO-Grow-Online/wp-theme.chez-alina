@@ -240,9 +240,6 @@ $list-sp : var(--card-spacing);
     gap: calc($list-sp  * 0.5);
     flex-wrap: wrap;
 
-    background-color: $light;
-    border-radius: $round;
-
     margin-top: $list-sp;
     margin-left: -0.5rem;
 
