@@ -296,6 +296,10 @@ add_action('init', function() {
 		'Téléphoner',
 		"Votre commande reste disponible, il vous suffit de revenir sur votre navigateur afin de la visualiser.",
 		"Compris",
+		"Accepter les cookies sélectionnés",
+		"Nécessaire",
+		"Analitics",
+		"Marketing",
     ];
 
     foreach ($strings_to_translate as $string) {
