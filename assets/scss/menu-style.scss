@@ -210,7 +210,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
         &:not(:last-child) { border-bottom: 4px dotted $light; }
 
-        & > p { margin: 0; padding-top: 0.2rem; }
+        & > p { margin: 0; padding-top: 0.75rem; }
 
         &-name {
             order: 1;
@@ -521,6 +521,10 @@ $menu-pages : "menu", "order-method", "order-end";
         margin-bottom: var(--menu-sp);
         transform: inherit;
         transition: transform $fast $bezier;
+
+        &:last-child {
+            margin-bottom: calc((var(--menu-sp) * 3) + var(--command-btn-height));
+        }
     }
 
 
@@ -564,6 +568,8 @@ $menu-pages : "menu", "order-method", "order-end";
             top: 0;
             width: 100%;
 
+            background-color: $white;
+
             border-bottom: 2px solid $light;
         }
 
@@ -574,6 +580,10 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &-actions {
+
+            -webkit-user-select: none; /* Pour Safari et iOS */
+            -ms-user-select: none;     /* Pour Internet Explorer */
+            user-select: none;         /* Standard */
 
             border-top: 2px solid $light;
 
