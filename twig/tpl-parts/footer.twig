@@ -5,7 +5,7 @@
         <div>
             {% set logo = g.logo %}
             <a href="{{ site.link }}" class="footer-logo">
-                <img src="{{ g.logo.url }}" width="200" height="40" alt="{{ __('Logo de', 'Non-editable strings') }} {{ g.name }}">
+                <img src="{{ g.logo.url }}" width="200" height="40" alt="{{ pll('Logo de') }} {{ g.name }}">
             </a>
             {% include 'elements/social-links.twig' %}
         </div>
@@ -92,7 +92,7 @@
             {% endif %}
 
             <a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
-                {{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+                {{ pll('Réalisé par') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
             </a>
         </p>
     </div>

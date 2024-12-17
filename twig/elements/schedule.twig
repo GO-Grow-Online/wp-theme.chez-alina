@@ -60,20 +60,20 @@
 
 
 {# Affichage de l'état du restaurant #}
-{% set status = is_open ? __('ouvert', 'Non-editable strings') : __('fermé', 'Non-editable strings') %}
+{% set status = is_open ? pll('ouvert') : pll('fermé') %}
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
-{% set status = __('Nous sommes ', 'Non editable strings') ~ "<strong>" ~ status  ~ "</strong>" %}
+{% set status = pll('Nous sommes ', 'Non editable strings') ~ "<strong>" ~ status  ~ "</strong>" %}
 
 
 {# If Closed is true then set other strings #}
 {% if schedules.is_closed == false %}
 
-    {% set text = is_open ? __("Fermeture", 'Non-editable strings') : __("Ouverture", 'Non-editable strings') %}
-    {% set text = text ~ __(' à ', 'Non-editable strings') ~ next_hour %}
+    {% set text = is_open ? __("Fermeture") : __("Ouverture") %}
+    {% set text = text ~ pll(' à ') ~ next_hour %}
 
 {% else %}
 
-    {% set text = schedules.is_closed_text is not empty ? schedules.is_closed_text : __('Nous sommes momentanément fermés.' , 'Non-editable strings') %}
+    {% set text = schedules.is_closed_text is not empty ? schedules.is_closed_text : pll('Nous sommes momentanément fermés.' ) %}
 
 {% endif %}
 

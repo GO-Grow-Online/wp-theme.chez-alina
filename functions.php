@@ -250,6 +250,14 @@ add_filter('timber/context', function($context) {
 });
 
 
+add_filter('get_twig', function($twig) {
+    $twig->addFunction(new \Twig\TwigFunction('pll', function ($string) {
+        return pll__($string);
+    }));
+    return $twig;
+});
+
+
 
 // Remove ALL inline styles from front-end
 add_action( 'wp_enqueue_scripts', function() {

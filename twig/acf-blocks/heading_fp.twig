@@ -11,7 +11,7 @@
         </span>
 
         <div class="heading_fp-header">
-            <p>{{ __('Bienvenue', 'Non-editable strings') }}</p>
+            <p>{{ pll('Bienvenue') }}</p>
             <h1>{{ g.name }}</h1>
             <p>{{ g.baseline }}</p>
 
@@ -23,12 +23,12 @@
             {% include 'elements/schedule.twig' %}
 
             <div class="heading_fp-content-actions">
-                <a class="card card-body" href="/menu">
+                <a class="card card-body" href="">
                     <span class="icon icon-big">{% include "assets/static/svg/icons/menu.svg" %}</span>
                     <p class="h2">
-                        {{ __('Menu', 'Non-editable strings') }}
+                        {{ pll('Menu') }}
                         <br>
-                        <small>{{ __('Dressez votre commande !', 'Non-editable strings') }}</small>
+                        <small>{{ pll('Dressez votre commande !') }}</small>
                     </p>
                 </a>
 
@@ -55,7 +55,7 @@
                 <div class="btn-group">
                     <a target="_blank" href="{{ g.itinirary }}" class="btn btn-primary">
                         <span class="icon">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
-                        <span>{{ __('Aller sur place', 'Non-editable strings') }}</span>
+                        <span>{{ pll('Aller sur place') }}</span>
                     </a>
                 </div>
                 {% endif %}

@@ -7,10 +7,10 @@
     
     <nav class="nav_main">
 
-        <button class="btn btn-full btn-dark js--backPage" aria-label="{{ __('Retour', 'Non-editable strings') }}">
+        <button class="btn btn-full btn-dark js--backPage" aria-label="{{ pll('Retour') }}">
             <span class="icon">{% include "assets/static/svg/icons/return.svg" %}</span>
             <span>
-                {{ __('Retour au menu', 'Non-editable strings') }}
+                {{ pll('Retour au menu') }}
             </span>
         </button>
 
@@ -21,7 +21,7 @@
         <div class="nav_main-order">
             <button class="btn btn-full btn-dark js--loadOrder">
                 <span class="icon">{% include "assets/static/svg/icons/see-order.svg" %}</span>
-                <span>{{ __('Ma commande', 'Non-editable strings') }}</span>
+                <span>{{ pll('Ma commande') }}</span>
             </button>
 
             <ul class="nav_main-order-list">
@@ -29,20 +29,20 @@
             </ul>
         </div>
         <button class="nav_main-command js--order js--changePage" data-changePage="order-method"  disabled>
-            <span class="nav_main-command-empty">{{ __('Commande vide...', 'Non-editable strings') }}</span>
-            <span class="nav_main-command-ready">{{ __('Je commande !', 'Non-editable strings') }}</span>
+            <span class="nav_main-command-empty">{{ pll('Commande vide...') }}</span>
+            <span class="nav_main-command-ready">{{ pll('Je commande !') }}</span>
         </button>
         <ul class="nav_main-nav">
             <!--li class="nav_main-nav-item">
                 <a href="&schedule_open=true" class="link-icon link-icon--column">
                     <span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
-                    {{ __('Horaires', 'Non-editable strings') }}
+                    {{ pll('Horaires') }}
                 </a>
             </!--li-->
             <li class="nav_main-nav-item">
                 <a target="_blank" href="{{ g.itinirary }}" class="link-icon link-icon--column">
                     <span class="icon icon-primary">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
-                    {{ __('Itinéraire', 'Non-editable strings') }}
+                    {{ pll('Itinéraire') }}
                 </a>
             </li>
 
@@ -53,7 +53,7 @@
                 {% if polylang_languages|length > 0 %}
                 <ul class="lang-dropdown">
                     {% for code, language in polylang_languages %}
-                    {{ dump(language) }}
+                    {{ dump(code) }}
                     {% if language.current == false %}
 					<li class="lang-dropdown-item">
                         <a href="{{ language.url }}">{{ language.name }}</a>
@@ -68,7 +68,7 @@
 
 
     <nav class="nav_cat">
-        <p class="uppercase">{{ __('Catégories', 'Non-editable strings') }} :</p>
+        <p class="uppercase">{{ pll('Catégories') }} :</p>
         <ul class="nav_cat-nav not-scrolled">
             {% set cat_id = 1 %}
             {% for category in menu %}
@@ -90,7 +90,7 @@
 <div class="orderList">
     <h2 class="orderList-header h2-icon">
         <span class="icon icon-big">{% include "assets/static/svg/icons/see-order.svg" %}</span>
-        <span>{{ __('Votre commande', 'Non-editable strings') }}</span>
+        <span>{{ pll('Votre commande') }}</span>
     </h2>
 
     <div class="orderList-content">
@@ -104,7 +104,7 @@
     <div class="orderList-actions">
         <button class="btn btn-full btn-dark js--close" data-close="orderList">
             <span class="icon">{% include "assets/static/svg/icons/return.svg" %}</span>
-            <span>{{ __('Fermer', 'Non-editable strings') }}</span>
+            <span>{{ pll('Fermer') }}</span>
         </button>
         
         <button class="btn btn-square btn-dark js--deleteOrder">
@@ -138,7 +138,7 @@
                     {% if product.notice %}<p class="product-info"><small>{{ product.notice }}</small></p>{% endif %}
                     {% set price = product.price is not empty ? product.price|replace({'.': ','}) : 0 %}
                     <p class="price" id="{{ string_id }}-price" data-value="{{ product.price is not empty ? product.price : 0 }}">{{ price }}€</p>
-                    <button class="js--addProduct" data-product="{{ string_id }}" aria-label="{{ __('Ajouter une unité à la commande', 'Non-editable strings') }}"><span class="icon">{% include "assets/static/svg/icons/plus.svg" %}</span></button>
+                    <button class="js--addProduct" data-product="{{ string_id }}" aria-label="{{ pll('Ajouter une unité à la commande') }}"><span class="icon">{% include "assets/static/svg/icons/plus.svg" %}</span></button>
                 </li>
 
                 {% set product_id = cat_id ~ '-' ~ loop.index %}
@@ -216,7 +216,7 @@
     <p>© {{ "now"|date('Y') }} - {{ g.name }} - Tous droits réservés</p>
     <p>
         <a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
-            {{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+            {{ pll('Réalisé par') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
         </a>
     </p>
 </footer>

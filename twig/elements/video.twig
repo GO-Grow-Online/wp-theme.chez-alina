@@ -44,16 +44,16 @@
 
         {% if controls %}
         <div class="vidWrap-controls" data-state="hidden">
-            <button class="playpause" type="button" data-state="play" aria-label="{{ __('Play/Pause', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/play.svg' %} {% include 'assets/static/icons/video_player/pause.svg' %}</button>
-            <button class="stop" type="button" data-state="stop" aria-label="{{ __('Stop', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/stop.svg' %}</button>
+            <button class="playpause" type="button" data-state="play" aria-label="{{ pll('Play/Pause') }}">{% include 'assets/static/icons/video_player/play.svg' %} {% include 'assets/static/icons/video_player/pause.svg' %}</button>
+            <button class="stop" type="button" data-state="stop" aria-label="{{ pll('Stop') }}">{% include 'assets/static/icons/video_player/stop.svg' %}</button>
             <div class="progress">
               <progress value="0" min="0"></progress>
             </div>
             {% if muted == false and controls_muted %}
-            <button class="mute" type="button" data-state="mute" aria-label="{{ __('Activer/désactiver sourdine', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/mute.svg' %} {% include 'assets/static/icons/video_player/unmute.svg' %}</button>
+            <button class="mute" type="button" data-state="mute" aria-label="{{ pll('Activer/désactiver sourdine') }}">{% include 'assets/static/icons/video_player/mute.svg' %} {% include 'assets/static/icons/video_player/unmute.svg' %}</button>
             {% endif %}
             {% if controls_fs %}
-            <button class="fs" type="button" data-state="go-fullscreen" aria-label="{{ __('Plein écran', 'Non-editable strings') }}">{% include 'assets/static/icons/video_player/fullscreen.svg' %}</button>
+            <button class="fs" type="button" data-state="go-fullscreen" aria-label="{{ pll('Plein écran') }}">{% include 'assets/static/icons/video_player/fullscreen.svg' %}</button>
             {% endif %}
         </div>
         {% endif %}

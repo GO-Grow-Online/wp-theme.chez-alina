@@ -26,19 +26,19 @@
 				<li class="nav_main-nav-item">
 					<a href="&schedule_open=true" class="btn btn-primary">
 						<span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
-						{{ __('Passer commance', 'Non-editable strings') }}
+						{{ pll('Passer commance') }}
 					</a>
 				</li>
 				<li class="nav_main-nav-item">
 					<a href="&schedule_open=true" class="link-icon">
 						<span class="icon icon-succes">{% include "assets/static/svg/icons/clock.svg" %}</span>
-						{{ __('Horaires', 'Non-editable strings') }}
+						{{ pll('Horaires') }}
 					</a>
 				</li>
 				<li class="nav_main-nav-item">
 					<a href="{{ g.itinerary }}" class="link-icon">
 						<span class="icon icon-primary">{% include "assets/static/svg/icons/itinerary.svg" %}</span>
-						{{ __('Itinéraire', 'Non-editable strings') }}
+						{{ pll('Itinéraire') }}
 					</a>
 				</li>
 			</ul>
@@ -46,7 +46,7 @@
 		
 		{#
 		<div class="nav-bottom">
-			<button class="btn btn-menu js--toggle" data-toggle="menu" aria-label="{{ __('Ouvrir/fermer le menu', 'Non-editable strings') }}">
+			<button class="btn btn-menu js--toggle" data-toggle="menu" aria-label="{{ pll('Ouvrir/fermer le menu') }}">
 				<span class="icon">{% include 'assets/static/icons/menu/open-menu.svg' %}</span>
 				<span class="icon">{% include 'assets/static/icons/menu/close-menu.svg' %}</span>
 			</button>

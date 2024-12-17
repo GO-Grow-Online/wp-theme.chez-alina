@@ -31,7 +31,7 @@
 
 		{#
 		<div class="schedule">
-			<h2>{{ __('Nos horaires', 'Non-editable strings') }}</h2>
+			<h2>{{ pll('Nos horaires') }}</h2>
 			<ul class="schedule-list">
 
 			{% set day_slug = {
@@ -110,7 +110,7 @@
 					{% endif %}
 		
 					<a href="http://www.grow-online.be" class="footer-bottom-logo" target="_blank">
-						{{ __('Réalisé par', 'Non-editable strings') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
+						{{ pll('Réalisé par') }}&nbsp;<img src="{{ theme.link }}/assets/static/svg/grow-online-logo.svg" loading="lazy" width="144" height="30" alt="Grow Online">
 					</a>
 				</p>
 			</div>		
