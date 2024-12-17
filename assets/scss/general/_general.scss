@@ -235,6 +235,7 @@ img, picture, figure, video {
 $list-sp : var(--card-spacing);
 .social-links {
 
+    width: auto;
     display: flex;
     gap: calc($list-sp  * 0.5);
     flex-wrap: wrap;

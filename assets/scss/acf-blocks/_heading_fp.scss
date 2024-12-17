@@ -61,6 +61,10 @@
 
         display: flex;
         flex-direction: column;
+
+        .social-links {
+            order: -1;
+        }
     }
 
     &-content {
