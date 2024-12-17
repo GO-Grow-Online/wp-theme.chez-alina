@@ -300,6 +300,11 @@ add_action('init', function() {
 		"Nécessaire",
 		"Analitics",
 		"Marketing",
+
+
+		"Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.",
+		"Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.",
+		"Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.",
     ];
 
     foreach ($strings_to_translate as $string) {
@@ -505,18 +510,18 @@ class StarterSite extends Site {
 		$context['cookies_types'] = array(
 			array(
 				'slug' => 'necessary', 
-				'title' => pll("Nécessaire"), 
-				'infos' => pll("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement."),
+				'title' => "Nécessaire", 
+				'infos' => "Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.",
 			),
 			array(
 				'slug' => 'analytics', 
-				'title' => pll("Analitics"), 
-				'infos' => pll("Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet."),
+				'title' => "Analitics", 
+				'infos' => "Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.",
 			),
 			array(
 				'slug' => 'marketing', 
-				'title' => pll("Marketing"), 
-				'infos' => pll("Catégorie de cookies utilisée à des fins purement commerciales et publicitaires."),
+				'title' => "Marketing", 
+				'infos' => "Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.",
 			),
 		);
 

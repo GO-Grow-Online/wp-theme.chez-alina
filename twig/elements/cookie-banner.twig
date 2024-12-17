@@ -30,8 +30,8 @@
             <li class="cookie-banner-option">
                 <p>
                     <input {% if type.slug == "necessary" %}checked{% endif %} type="checkbox" aria-labelledby="cookie-consent-label-{{ type.slug }}" id="cookie-consent-{{ type.slug }}"/>
-                    <label for="cookie-consent-{{ type.slug }}" id="cookie-consent-label-{{ type.slug }}">{{ type.title }}</label> <br>
-                    <small>{{ type.infos }}</small>
+                    <label for="cookie-consent-{{ type.slug }}" id="cookie-consent-label-{{ type.slug }}">{{ pll(type.title) }}</label> <br>
+                    <small>{{ pll(type.infos) }}</small>
                 </p>
             </li>
             {% endfor %}
