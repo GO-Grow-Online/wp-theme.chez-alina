@@ -283,7 +283,19 @@ add_action('init', function() {
         'Logo de',
         'Passer commande',
         'Horaires',
-		'Ouvrir/fermer le menu'
+		'Ouvrir/fermer le menu',
+		'Ouverture',
+		'Fermeture',
+
+		'Personnaliser',
+		'Tout accepter',
+		'Refuser',
+		'Je viens commander sur place !',
+		"Visualiser l'itinéraire",
+		'Je téléphone et réceptionne ma commande plus tard !',
+		'Téléphoner',
+		"Votre commande reste disponible, il vous suffit de revenir sur votre navigateur afin de la visualiser.",
+		"Compris",
     ];
 
     foreach ($strings_to_translate as $string) {
@@ -489,18 +501,18 @@ class StarterSite extends Site {
 		$context['cookies_types'] = array(
 			array(
 				'slug' => 'necessary', 
-				'title' => __("Nécessaire", "Cookie-banner"), 
-				'infos' => __("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.", 'Cookie-banner'),
+				'title' => pll("Nécessaire", "Cookie-banner"), 
+				'infos' => pll("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.", 'Cookie-banner'),
 			),
 			array(
 				'slug' => 'analytics', 
-				'title' => __("Analitics", "Cookie-banner"), 
-				'infos' => __("Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.", 'Cookie-banner'),
+				'title' => pll("Analitics", "Cookie-banner"), 
+				'infos' => pll("Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.", 'Cookie-banner'),
 			),
 			array(
 				'slug' => 'marketing', 
-				'title' => __("Marketing", "Cookie-banner"), 
-				'infos' => __("Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.", 'Cookie-banner'),
+				'title' => pll("Marketing", "Cookie-banner"), 
+				'infos' => pll("Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.", 'Cookie-banner'),
 			),
 		);
 
