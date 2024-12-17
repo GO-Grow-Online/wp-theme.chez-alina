@@ -257,6 +257,8 @@ add_filter('get_twig', function($twig) {
     return $twig;
 });
 
+$lang_test = pll('test');
+
 
 
 // Remove ALL inline styles from front-end
