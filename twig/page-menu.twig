@@ -53,7 +53,7 @@
                 {% if polylang_languages|length > 0 %}
                 <ul class="lang-dropdown">
                     {% for code, language in polylang_languages %}
-                    {{ dump(language.current) }}
+                    {{ dump(language) }}
                     {% if language.current == false %}
 					<li class="lang-dropdown-item">
                         <a href="{{ language.url }}">{{ language.name }}</a>
