@@ -15,6 +15,7 @@ $context = Timber::context();
 
 // services custom post
 $timber_post = Timber::get_post();
+echo pll('test');
 
 $context['p'] = $timber_post;
 Timber::render( 'front-page.twig' , $context /*, $timber_cache_time*/);
