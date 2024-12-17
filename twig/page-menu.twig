@@ -53,9 +53,11 @@
                 {% if polylang_languages|length > 0 %}
                 <ul class="language-switcher">
                     {% for code, language in polylang_languages %}
+                    {% if not language.current %}
 					<li class="{{ language.current ? 'current-lang' : '' }}">
                         <a href="{{ language.url }}">{{ language.name }}</a>
 					</li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </li>
