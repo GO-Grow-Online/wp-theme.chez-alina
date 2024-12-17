@@ -430,7 +430,7 @@ class StarterSite extends Site {
 	public function add_to_context( $context ) {
 		$context['nav']  = Timber::get_menu();
 		$context['g'] = get_fields('options');
-		$context['menu'] = get_fields('options')['categories'];
+		$context['menu'] = !empty(get_fields('options')['categories']) ? get_fields('options')['categories'] : null;
 		$context['schedules'] = get_fields('options')['schedules'];
 		$context['schedules']['is_closed'] = get_fields('options')['closed'];
 		$context['schedules']['is_closed_text'] = get_fields('options')['closed_text'];
