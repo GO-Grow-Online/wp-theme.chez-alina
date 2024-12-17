@@ -112,9 +112,10 @@
 
         
         & > .wrapper {
-            min-height: 100vh;
-            padding-top: var(--sec-sp-y)!important;
-            padding-bottom: var(--sec-sp-y)!important;
+            min-height: 90vh;
+            padding-top: 0!important;
+            padding-bottom: 0!important;
+            align-content: center;
         }
 
         &-bg {
