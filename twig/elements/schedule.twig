@@ -62,7 +62,7 @@
 {# Affichage de l'état du restaurant #}
 {% set status = is_open ? pll('ouvert') : pll('fermé') %}
 {% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
-{% set status = pll('Nous sommes ', 'Non editable strings') ~ "<strong>" ~ status  ~ "</strong>" %}
+{% set status = pll('Nous sommes ', 'Non editable strings') ~ "<strong> " ~ status  ~ " </strong>" %}
 
 
 {# If Closed is true then set other strings #}
