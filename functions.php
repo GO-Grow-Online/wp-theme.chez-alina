@@ -501,18 +501,18 @@ class StarterSite extends Site {
 		$context['cookies_types'] = array(
 			array(
 				'slug' => 'necessary', 
-				'title' => pll("Nécessaire", "Cookie-banner"), 
-				'infos' => pll("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.", 'Cookie-banner'),
+				'title' => pll("Nécessaire"), 
+				'infos' => pll("Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement."),
 			),
 			array(
 				'slug' => 'analytics', 
-				'title' => pll("Analitics", "Cookie-banner"), 
-				'infos' => pll("Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.", 'Cookie-banner'),
+				'title' => pll("Analitics"), 
+				'infos' => pll("Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet."),
 			),
 			array(
 				'slug' => 'marketing', 
-				'title' => pll("Marketing", "Cookie-banner"), 
-				'infos' => pll("Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.", 'Cookie-banner'),
+				'title' => pll("Marketing"), 
+				'infos' => pll("Catégorie de cookies utilisée à des fins purement commerciales et publicitaires."),
 			),
 		);
 
