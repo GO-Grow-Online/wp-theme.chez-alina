@@ -45,16 +45,11 @@
                     {{ pll('Itinéraire') }}
                 </a>
             </li>
-
-            <li class="nav_main-nav-lang">
-
-                {% set is_drowpdown = true %}
-                {% include 'elements/lang-selector.twig' %}
-    
-            </li>
         </ul>
     </nav>
 
+    {% set is_drowpdown = true %}
+    {% include 'elements/lang-selector.twig' %}
 
     <nav class="nav_cat">
         <p class="uppercase">{{ pll('Catégories') }} :</p>
