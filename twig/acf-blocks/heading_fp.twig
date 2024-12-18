@@ -11,6 +11,9 @@
         </span>
 
         <div class="heading_fp-header">
+            {% set is_drowpdown = false %}
+			{% include 'elements/lang-selector.twig' %}
+
             <p>{{ pll('Bienvenue') }}</p>
             <h1>{{ g.name }}</h1>
             <p>{{ g.baseline }}</p>

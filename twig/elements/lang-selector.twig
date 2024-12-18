@@ -1,6 +1,8 @@
 <div class="lang">
 
+    {% if is_drowpdown %}
     <p class="lang-current">{{ current_language }}</p>
+    {% endif %}
 
     {% if polylang_languages|length > 0 %}
     <ul class="lang-switcher">
@@ -14,3 +16,5 @@
     </ul>
     {% endif %}
 </div>
+
+{% set is_drowpdown = empty %}
