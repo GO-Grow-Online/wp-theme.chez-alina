@@ -238,6 +238,12 @@ img, picture, figure, video {
     display: flex;
     text-transform: uppercase;
 
+    border-radius: $round;
+    background-color: $light;
+    border-radius: $round;
+
+    padding: 0.5rem;
+
     &-current {
         font-weight: 600;
     }
