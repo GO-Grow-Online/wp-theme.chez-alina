@@ -239,33 +239,46 @@ img, picture, figure, video {
     &-current {
         font-weight: 600;
     }
+
+    .lang-switcher-item, &-current {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: $round;
+
+        width: 3rem;
+        height: 3rem;
+
+        background-color: $white;
+    }
+
  
     &-switcher {
 
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        padding: 0.5;
 
         background-color: $light;
         border-radius: $round;
 
-        &-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        opacity: 0;
+        transition: opacity $fast $bezier;
+    }
 
-            border-radius: $round;
-
-            width: 3rem;
-            height: 3rem;
-
-            background-color: $white;
+    &:hover {
+        &.lang-switcher {
+            opacity: 1;
         }
     }
 
     &:not(:has(.lang-current)) {
         .lang {
             &-switcher {
+                opacity: 1;
+                flex-direction: row;
             }
         }
     }

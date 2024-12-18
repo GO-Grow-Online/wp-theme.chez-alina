@@ -2,10 +2,6 @@
 
     <p class="lang-current">{{ current_language }}</p>
 
-    <pre>
-        {{ dump(polylang_languages) }}
-    </pre>
-
     {% if polylang_languages|length > 0 %}
     <ul class="lang-switcher">
         {% for code, language in polylang_languages %}
