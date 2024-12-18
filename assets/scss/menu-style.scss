@@ -7,6 +7,12 @@ $menu-pages : "menu", "order-method", "order-end";
 
 .page-template-page-menu {
 
+    .lang {
+        position: fixed;
+        bottom: calc(var(--command-btn-height) + (var(--card-spacing) * 5));
+        right: var(--card-spacing);
+    }
+
     a[data-method] {
         display: none;
     }
