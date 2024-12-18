@@ -269,7 +269,7 @@ img, picture, figure, video {
         top: 0;
         right: 100%;
 
-        padding-right: 0.5rem;
+        margin-right: 0.5rem;
 
         display: flex;
         flex-direction: row;
@@ -290,6 +290,9 @@ img, picture, figure, video {
     &:has(.lang-current) {
         .lang {
             &-switcher {
+                position: relative;
+                top: inherit;
+                left: inherit;
                 opacity: 1;
                 transition: opacity $fast $bezier;
         
