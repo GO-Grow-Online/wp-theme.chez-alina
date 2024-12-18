@@ -233,6 +233,8 @@ img, picture, figure, video {
 
 .lang {
 
+    position: relative;
+
     display: flex;
     text-transform: uppercase;
 
@@ -255,6 +257,10 @@ img, picture, figure, video {
 
  
     &-switcher {
+
+        position: absolute;
+        top: 0;
+        right: 100%;
 
         display: flex;
         flex-direction: column;
