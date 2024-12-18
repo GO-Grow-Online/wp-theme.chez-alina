@@ -785,6 +785,10 @@ $menu-pages : "menu", "order-method", "order-end";
 @media (min-width: $bp-lg) {
     .page-template-page-menu  {
 
+        .lang {
+            right: calc(var(--sec-sp-x) - 4rem);
+        }
+
         .menu {
             & > .wrapper {
             display: inherit;
