@@ -314,16 +314,16 @@ img, picture, figure, video {
 
                 margin-bottom: 0.5rem;
 
-                transform: translate(0rem);
-                opacity: 1;
-                transition: opacity $fast $bezier;
+                transform: translateY(0rem);
+                opacity: 0;
+                transition: all $fast $bezier;
             }
         }
 
         &:hover {
             .lang-switcher {
                 opacity: 1;
-                transform: translate(2rem);
+                transform: translateY(2rem);
             }
         }
     }

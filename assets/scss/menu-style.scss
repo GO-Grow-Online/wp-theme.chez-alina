@@ -9,8 +9,8 @@ $menu-pages : "menu", "order-method", "order-end";
 
     .lang {
         position: fixed;
-        bottom: calc(var(--command-btn-height) + (var(--card-spacing) * 5));
-        right: var(--card-spacing);
+        bottom: calc(var(--command-btn-height) + (var(--card-spacing) * 10));
+        right: var(--sec-sp-x);
     }
 
     a[data-method] {
