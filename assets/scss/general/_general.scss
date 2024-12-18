@@ -242,6 +242,8 @@ img, picture, figure, video {
     background-color: $light;
     border-radius: $round;
 
+    margin-right: auto;
+
     &-current {
         font-weight: 600;
         margin: 0;
@@ -262,8 +264,6 @@ img, picture, figure, video {
 
  
     &-switcher {
-
-        margin-right: 0.5rem;
 
         display: flex;
         flex-direction: row;
@@ -298,6 +298,8 @@ img, picture, figure, video {
                 position: absolute;
                 top: 0;
                 right: 100%;
+
+                margin-right: 0.5rem;
 
                 opacity: 1;
                 transition: opacity $fast $bezier;
