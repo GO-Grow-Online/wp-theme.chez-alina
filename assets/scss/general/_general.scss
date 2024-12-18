@@ -256,8 +256,8 @@ img, picture, figure, video {
 
         border-radius: $round;
 
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
 
         background-color: $white;
     }
@@ -274,6 +274,16 @@ img, picture, figure, video {
         border-radius: $round;
 
         &-item {
+            position: relative;
+
+            & > a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
             &.current {
                 color: $primary;
             }
