@@ -231,6 +231,46 @@ img, picture, figure, video {
     }
 }
 
+.lang {
+
+    display: flex;
+    text-transform: uppercase;
+
+    &-current {
+        font-weight: 600;
+    }
+ 
+    &-switcher {
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        background-color: $light;
+        border-radius: $round;
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: $round;
+
+            width: 3rem;
+            height: 3rem;
+
+            background-color: $white;
+        }
+    }
+
+    &:not(:has(.lang-current)) {
+        .lang {
+            &-switcher {
+            }
+        }
+    }
+}
+
 // Social links list
 $list-sp : var(--card-spacing);
 .social-links {

@@ -1,0 +1,15 @@
+<div class="lang">
+
+    <p class="lang-current">{{ current_language }}</p>
+
+    {% if polylang_languages|length > 0 %}
+    <ul class="lang-switcher">
+        {% for code, language in polylang_languages %}
+        {% if language.current == false %}
+        <li class="lang-switcher-item">
+            <a href="{{ language.url }}">{{ language.name }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
