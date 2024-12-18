@@ -269,27 +269,27 @@ img, picture, figure, video {
         right: 100%;
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
         padding: 0.5rem;
 
         background-color: $light;
         border-radius: $round;
 
-        opacity: 0;
-        transition: opacity $fast $bezier;
     }
 
     &:hover {
-        &.lang-switcher {
+        .lang-switcher {
             opacity: 1;
         }
     }
 
-    &:not(:has(.lang-current)) {
+    &:has(.lang-current) {
         .lang {
             &-switcher {
                 opacity: 1;
+                transition: opacity $fast $bezier;
+        
                 flex-direction: row;
             }
         }
