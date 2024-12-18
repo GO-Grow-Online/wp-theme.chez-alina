@@ -285,6 +285,9 @@ img, picture, figure, video {
 
     &:has(.lang-current) {
         .lang {
+
+            padding: 0;
+
             &-switcher {
                 
                 position: absolute;
