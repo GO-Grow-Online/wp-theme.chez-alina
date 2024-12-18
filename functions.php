@@ -240,7 +240,7 @@ add_filter('timber/context', function($context) {
 
 function get_current_language() {
     if (function_exists('pll_current_language')) {
-        return pll_current_language('name'); // 'name' retourne le nom complet, 'slug' retourne le code
+        return pll_current_language('slug'); // 'name' retourne le nom complet, 'slug' retourne le code
     }
     return '';
 }
