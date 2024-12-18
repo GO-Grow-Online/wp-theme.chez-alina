@@ -242,8 +242,6 @@ img, picture, figure, video {
     background-color: $light;
     border-radius: $round;
 
-    padding: 0.5rem;
-
     &-current {
         font-weight: 600;
         margin: 0;
@@ -290,8 +288,7 @@ img, picture, figure, video {
 
     &:has(.lang-current) {
         
-        margin-right: auto;
-        padding: 0;
+        padding: 0.5rem;
 
         .lang {
 
