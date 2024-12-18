@@ -234,6 +234,7 @@ img, picture, figure, video {
 .lang {
 
     position: relative;
+    z-index: 1000;
 
     display: flex;
     text-transform: uppercase;
