@@ -307,14 +307,15 @@ img, picture, figure, video {
         .lang {
 
             &-switcher {
-                
                 position: absolute;
                 bottom: 100%;
                 left: 0;
 
+                flex-direction: column;
+
                 margin-bottom: 0.5rem;
 
-                transform: translateY(0rem);
+                transform: translateY(2rem);
                 opacity: 0;
                 transition: all $fast $bezier;
             }
@@ -323,7 +324,7 @@ img, picture, figure, video {
         &:hover {
             .lang-switcher {
                 opacity: 1;
-                transform: translateY(2rem);
+                transform: translateY(0rem);
             }
         }
     }
