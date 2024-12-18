@@ -275,6 +275,11 @@ img, picture, figure, video {
         background-color: $light;
         border-radius: $round;
 
+        &-item {
+            &.current {
+                color: $primary;
+            }
+        }
     }
 
     &:hover {
