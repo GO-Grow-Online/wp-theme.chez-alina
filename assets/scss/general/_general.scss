@@ -289,9 +289,12 @@ img, picture, figure, video {
     }
 
     &:has(.lang-current) {
+        
+        margin-right: auto;
+        padding: 0;
+
         .lang {
 
-            padding: 0;
 
             &-switcher {
                 
