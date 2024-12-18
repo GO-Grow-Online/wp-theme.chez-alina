@@ -222,6 +222,7 @@ function get_polylang_languages() {
     if (function_exists('pll_the_languages')) {
         $languages = pll_the_languages([
             'raw' => true,
+			'display_names_as' => 'slug',
             'show_flags' => 1,
             'show_names' => 1,
             'hide_if_empty' => 0
