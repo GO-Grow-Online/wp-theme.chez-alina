@@ -645,45 +645,53 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
             }
         }
-        
-        &::after, &::before {
-            content: "";
+
+        &-spinnerDelete {   
+            
             position: sticky;
-            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 10;
             pointer-events: none;
             opacity: 0;
-
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-
             transition: all $fast $bezier;
 
+            &::after, &::before {
+                content: "";
+                position: absolute;
+
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+
+            &::before {
+                background-image: url(../static/svg/icons/trash.svg);
+
+                width: var(--icon-size);
+                height: var(--icon-size);
+                left: calc(50% - (var(--icon-size) * 0.5));
+                top: calc(50% - (var(--icon-size) * 0.5) - 1rem);
+
+                animation: jump .5s ease infinite alternate-reverse;
+            }
+
+            &::after {
+
+                background-image: url(../static/svg/icons/loading.svg);
+                animation: loading .75s linear infinite;
+
+                z-index: 10;
+                width: 6rem;
+                height: 6rem;
+                left: calc(50% - 3rem);
+                top: 0;
+                margin-top: -39vh;
+            }
         }
 
-        &::before {
-            background-image: url(../static/svg/icons/trash.svg);
-
-            width: var(--icon-size);
-            height: var(--icon-size);
-            left: calc(50% - (var(--icon-size) * 0.5));
-            top: calc(50% - (var(--icon-size) * 0.5) - 1rem);
-
-            animation: jump .5s ease infinite alternate-reverse;
-        }
-
-        &::after {
-
-            background-image: url(../static/svg/icons/loading.svg);
-            animation: loading .75s linear infinite;
-
-            z-index: 10;
-            width: 6rem;
-            height: 6rem;
-            left: calc(50% - 3rem);
-            margin-top: -39vh;
-        }
     }
 
     .nav_main-schedule, .nav_main-order {
@@ -771,9 +779,13 @@ $menu-pages : "menu", "order-method", "order-end";
     &.anim-deletion {
 
         .orderList {
- 
-            &::after, &::before {
+            
+            &-spinnerDelete {
+
                 opacity: 1;
+                
+                &::after, &::before {
+                }
             }
 
             &-total, &-content {
