@@ -46,11 +46,6 @@ $menu-pages : "menu", "order-method", "order-end";
 
     // Page 2
     &[data-menu-page="order-method"] {
-        .lang {
-            transform: scale(.2);
-            opacity: 0;
-            pointer-events: none;
-        }
         
         main {
             max-height: 100vh;
@@ -63,7 +58,6 @@ $menu-pages : "menu", "order-method", "order-end";
             width: 100vw;
         }
     }
-
 
     // General styles
 
@@ -766,6 +760,12 @@ $menu-pages : "menu", "order-method", "order-end";
     &:not([data-menu-page="menu"]) {
         .nav_cat {
             transform: translateY(-100%);
+        }
+
+        .lang {
+            transform: scale(.2);
+            opacity: 0;
+            pointer-events: none;
         }
         
         .nav_main {
