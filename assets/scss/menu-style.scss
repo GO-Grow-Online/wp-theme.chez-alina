@@ -581,8 +581,11 @@ $menu-pages : "menu", "order-method", "order-end";
 
         &-content {
             overflow-y: scroll;
-            opacity: 1;
-            transition: all $slow $bezier;
+
+            .orderList-list {
+                opacity: 1;
+                transition: all $slow $bezier;
+            }
         }
 
         &-actions {
@@ -788,7 +791,7 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
             }
 
-            &-total, &-content {
+            &-total, &-content .orderList-list {
                 opacity: 0;
             }
         }
