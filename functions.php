@@ -271,6 +271,7 @@ add_action('init', function() {
         'Je commande !',
         'Catégories',
         'Votre commande',
+        'Ma commande',
         'Fermer',
         'Ajouter une unité à la commande',
         'Menu',
@@ -301,7 +302,6 @@ add_action('init', function() {
 		"Nécessaire",
 		"Analitics",
 		"Marketing",
-
 
 		"Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.",
 		"Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.",
