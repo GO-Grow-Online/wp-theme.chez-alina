@@ -115,11 +115,11 @@ jQuery(function($) {
             html += newItem;
         });
         
-        html += "</ul></div><div class='orderList-spinnerDelete'></div>";
+        html += "</ul></div>";
 
       });
 
-      $('.orderList-content').html(html);
+      $('.orderList-content').html(html + "<div class='orderList-spinnerDelete'></div>");
 
       var html = "<p class='uppercase'>TOTAL</p>" +
                 "<p class='price'>" + Math.round((total_price + Number.EPSILON) * 100) / 100 + "€</p>";
