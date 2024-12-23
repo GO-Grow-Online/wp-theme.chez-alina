@@ -581,7 +581,7 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &-content {
-            max-height: calc(100vh - 17rem);
+            max-height: calc(100vh - 30rem);
             overflow-y: scroll;
             opacity: 1;
             transition: all $slow $bezier;
