@@ -557,6 +557,7 @@ $menu-pages : "menu", "order-method", "order-end";
         margin-top: calc(var(--sec-sp-x) + var(--menu-sp) + var(--header-title-height));
 
         // overflow-y: scroll;
+        overflow: hidden;
 
         transform: translateY(5rem);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
