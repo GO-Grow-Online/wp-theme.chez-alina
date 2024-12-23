@@ -69,7 +69,7 @@
 {% if schedules.is_closed == false %}
 
     {% set text = is_open ? pll("Fermeture") : pll("Ouverture") %}
-    {% set text = text ~ pll(' à ') ~ next_hour %}
+    {% set text = text ~ "&nbsp;" ~ pll(' à ') ~ "&nbsp;" ~ next_hour %}
 
 {% else %}
 
