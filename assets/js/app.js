@@ -115,7 +115,7 @@ jQuery(function($) {
             html += newItem;
         });
         
-        html += "</ul></div>";
+        html += "</ul><div class='orderList-spinnerDelete'></div></div>";
 
       });
 
