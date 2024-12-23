@@ -37,10 +37,19 @@ $menu-pages : "menu", "order-method", "order-end";
         }
     }
 
+    .lang {
+        transition: all $slow $bezier;
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: all;
+    }
+
     // Page 2
     &[data-menu-page="order-method"] {
         .lang {
-            display: none;
+            transform: scale(.2);
+            opacity: 0;
+            pointer-events: none;
         }
         
         main {
