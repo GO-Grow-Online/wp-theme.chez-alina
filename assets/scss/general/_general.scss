@@ -275,7 +275,9 @@ img, picture, figure, video {
         height: auto;
 
         background-color: $light;
-        border-radius: $round;
+        border-top-left-radius: $round;
+        border-top-right-radius: $round;
+
 
         &-item {
             position: relative;
@@ -306,6 +308,8 @@ img, picture, figure, video {
         
         padding: 0.5rem;
 
+        
+
         .lang {
 
             &-switcher {
@@ -326,6 +330,11 @@ img, picture, figure, video {
         }
 
         &:hover {
+            & > p {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+
             .lang-switcher {
                 pointer-events: all;
                 opacity: 1;
