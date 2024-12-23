@@ -119,7 +119,7 @@ jQuery(function($) {
 
       });
 
-      $('.orderList-content').html(html + "<div class='orderList-spinnerDelete'></div>");
+      $('.orderList-content').html(html);
 
       var html = "<p class='uppercase'>TOTAL</p>" +
                 "<p class='price'>" + Math.round((total_price + Number.EPSILON) * 100) / 100 + "€</p>";

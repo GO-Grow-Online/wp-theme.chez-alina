@@ -581,11 +581,8 @@ $menu-pages : "menu", "order-method", "order-end";
 
         &-content {
             overflow-y: scroll;
-
-            .orderList-CAT {
-                opacity: 1;
-                transition: all $slow $bezier;
-            }
+            opacity: 1;
+            transition: all $slow $bezier;
         }
 
         &-actions {
@@ -648,53 +645,46 @@ $menu-pages : "menu", "order-method", "order-end";
                 }
             }
         }
-
-        &-spinnerDelete {   
-            
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: calc(100vw - (var(--sec-sp-x) * 2));
-            height: calc(100vh - 17rem);
+        
+        &::after, &::before {
+            content: "";
+            position: absolute;
+            display: block;
             z-index: 10;
             pointer-events: none;
             opacity: 0;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
             transition: all $fast $bezier;
 
-            &::after, &::before {
-                content: "";
-                position: absolute;
-
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: contain;
-            }
-
-            &::before {
-                background-image: url(../static/svg/icons/trash.svg);
-
-                width: var(--icon-size);
-                height: var(--icon-size);
-                left: calc(50% - (var(--icon-size) * 0.5));
-                top: calc(50% - (var(--icon-size) * 0.5) - 1rem);
-
-                animation: jump .5s ease infinite alternate-reverse;
-            }
-
-            &::after {
-
-                background-image: url(../static/svg/icons/loading.svg);
-                animation: loading .75s linear infinite;
-
-                z-index: 10;
-                width: 6rem;
-                height: 6rem;
-                left: calc(50% - 3rem);
-                top: 0;
-                margin-top: -39vh;
-            }
         }
 
+        &::before {
+            background-image: url(../static/svg/icons/trash.svg);
+
+            width: var(--icon-size);
+            height: var(--icon-size);
+            left: calc(50% - (var(--icon-size) * 0.5));
+            top: calc(50% - (var(--icon-size) * 0.5) - 1rem);
+
+            animation: jump .5s ease infinite alternate-reverse;
+        }
+
+        &::after {
+
+            background-image: url(../static/svg/icons/loading.svg);
+            animation: loading .75s linear infinite;
+
+            z-index: 10;
+            width: 6rem;
+            height: 6rem;
+            left: calc(50% - 3rem);
+            top: 0;
+            margin-top: -39vh;
+        }
     }
 
     .nav_main-schedule, .nav_main-order {
@@ -782,16 +772,12 @@ $menu-pages : "menu", "order-method", "order-end";
     &.anim-deletion {
 
         .orderList {
-            
-            &-spinnerDelete {
-
+ 
+            &::after, &::before {
                 opacity: 1;
-                
-                &::after, &::before {
-                }
             }
 
-            &-total, &-content .orderList-cat {
+            &-total, &-content {
                 opacity: 0;
             }
         }
