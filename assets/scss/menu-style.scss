@@ -39,6 +39,10 @@ $menu-pages : "menu", "order-method", "order-end";
 
     // Page 2
     &[data-menu-page="order-method"] {
+        .lang {
+            display: none;
+        }
+        
         main {
             max-height: 100vh;
         }
