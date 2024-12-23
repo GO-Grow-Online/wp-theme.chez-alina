@@ -319,8 +319,6 @@ img, picture, figure, video {
 
                 flex-direction: column;
 
-                margin-bottom: 0.5rem;
-
                 pointer-events: none;
 
                 transform: translateY(2rem);
@@ -330,10 +328,8 @@ img, picture, figure, video {
         }
 
         &:hover {
-            & > p {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
 
             .lang-switcher {
                 pointer-events: all;
