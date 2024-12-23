@@ -570,7 +570,7 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &-header {
-            position: sticky;
+            position: relative;
             top: 0;
             width: 100%;
 
@@ -594,7 +594,7 @@ $menu-pages : "menu", "order-method", "order-end";
 
             border-top: 2px solid $light;
 
-            position: sticky;
+            position: relative;
             bottom: 0;
             left: 0;
 
