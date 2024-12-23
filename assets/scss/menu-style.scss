@@ -648,7 +648,8 @@ $menu-pages : "menu", "order-method", "order-end";
         
         &::after, &::before {
             content: "";
-            position: absolute;
+            position: sticky;
+            display: block;
             z-index: 10;
             pointer-events: none;
             opacity: 0;
