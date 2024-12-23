@@ -556,7 +556,7 @@ $menu-pages : "menu", "order-method", "order-end";
         margin-left: calc(var(--sec-sp-x) * 0.5);
         margin-top: calc(var(--sec-sp-x) + var(--menu-sp) + var(--header-title-height));
 
-        overflow-y: scroll;
+        // overflow-y: scroll;
 
         transform: translateY(5rem);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
@@ -580,6 +580,7 @@ $menu-pages : "menu", "order-method", "order-end";
         }
 
         &-content {
+            max-height: calc(100vh - 17rem);
             overflow-y: scroll;
             opacity: 1;
             transition: all $slow $bezier;
