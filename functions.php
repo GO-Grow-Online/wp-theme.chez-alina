@@ -279,6 +279,7 @@ add_action('init', function() {
         'Aller sur place',
         'En savoir plus',
         'fermé',
+        'ouvert',
         'Nous sommes ',
         ' à ',
         'Nous sommes momentanément fermés.',
