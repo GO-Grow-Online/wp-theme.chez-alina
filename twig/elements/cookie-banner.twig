@@ -112,59 +112,54 @@
                 localStorage.setItem('consentMode', JSON.stringify(consentMode));
             } 
             
-            gtag('consent', 'get', function(consent) {
-                if (consent.analytics_storage === 'granted') {
-                    init_custom_events();
-                } else {
-                    console.log("Analytics_storage denied");
-                }
-            });
-
+            init_custom_events();
         }
 
 
         function init_custom_events() {
-            if (consent.analytics_storage === 'granted') {
+            gtag('consent', 'get', function(consent) {
+                if (consent.analytics_storage === 'granted') {
 
-                console.log("Analytics_storage granted");
+                    console.log("Analytics_storage granted");
 
-                // Petit utilitaire pour simplifier l'ajout d'écouteurs de clic
-                const attachClickEvent = (selector, eventCategory, eventLabel, value) => {
-                    document.querySelectorAll(selector).forEach((element) => {
-                    element.addEventListener('click', () => {
+                    // Petit utilitaire pour simplifier l'ajout d'écouteurs de clic
+                    const attachClickEvent = (selector, eventCategory, eventLabel, value) => {
+                        document.querySelectorAll(selector).forEach((element) => {
+                        element.addEventListener('click', () => {
+                            gtag('event', 'click', {
+                            event_category: eventCategory,
+                            event_label: eventLabel,
+                            value: value
+                            });
+                        });
+                        });
+                    };
+
+                    // Step 1/3 - Click on "order"
+                    attachClickEvent('.js--order', 'Order progression', '1/3 Order click', 1);
+
+                    // Step 2/3 - Click on "set order method"
+                    document.querySelectorAll('.js--setMethod').forEach((btn) => {
+                        btn.addEventListener('click', () => {
                         gtag('event', 'click', {
-                        event_category: eventCategory,
-                        event_label: eventLabel,
-                        value: value
+                            event_category: 'Order progression',
+                            event_label: '2/3 Order method choice',
+                            value: btn.getAttribute('data-href')
+                        });
                         });
                     });
-                    });
-                };
 
-                // Step 1/3 - Click on "order"
-                attachClickEvent('.js--order', 'Order progression', '1/3 Order click', 1);
+                    // Step 3/3 - Click on "end order"
+                    attachClickEvent('.js--endOrder', 'Order progression', '3/3 End order', 1);
 
-                // Step 2/3 - Click on "set order method"
-                document.querySelectorAll('.js--setMethod').forEach((btn) => {
-                    btn.addEventListener('click', () => {
-                    gtag('event', 'click', {
-                        event_category: 'Order progression',
-                        event_label: '2/3 Order method choice',
-                        value: btn.getAttribute('data-href')
-                    });
-                    });
-                });
+                    // Click on phone link
+                    attachClickEvent('a[href^="tel:"]', 'Contact', 'Phone', 1);
 
-                // Step 3/3 - Click on "end order"
-                attachClickEvent('.js--endOrder', 'Order progression', '3/3 End order', 1);
-
-                // Click on phone link
-                attachClickEvent('a[href^="tel:"]', 'Contact', 'Phone', 1);
-
-                // Click on email link
-                attachClickEvent('a[href^="mailto:"]', 'Contact', 'Phone', 1);
-            } else {
-                console.log("Analytics_storage denied");
+                    // Click on email link
+                    attachClickEvent('a[href^="mailto:"]', 'Contact', 'Phone', 1);
+                } else {
+                    console.log("Analytics_storage denied");
+                }
             }
         }
 
