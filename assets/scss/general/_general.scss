@@ -274,7 +274,7 @@ img, picture, figure, video {
         width: auto;
         height: auto;
 
-        background-color: $light;
+        // background-color: $light;
         border-top-left-radius: $round;
         border-top-right-radius: $round;
 
@@ -307,6 +307,7 @@ img, picture, figure, video {
     &:has(.lang-current) {
         
         padding: 0.5rem;
+        background-color: $light;
 
         .lang {
 
