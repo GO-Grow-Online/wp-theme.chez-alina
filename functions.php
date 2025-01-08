@@ -147,11 +147,18 @@ function get_svg($media_file) {
 		],
 	]);	
 
+
+
 	if ($media_file) {
 		if ($media_file['mime_type'] != "image/svg+xml" && is_user_logged_in()) {
 			$html = '<p class="admin-msg">Attached file is not an ".svg" file. Please select an ".svg" file.</p>';
 		}else if ($media_file['mime_type'] == "image/svg+xml") {
-			$html = file_get_contents($media_file['url'], false, $context);
+			
+			$file_path = get_attached_file($media_file['ID']);
+			$html = file_get_contents($file_path);
+
+			// $file_path = $media_file['url']
+			// $html = file_get_contents($media_file['url'], false, $context);
 		}
 	}else if (!$media_file && is_user_logged_in()) {
 		$html = "<p class='admin-msg'>No file attached.</p>";
