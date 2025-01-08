@@ -30,10 +30,22 @@
         {% endif %}
 
         {# If currently closed, check for the next opening time today #}
-        {% if current_time < open_time and (next_hour is null or open_time < next_hour) %}
-            {% set next_day = day_slug[(current_day_num % 7) + i] %}
+        {% if current_time < open_time %}
             {% set next_hour = open_time %}
         {% endif %}
+    {% endfor %}
+{% endif %}
+
+{# Fallback to the next day's opening time if no more openings today #}
+{% if not is_open and next_hour is empty %}
+    {% for i in range(1, 7) %}
+        {% if next_hour is empty %}
+        {% set next_day = day_slug[(current_day_num % 7) + i] %}
+        {% if schedules[next_day] is not empty %}
+            {% set next_hour = schedules[next_day][0].opening %}
+        {% endif %}
+        {% endif %}
+
     {% endfor %}
 {% endif %}
 
