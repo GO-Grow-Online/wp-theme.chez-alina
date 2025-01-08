@@ -6,6 +6,63 @@ jQuery(function($) {
   
   init_menu();
 
+  gtag('consent', 'get', function(consent) {
+    if (consent.analytics_storage === 'granted') {
+      init_gtag();
+    } else {
+      console.log("Cookies Analytics non acceptés. Pas de tracking.");
+    }
+  });
+
+  function init_gtag() {
+
+    // Step 1/3 - Click on "order"
+    $('.js--order').on('click', function() {
+      gtag('event', 'click', {
+        'event_category': 'Order progression',
+        'event_label': '1/3 Order click',
+        'value': 1
+      });
+    });
+
+    // Step 2/3 - Click on "set order method"
+    $('.js--setMethod').on('click', function() {
+      let btn = $(this);
+      gtag('event', 'click', {
+        'event_category': 'Order progression',
+        'event_label': '2/3 Order method choice',
+        'value': btn.attr('data-href')
+      });
+    });
+
+    // Step 3/3 - Click on "end order"
+    $('.js--endOrder').on('click', function() {
+      gtag('event', 'click', {
+        'event_category': 'Order progression',
+        'event_label': '3/3 End order',
+        'value': 1
+      });
+    });
+
+    // Click on phone link
+    $('a[href^="tel:"]').on('click', function() {
+      gtag('event', 'click', {
+        'event_category': 'Contact',
+        'event_label': 'Phone',
+        'value': 1
+      });
+    });
+
+    // Click on email link
+    $('a[href^="mailto:"]').on('click', function() {
+      gtag('event', 'click', {
+        'event_category': 'Contact',
+        'event_label': 'Phone',
+        'value': 1
+      });
+    });
+  }
+
   function init_menu() {
 
     // Update menu if local Storage exists
