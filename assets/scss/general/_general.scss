@@ -307,7 +307,6 @@ img, picture, figure, video {
     &:has(.lang-current) {
         
         padding: 0.5rem;
-        background-color: $light;
 
         .lang {
 
@@ -319,6 +318,7 @@ img, picture, figure, video {
                 flex-direction: column;
 
                 pointer-events: none;
+                background-color: $light;
 
                 transform: translateY(2rem);
                 opacity: 0;
