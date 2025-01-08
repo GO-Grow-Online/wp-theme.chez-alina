@@ -16,6 +16,8 @@ jQuery(function($) {
 
   function init_gtag() {
 
+    console.log("gtag initialized");
+
     // Step 1/3 - Click on "order"
     $('.js--order').on('click', function() {
       gtag('event', 'click', {
