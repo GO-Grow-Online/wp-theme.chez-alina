@@ -45,7 +45,7 @@ jQuery(function($) {
         localStorage.setItem("order", JSON.stringify(order));
   
         update_frontend(order);
-      }, 3000);
+      }, 2000);
 
     }).on('mouseup mouseleave touchend', function() {
       clearTimeout(pressTimer);
