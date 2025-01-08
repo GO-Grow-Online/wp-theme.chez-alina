@@ -825,5 +825,9 @@ $menu-pages : "menu", "order-method", "order-end";
         .orderList {
             margin-top: 5rem!important;
         }
+
+        .nav_cat-nav {
+            &::before, &::after { content: none; }
+        }
     }
 }
