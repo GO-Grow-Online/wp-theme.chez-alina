@@ -165,8 +165,14 @@
             attachClickEvent('a[href^="mailto:"]', 'Contact', 'Phone', 1);
         }
 
+        gtag('consent', 'get', function(consent) {
+            if (consent.analytics_storage === 'granted') {
+                init_custom_events();
+            } else {
+                console.log("Analytics_storage denied");
+            }
+        });
 
-        init_custom_events();
 
     </script>
 </div>
