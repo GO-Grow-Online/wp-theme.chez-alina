@@ -108,7 +108,7 @@
         {% for category in menu %}
         <div class="menu-cat" id="{{ cat_id }}" role="group" aria-label="{{ category.name }}">
 
-            <h2 class="menu-cat-title h2-icon"><span class="icon icon-big">{{ get_svg(get_image(category.icon)) }}</span> {{ category.name }}</h2>
+            <h2 class="menu-cat-title h2-icon"><span class="icon icon-big">{{ get_svg(category.icon) }}</span> {{ category.name }}</h2>
             
             <ul class="menu-cat-list">
                 {% set product_id = cat_id ~ '-0' %}
