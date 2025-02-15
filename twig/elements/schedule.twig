@@ -30,7 +30,7 @@
         {% endif %}
 
         {# If currently closed, check for the next opening time today #}
-        {% if current_time < open_time %}
+        {% if current_time < open_time and not is_open %}
             {% set next_hour = open_time %}
         {% endif %}
     {% endfor %}
@@ -45,7 +45,6 @@
             {% set next_hour = schedules[next_day][0].opening %}
         {% endif %}
         {% endif %}
-
     {% endfor %}
 {% endif %}
 
