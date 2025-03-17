@@ -3,8 +3,16 @@ jQuery(function($) {
   fixed_header();
   smooth_scroll();
   onScroll_animation();
+
+  if ($('body').hasClass('page-template-page-menu')) {
+    pop_up_msg();
+  }
   
   init_menu();
+
+  function pop_up_msg() {
+    $('body').addClass('popup--transation--open');
+  }
 
   function init_menu() {
 

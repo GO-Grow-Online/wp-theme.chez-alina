@@ -1,0 +1,14 @@
+@use '../../utils/variables' as *;
+
+
+.popup {
+    position: fixed;
+    top: calc(var(--header-title-height) + var(--menu-nav-cat-height) + var(--card-spacing));
+    left: var(--card-spacing);
+
+    width: calc(100vw - (var(--card-spacing) * 2));
+
+    strong {
+        color: $primary;
+    }
+}
