@@ -11,7 +11,11 @@ jQuery(function($) {
   init_menu();
 
   function pop_up_msg() {
-    $('body').addClass('popup--transation--open');
+    $('body').addClass('popup--transaction--open');
+
+    setTimeout(() => {
+      $('body').removeClass('popup--transaction--open');
+    }, 5000);
   }
 
   function init_menu() {
