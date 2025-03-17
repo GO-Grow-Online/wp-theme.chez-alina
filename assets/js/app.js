@@ -11,11 +11,16 @@ jQuery(function($) {
   init_menu();
 
   function pop_up_msg() {
-    $('body').addClass('popup--transaction--open');
 
-    setTimeout(() => {
-      $('body').removeClass('popup--transaction--open');
-    }, 5000);
+    if(localStorage.getItem('popup--transaction') === null) { 
+        $('body').addClass('popup--transaction--open');
+
+      setTimeout(() => {
+        $('body').removeClass('popup--transaction--open');
+        localStorage.setItem('popup--transaction', true);
+
+      }, 7000);
+    }
   }
 
   function init_menu() {

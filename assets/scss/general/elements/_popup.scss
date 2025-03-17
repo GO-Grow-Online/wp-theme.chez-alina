@@ -43,7 +43,7 @@ body.popup--transaction--open {
         transform: translateY(0);
 
         .popup-timer {
-            animation: popup-timer 5s;
+            animation: popup-timer 7s linear;
         }
     }
 }
