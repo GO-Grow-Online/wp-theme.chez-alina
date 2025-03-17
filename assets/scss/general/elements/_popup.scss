@@ -11,6 +11,7 @@
     left: var(--card-spacing);
 
     width: calc(100vw - (var(--card-spacing) * 2));
+    height: auto;
 
     padding-bottom: calc(var(--card-spacing) + 3px);
 
