@@ -107,10 +107,8 @@
                 {% endfor %}
             };
     
-            if (consentMode.functionality_storage == "granted") {                
-                gtag('consent', 'update', consentMode);  
-                localStorage.setItem('consentMode', JSON.stringify(consentMode));
-            } 
+            gtag('consent', 'update', consentMode);  
+            localStorage.setItem('consentMode', JSON.stringify(consentMode));
             
             // init_custom_events();
         }

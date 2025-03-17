@@ -13,15 +13,18 @@ jQuery(function($) {
   function pop_up_msg() {
 
     if(localStorage.getItem('popup--transaction') === null) { 
-        $('body').addClass('popup--transaction--open');
-
+      $('body').addClass('popup--transaction--open');
+      
       setTimeout(() => {
         $('body').removeClass('popup--transaction--open');
-        localStorage.setItem('popup--transaction', true);
+          // Save popup is open if consent is agreed
+          if (consentMode.functionality_storage == "granted") {
+            localStorage.setItem('popup--transaction', true);
+          }
 
-      }, 7000);
+        }, 7000);
+      }
     }
-  }
 
   function init_menu() {
 
