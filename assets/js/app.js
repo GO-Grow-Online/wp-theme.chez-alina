@@ -18,9 +18,7 @@ jQuery(function($) {
       setTimeout(() => {
         $('body').removeClass('popup--transaction--open');
           // Save popup is open if consent is agreed
-          if (consentMode.functionality_storage == "granted") {
-            localStorage.setItem('popup--transaction', true);
-          }
+          localStorage.setItem('popup--transaction', true);
 
         }, 7000);
       }
