@@ -3,8 +3,26 @@ jQuery(function($) {
   fixed_header();
   smooth_scroll();
   onScroll_animation();
+
+  if ($('body').hasClass('page-template-page-menu')) {
+    pop_up_msg();
+  }
   
   init_menu();
+
+  function pop_up_msg() {
+
+    if(localStorage.getItem('popup--transaction') === null) { 
+      $('body').addClass('popup--transaction--open');
+      
+      setTimeout(() => {
+        $('body').removeClass('popup--transaction--open');
+          // Save popup is open if consent is agreed
+          localStorage.setItem('popup--transaction', true);
+
+        }, 7000);
+      }
+    }
 
   function init_menu() {
 

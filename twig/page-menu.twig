@@ -3,6 +3,12 @@
 
 {% block header %}
 <header>
+
+    <div class="popup card card-body popup--transaction">
+        <p>{{ pll('Ce site ne permet pas de transaction en ligne, il vous assiste dans la création de votre commande.') }}</p>
+        <span class="popup-timer"></span>
+    </div>
+
     <p class="header-name"><span>{{ g.name }}</span></p>
     
     <nav class="nav_main">

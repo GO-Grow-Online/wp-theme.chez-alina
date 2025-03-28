@@ -314,6 +314,7 @@ add_action('init', function() {
 		"Comprend les cookies relatifs au fonctionnement et à la sécurité du site internet. Sans ces cookies, le site ne pourra pas fonctionner correctement.",
 		"Permet d'enregistrer le trafic des utilisateurs naviguant sur le site internet.",
 		"Catégorie de cookies utilisée à des fins purement commerciales et publicitaires.",
+		"Ce site ne permet pas de transaction en ligne, il vous assiste dans la création de votre commande.",
     ];
 
     foreach ($strings_to_translate as $string) {
