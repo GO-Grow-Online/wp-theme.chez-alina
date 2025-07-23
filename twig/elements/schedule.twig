@@ -1,7 +1,13 @@
+{# ========================================================================== #}
+{# 1. Initialisation des variables                                            #}
+{# ========================================================================== #}
+
+{# On récupère le jour (1=Lundi, 7=Dimanche) et l'heure actuels #}
 {% set current_day_num = "now"|date("N") %}
 {% set current_time = "now"|date("H:i") %}
 
-{% set day_slug = {
+{# Map pour faire le lien entre le numéro du jour et le slug du champ ACF #}
+{% set day_slugs = {
     1: "monday",
     2: "tuesday",
     3: "wednesday",
@@ -11,78 +17,105 @@
     7: "sunday"
 } %}
 
-
-{% if schedules.is_closed == false %}
-
-{# Check if today's day is open or not #}
+{# Initialisation des variables de statut #}
 {% set is_open = false %}
 {% set next_hour = "" %}
+{% set is_permanently_closed = schedules.is_closed %}
 
-{% if schedules[day_slug[current_day_num]] is not empty %}
-    {% for schedule in schedules[day_slug[current_day_num]] %}
-        {% set open_time = schedule.opening %}
-        {% set close_time = schedule.closing %}
 
-        {# Check if currently within opening hours #}
-        {% if current_time >= open_time and current_time < close_time %}
-            {% set is_open = true %}
-            {% set next_hour = close_time %}
-        {% endif %}
+{# ========================================================================== #}
+{# 2. Logique de détermination du statut (si pas fermé manuellement)          #}
+{# ========================================================================== #}
 
-        {# If currently closed, check for the next opening time today #}
-        {% if not is_open or is_open is empty %}
-            {% if current_time < open_time %}
-                {% set next_hour = open_time %}
+{% if not is_permanently_closed %}
+
+    {# --- ÉTAPE A : Vérifier si on est ouvert MAINTENANT --- #}
+    {# On parcourt uniquement les créneaux du jour actuel #}
+    {% set today_schedules = schedules[day_slugs[current_day_num]] %}
+    {% if today_schedules is not empty %}
+        {% for schedule in today_schedules %}
+            {% if current_time >= schedule.opening and current_time < schedule.closing %}
+                {# On a trouvé un créneau ouvert ! #}
+                {% set is_open = true %}
+                {% set next_hour = schedule.closing %}
+                {# Inutile de continuer à chercher, on sort de la boucle #}
+                {% break %}
             {% endif %}
-        {% endif %}
-    {% endfor %}
-{% endif %}
+        {% endfor %}
+    {% endif %}
 
-{# Fallback to the next day's opening time if no more openings today #}
-{% if not is_open and next_hour is empty %}
-    {% for i in range(1, 7) %}
+
+    {# --- ÉTAPE B : Si on est fermé, trouver la PROCHAINE ouverture --- #}
+    {% if not is_open %}
+        {# D'abord, on cherche un créneau plus tard AUJOURD'HUI #}
+        {% if today_schedules is not empty %}
+            {% for schedule in today_schedules %}
+                {% if current_time < schedule.opening %}
+                    {# On a trouvé le prochain créneau du jour #}
+                    {% set next_hour = schedule.opening %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {# Si aucune ouverture n'est trouvée pour aujourd'hui, on cherche les jours suivants #}
         {% if next_hour is empty %}
-        {% set next_day = day_slug[(current_day_num % 7) + i] %}
-        {% if schedules[next_day] is not empty %}
-            {% set next_hour = schedules[next_day][0].opening %}
+            {# On boucle sur les 6 prochains jours #}
+            {% for i in 1..6 %}
+                {# On calcule l'index du jour suivant (ex: si on est dimanche (7), le jour suivant est lundi (1)) #}
+                {% set next_day_num = (current_day_num - 1 + i) % 7 + 1 %}
+                {% set next_day_slug = day_slugs[next_day_num] %}
+                
+                {% set next_day_schedules = schedules[next_day_slug] %}
+
+                {# Si ce jour a des horaires, on prend la première heure d'ouverture et on s'arrête #}
+                {% if next_day_schedules is not empty %}
+                    {% set next_hour = next_day_schedules[0].opening %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
-        {% endif %}
-    {% endfor %}
+    {% endif %}
+
 {% endif %}
 
+
+{# ========================================================================== #}
+{# 3. Préparation des variables pour l'affichage                            #}
+{# ========================================================================== #}
+
+{# Définition du statut et des classes CSS associées #}
+{% set status_text = is_open ? pll('ouvert', 'Non editable strings') : pll('fermé', 'Non editable strings') %}
+{% set status_class = is_open ? 'btn-success' : 'btn-danger' %}
+{% set status_html = pll('Nous sommes actuellement', 'Non editable strings') ~ " <strong>" ~ status_text ~ "</strong>" %}
+
+{# Définition du texte complémentaire #}
+{% set subtitle_text = "" %}
+{% if is_permanently_closed %}
+    {# Cas où la case "Fermé exceptionnellement" est cochée #}
+    {% set subtitle_text = schedules.is_closed_text is not empty ? schedules.is_closed_text : pll('Fermeture exceptionnelle.', 'Non editable strings') %}
+{% elseif next_hour is not empty %}
+    {# Cas où on a une heure de fermeture ou de prochaine ouverture #}
+    {% set action_text = is_open ? pll("Fermeture") : pll("Prochaine ouverture") %}
+    {% set subtitle_text = action_text ~ " " ~ pll('à') ~ " " ~ next_hour %}
 {% else %}
-{# If "Is closed" condition is checked, set bool to false and ignore the precedent data recuperation method #}
-{% set is_open = false %}
+    {# Fallback si aucun horaire n'est trouvé dans la semaine #}
+    {% set subtitle_text = pll("Aucun horaire programmé.", "Non editable strings") %}
 {% endif %}
 
 
+{# ========================================================================== #}
+{# 4. Affichage HTML                                                          #}
+{# ========================================================================== #}
 
-
-
-
-{# Affichage de l'état du restaurant #}
-{% set status = is_open ? pll('ouverts', 'Non editable strings') : pll('fermés', 'Non editable strings') %}
-{% set classes = is_open ? 'btn-succes' : 'btn-failed' %}
-{% set status = pll('Nous sommes ', 'Non editable strings') ~ "<strong> " ~ status  ~ " </strong>" %}
-
-
-{# If Closed is true then set other strings #}
-{% if schedules.is_closed == false %}
-
-    {% set text = is_open ? pll("Fermeture") : pll("Ouverture") %}
-    {% set text = text ~ "&nbsp;" ~ pll(' à ') ~ "&nbsp;" ~ next_hour %}
-
-{% else %}
-
-    {% set text = schedules.is_closed_text is not empty ? schedules.is_closed_text : pll('Nous sommes momentanément fermés.' ) %}
-
-{% endif %}
-
-<span class="realTime_schedule">
-    <span class="realTime_schedule-btn btn {{ classes }}">
-        <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
-        <span>{{ status }}</span>
+<div class="realtime-schedule">
+    <span class="realtime-schedule-status {{ status_class }}">
+        <span class="icon">
+            {# Assurez-vous que ce chemin est correct pour votre thème Timber #}
+            {% include "partials/icons/clock.svg" %}
+        </span>
+        <span>{{ status_html|raw }}</span>
     </span>
 
-    <small>{{ text }}</small>
-</span>
+    <small class="realtime-schedule-subtitle">{{ subtitle_text }}</small>
+</div>
