@@ -108,15 +108,13 @@
 {# ========================================================================== #}
 {# 4. Affichage HTML                                                          #}
 {# ========================================================================== #}
-
-<div class="realtime-schedule">
+<span class="realtime-schedule">
     <span class="realtime-schedule-status {{ status_class }}">
-        <span class="icon">
-            {# Assurez-vous que ce chemin est correct pour votre thème Timber #}
-            {% include "assets/static/svg/icons/clock.svg" %}
-        </span>
+        <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
         <span>{{ status_html|raw }}</span>
     </span>
 
     <small class="realtime-schedule-subtitle">{{ subtitle_text }}</small>
-</div>
+</span>
+
+
