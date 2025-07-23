@@ -34,12 +34,11 @@
     {% set today_schedules = schedules[day_slugs[current_day_num]] %}
     {% if today_schedules is not empty %}
         {% for schedule in today_schedules %}
-            {% if current_time >= schedule.opening and current_time < schedule.closing %}
+            {# On vérifie le créneau seulement si on n'a pas déjà déterminé que c'est ouvert #}
+            {% if not is_open and current_time >= schedule.opening and current_time < schedule.closing %}
                 {# On a trouvé un créneau ouvert ! #}
                 {% set is_open = true %}
                 {% set next_hour = schedule.closing %}
-                {# Inutile de continuer à chercher, on sort de la boucle #}
-                {% break %}
             {% endif %}
         {% endfor %}
     {% endif %}
@@ -50,10 +49,10 @@
         {# D'abord, on cherche un créneau plus tard AUJOURD'HUI #}
         {% if today_schedules is not empty %}
             {% for schedule in today_schedules %}
-                {% if current_time < schedule.opening %}
+                {# On cherche la prochaine heure seulement si on ne l'a pas déjà trouvée #}
+                {% if next_hour is empty and current_time < schedule.opening %}
                     {# On a trouvé le prochain créneau du jour #}
                     {% set next_hour = schedule.opening %}
-                    {% break %}
                 {% endif %}
             {% endfor %}
         {% endif %}
@@ -62,16 +61,18 @@
         {% if next_hour is empty %}
             {# On boucle sur les 6 prochains jours #}
             {% for i in 1..6 %}
-                {# On calcule l'index du jour suivant (ex: si on est dimanche (7), le jour suivant est lundi (1)) #}
-                {% set next_day_num = (current_day_num - 1 + i) % 7 + 1 %}
-                {% set next_day_slug = day_slugs[next_day_num] %}
-                
-                {% set next_day_schedules = schedules[next_day_slug] %}
+                {# On continue de chercher uniquement si on n'a pas encore trouvé d'heure #}
+                {% if next_hour is empty %}
+                    {# On calcule l'index du jour suivant (ex: si on est dimanche (7), le jour suivant est lundi (1)) #}
+                    {% set next_day_num = (current_day_num - 1 + i) % 7 + 1 %}
+                    {% set next_day_slug = day_slugs[next_day_num] %}
+                    
+                    {% set next_day_schedules = schedules[next_day_slug] %}
 
-                {# Si ce jour a des horaires, on prend la première heure d'ouverture et on s'arrête #}
-                {% if next_day_schedules is not empty %}
-                    {% set next_hour = next_day_schedules[0].opening %}
-                    {% break %}
+                    {# Si ce jour a des horaires, on prend la première heure d'ouverture et on s'arrête #}
+                    {% if next_day_schedules is not empty %}
+                        {% set next_hour = next_day_schedules[0].opening %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endif %}
