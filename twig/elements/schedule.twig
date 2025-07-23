@@ -88,7 +88,7 @@
 {# Définition du statut et des classes CSS associées #}
 {% set status_text = is_open ? pll('ouverts', 'Non editable strings') : pll('fermés', 'Non editable strings') %}
 {% set status_class = is_open ? 'btn-success' : 'btn-danger' %}
-{% set status_html = pll('Nous sommes ', 'Non editable strings') ~ "<strong>" ~ status_text ~ "</strong>" %}
+{% set status_html = pll('Nous sommes ', 'Non editable strings') ~ "<strong>&nbsp;" ~ status_text ~ "</strong>" %}
 
 {# Définition du texte complémentaire #}
 {% set subtitle_text = "" %}
