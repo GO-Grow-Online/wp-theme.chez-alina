@@ -108,13 +108,11 @@
 {# ========================================================================== #}
 {# 4. Affichage HTML                                                          #}
 {# ========================================================================== #}
-<span class="realtime-schedule">
-    <span class="realtime-schedule-status {{ status_class }}">
+<span class="realTime_schedule ">
+    <span class="realTime_schedule-btn btn {{ classes }}">
         <span class="icon">{% include "assets/static/svg/icons/clock.svg" %}</span>
         <span>{{ status_html|raw }}</span>
     </span>
 
-    <small class="realtime-schedule-subtitle">{{ subtitle_text }}</small>
+    <small>{{ subtitle_text }}</small>
 </span>
-
-
