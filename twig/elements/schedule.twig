@@ -98,7 +98,7 @@
 {% elseif next_hour is not empty %}
     {# Cas où on a une heure de fermeture ou de prochaine ouverture #}
     {% set action_text = is_open ? pll("Fermeture") : pll("Ouverture") %}
-    {% set subtitle_text = action_text ~ pll(' à ') ~ next_hour %}
+    {% set subtitle_text = action_text ~ pll(' à ') ~ "&nbsp;" ~ next_hour %}
 {% else %}
     {# Fallback si aucun horaire n'est trouvé dans la semaine #}
     {% set subtitle_text = pll("Aucun horaire programmé.", "Non editable strings") %}
